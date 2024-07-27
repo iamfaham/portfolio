@@ -2,9 +2,8 @@
 import { useEffect, useState } from 'react';
 import { useAnimation } from 'framer-motion';
 
-export const useSmoothScroll = () => {
+export const useSmoothScroll = (currentSection: number, setCurrentSection: (index: number) => void) => {
   const controls = useAnimation();
-  const [currentSection, setCurrentSection] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
 
   useEffect(() => {
@@ -16,9 +15,9 @@ export const useSmoothScroll = () => {
       event.preventDefault();
 
       if (event.deltaY > 0 && currentSection < sections.length - 1) {
-        setCurrentSection((prev) => prev + 1);
+        setCurrentSection(currentSection + 1);
       } else if (event.deltaY < 0 && currentSection > 0) {
-        setCurrentSection((prev) => prev - 1);
+        setCurrentSection(currentSection - 1);
       }
     };
 
@@ -27,7 +26,7 @@ export const useSmoothScroll = () => {
     return () => {
       window.removeEventListener('wheel', handleWheel);
     };
-  }, [currentSection, isAnimating]);
+  }, [currentSection, isAnimating, setCurrentSection]);
 
   useEffect(() => {
     const sections = document.querySelectorAll<HTMLElement>('.section');

@@ -1,6 +1,5 @@
-// components/ContactSection.tsx
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLinkedin, faTwitter, faGithub } from '@fortawesome/free-brands-svg-icons';
+import { faLinkedin, faGithub, faXTwitter } from '@fortawesome/free-brands-svg-icons';
 
 export default function ContactSection() {
   return (
@@ -36,13 +35,13 @@ export default function ContactSection() {
           <div className="mt-8">
             <h3 className="text-xl font-semibold mb-4">Connect with me at:</h3>
             <div className="flex justify-center space-x-6">
-              <a href="https://www.linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <a href="https://www.linkedin.com/in/iamfaham" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                 <FontAwesomeIcon icon={faLinkedin} className="text-3xl hover:text-soft-purple" />
               </a>
-              <a href="https://twitter.com/yourprofile" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
-                <FontAwesomeIcon icon={faTwitter} className="text-3xl hover:text-soft-purple" />
+              <a href="https://twitter.com/iamfaham" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+                <FontAwesomeIcon icon={faXTwitter} className="text-3xl hover:text-soft-purple" />
               </a>
-              <a href="https://github.com/yourprofile" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+              <a href="https://github.com/iamfaham" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                 <FontAwesomeIcon icon={faGithub} className="text-3xl hover:text-soft-purple" />
               </a>
             </div>

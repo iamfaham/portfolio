@@ -30,3 +30,39 @@ a {
 .button {
   @apply bg-soft-purple text-dark-gray hover:bg-teal;
 }
+
+.bg-background {
+  background-color: #1F2937;
+}
+
+.text-foreground {
+  color: #F9FAFB;
+}
+
+.hover\:bg-accent:hover {
+  background-color: #2563EB;
+}
+
+.hover\:text-accent-foreground:hover {
+  color: #D1D5DB;
+}
+
+.focus\:outline-none:focus {
+  outline: none;
+}
+
+.focus\:ring-1:focus {
+  ring-width: 1px;
+}
+
+.focus\:ring-accent:focus {
+  ring-color: #2563EB;
+}
+
+.disabled\:cursor-not-allowed:disabled {
+  cursor: not-allowed;
+}
+
+.disabled\:opacity-50:disabled {
+  opacity: 0.5;
+}
