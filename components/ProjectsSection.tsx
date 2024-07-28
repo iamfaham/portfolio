@@ -23,15 +23,15 @@ export default function ProjectsSection() {
   return (
     <section id="projects" className="section w-full py-12 md:py-24 lg:py-32">
       <div className="container max-w-6xl mx-auto px-4 md:px-6">
-        <div className="flex flex-col items-center text-center space-y-8">
-          <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Featured Projects</h2>
+        <div className="flex flex-col items-center text-center space-y-6">
+          <h2 className="text-3xl font-bold tracking-tighter md:text-5xl">Featured Projects</h2>
           <p className="text-lg md:text-xl leading-relaxed text-muted-foreground">
             Check out some of my recent projects.
           </p>
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {projects.map((project, index) => (
-              <NeonGradientCard key={index}>
-                <div  className=" rounded-lg overflow-hidden shadow-lg p-6">
+              <NeonGradientCard key={index} >
+                <div  className=" rounded-lg overflow-hidden shadow-lg p-2 md:p-6 ">
                   <h3 className="text-xl font-bold">{project.title}</h3>
 
                   <p className="text-md text-gray-400 mt-2">{project.description}</p>
