@@ -10,7 +10,7 @@ export default function AboutSection() {
         
         <motion.div ref={constraintsRef} className=" w-1/2 lg:w-11/12">
           <NeonGradientCard className="rounded-full">  
-            <motion.img drag dragConstraints={constraintsRef} src="/profile.png" alt="Syed Mohammed Faham" className="rounded-full object-cover" />
+            <motion.img loading="lazy" drag dragConstraints={constraintsRef} src="/profile.png" alt="Syed Mohammed Faham" className="rounded-full object-cover" />
           </NeonGradientCard>
         </motion.div>    
         <div className="flex-grow text-center md:text-left">
