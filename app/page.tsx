@@ -1,4 +1,3 @@
-// app/page.tsx or wherever your Portfolio component is located
 'use client';
 
 import { useState } from 'react';
@@ -9,7 +8,7 @@ import ProjectsSection from '@/components/ProjectsSection';
 import SkillsSection from '@/components/SkillsSection';
 import ExperienceSection from '@/components/ExperienceSection';
 import ContactSection from '@/components/ContactSection';
-import Navbar from '@/components/Navbar';
+// import Navbar from '@/components/Navbar';
 import { useSmoothScroll } from '@/hooks/useSmoothScroll';
 
 export default function Portfolio() {
