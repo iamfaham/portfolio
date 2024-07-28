@@ -42,7 +42,7 @@ export default function SkillsSection() {
           <p className="text-lg md:text-xl leading-relaxed text-muted-foreground">
             Here are some of the technologies I&apos;m proficient in.
           </p>
-          <div className="bg-gray-900 w-full md:w-11/12 lg:w-1/2 rounded-full">
+          <div className="bg-gray-900 w-10/12 md:w-11/12 lg:w-1/2 rounded-full">
             <IconCloud iconSlugs={slugs}></IconCloud>
           </div>
         </div>
