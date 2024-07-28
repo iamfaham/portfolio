@@ -1,9 +1,14 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { useAnimation } from 'framer-motion';
 
 export const useSmoothScroll = (currentSection: number, setCurrentSection: (index: number) => void, isInteractingWithIconCloud: boolean) => {
   const controls = useAnimation();
   const [isAnimating, setIsAnimating] = useState(false);
+  const isInteractingRef = useRef(isInteractingWithIconCloud);
+
+  useEffect(() => {
+    isInteractingRef.current = isInteractingWithIconCloud;
+  }, [isInteractingWithIconCloud]);
 
   useEffect(() => {
     const sections = document.querySelectorAll<HTMLElement>('.section');
@@ -11,13 +16,18 @@ export const useSmoothScroll = (currentSection: number, setCurrentSection: (inde
     let touchEndY = 0;
 
     const handleWheel = (event: WheelEvent) => {
-      if (isAnimating || isInteractingWithIconCloud) return;
+      console.log('Wheel event:', event);
+      console.log('isAnimating:', isAnimating);
+      console.log('isInteractingWithIconCloud:', isInteractingRef.current);
+      if (isAnimating || isInteractingRef.current) return;
 
       event.preventDefault();
 
       if (event.deltaY > 0 && currentSection < sections.length - 1) {
+        console.log('Scrolling to next section');
         setCurrentSection(currentSection + 1);
       } else if (event.deltaY < 0 && currentSection > 0) {
+        console.log('Scrolling to previous section');
         setCurrentSection(currentSection - 1);
       }
     };
@@ -31,16 +41,21 @@ export const useSmoothScroll = (currentSection: number, setCurrentSection: (inde
     };
 
     const handleTouchEnd = () => {
-      if (isAnimating || isInteractingWithIconCloud) return;
+      console.log('Touch end event');
+      console.log('isAnimating:', isAnimating);
+      console.log('isInteractingWithIconCloud:', isInteractingRef.current);
+      if (isAnimating || isInteractingRef.current) return;
 
       if (touchStartY - touchEndY > 50) {
         // Swiped up
         if (currentSection < sections.length - 1) {
+          console.log('Swiped up - Scrolling to next section');
           setCurrentSection(currentSection + 1);
         }
       } else if (touchEndY - touchStartY > 50) {
         // Swiped down
         if (currentSection > 0) {
+          console.log('Swiped down - Scrolling to previous section');
           setCurrentSection(currentSection - 1);
         }
       }
@@ -57,7 +72,7 @@ export const useSmoothScroll = (currentSection: number, setCurrentSection: (inde
       window.removeEventListener('touchmove', handleTouchMove);
       window.removeEventListener('touchend', handleTouchEnd);
     };
-  }, [currentSection, isAnimating, isInteractingWithIconCloud, setCurrentSection]);
+  }, [currentSection, isAnimating, setCurrentSection]);
 
   useEffect(() => {
     const sections = document.querySelectorAll<HTMLElement>('.section');

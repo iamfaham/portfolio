@@ -22,6 +22,8 @@ const config: Config = {
       animation: {
         meteor: "meteor 5s linear infinite",
         pulse: "pulse var(--duration) ease-out infinite",
+        backgroundPositionSpin:
+        "background-position-spin 3000ms infinite alternate",
       },
       keyframes: {
         meteor: {
@@ -35,6 +37,10 @@ const config: Config = {
         pulse: {
           "0%, 100%": { boxShadow: "0 0 0 0 var(--pulse-color)" },
           "50%": { boxShadow: "0 0 0 8px var(--pulse-color)" },
+        },
+        "background-position-spin": {
+          "0%": { backgroundPosition: "top center" },
+          "100%": { backgroundPosition: "bottom center" },
         },
       },
     },
