@@ -18,28 +18,28 @@ export default function Portfolio() {
 
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <motion.div
         className="min-h-screen"
         initial={{ y: 0 }}
         animate={controls}
       >
-        <div id="hero" className="section">
+        <div id="heroDiv" className="section">
           <HeroSection />
         </div>
-        <div id="about" className="section">
+        <div id="aboutDiv" className="section">
           <AboutSection />
         </div>
-        <div id="projects" className="section">
+        <div id="projectsDiv" className="section">
           <ProjectsSection />
         </div>
-        <div id="skills" className="section">
+        <div id="skillsDiv" className="section">
           <SkillsSection />
         </div>
-        <div id="experience" className="section">
+        <div id="experienceDiv" className="section">
           <ExperienceSection />
         </div>
-        <div id="contact" className="section">
+        <div id="contactDiv" className="section">
           <ContactSection />
         </div>
       </motion.div>

@@ -1,28 +1,24 @@
-// components/HeroSection.tsx
-import Link from 'next/link';
+
+import React from 'react';
+import { FaArrowDown } from 'react-icons/fa';
+import Meteors from '@/components/magicui/meteors';
+import BlurIn from '@/components/magicui/blur-in';
+import BlurInCopy from '@/components/magicui/blur-in-copy';
+import PulsatingButton from './magicui/pulsating-button';
 
 export default function HeroSection() {
   return (
-    <section id="hero" className="w-full pt-12 md:pt-16">
+    <section className="w-full pt-4 md:pt-0">
       <div className="container xl:space-y-16">
         <div className="max-w-[1300px] mx-auto gap-4 px-4">
+          <Meteors number={30} />
           <div className="flex flex-col items-center">
-            <h1 className="text-5xl">Full-Stack Developer</h1>
-            <p className="text-2xl font-medium">Syed Mohammed Faham</p>
-          </div>
-          <div className="flex justify-center items-center space-x-4 mt-4">
-            <Link
-              href="#projects"
-              className="inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium bg-soft-purple text-dark-gray hover:bg-teal"
-            >
-              View Projects
-            </Link>
-            <Link
-              href="#contact"
-              className="inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium bg-soft-purple text-dark-gray hover:bg-teal"
-            >
-              Contact Me
-            </Link>
+            <BlurIn word='Hello & Welcome' className="" />
+            <BlurInCopy  className="text-2xl text-center font-medium" >This is the digital realm of <span className='text-gradient'>Syed Mohammed Faham</span>, a passionate Full Stack Developer crafting seamless and innovative web solutions.</BlurInCopy>
+            <br />
+            <button className="mt-8 text-white animate-bounce opacity-15 cursor-default">
+              <FaArrowDown size={30} />
+            </button>
           </div>
         </div>
       </div>

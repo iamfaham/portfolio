@@ -3,7 +3,7 @@ import { faLinkedin, faGithub, faXTwitter } from '@fortawesome/free-brands-svg-i
 
 export default function ContactSection() {
   return (
-    <section id="contact" className="section w-full py-12 md:py-24 lg:py-32">
+    <section id="contact" className="section w-full py-12 md:py-24 lg:py-32 z-100">
       <div className="container max-w-6xl mx-auto px-4 md:px-6 text-center">
         <div className="flex flex-col items-center space-y-8">
           <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Get in Touch</h2>

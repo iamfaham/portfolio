@@ -1,4 +1,6 @@
 // tailwind.config.ts
+/** @type {import('tailwindcss').Config} */
+
 import type { Config } from 'tailwindcss';
 
 const config: Config = {
@@ -16,6 +18,24 @@ const config: Config = {
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(circle, rgba(18, 18, 18, 0.7), rgba(0, 0, 0, 1))',
+      },
+      animation: {
+        meteor: "meteor 5s linear infinite",
+        pulse: "pulse var(--duration) ease-out infinite",
+      },
+      keyframes: {
+        meteor: {
+          "0%": { transform: "rotate(215deg) translateX(0)", opacity: "1" },
+          "70%": { opacity: "1" },
+          "100%": {
+            transform: "rotate(215deg) translateX(-500px)",
+            opacity: "0",
+          },
+        },
+        pulse: {
+          "0%, 100%": { boxShadow: "0 0 0 0 var(--pulse-color)" },
+          "50%": { boxShadow: "0 0 0 8px var(--pulse-color)" },
+        },
       },
     },
   },

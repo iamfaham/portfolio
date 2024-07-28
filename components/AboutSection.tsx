@@ -6,16 +6,20 @@ export default function AboutSection() {
   return (
     <section id="about" className="section w-full py-12 md:py-24 lg:py-32">
       <div className="container max-w-6xl mx-auto px-4 md:px-6 flex flex-col md:flex-row items-center space-y-8 md:space-y-0 md:space-x-8">
-        <motion.div ref={constraintsRef} className="w-1/2">
-          {/* <motion.div drag > */}
-            <motion.img drag dragConstraints={constraintsRef} src="/profile.png" alt="Syed Mohammed Faham" className="rounded-lg object-cover" />
-          {/* </motion.div> */}
+        <motion.div ref={constraintsRef} className=" w-1/2 lg:w-11/12">
+            <motion.img drag dragConstraints={constraintsRef} src="/profile.png" alt="Syed Mohammed Faham" className="rounded-full object-cover" />
         </motion.div>    
         <div className="flex-grow text-center md:text-left">
           <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl mb-4">About Me</h2>
-          <p className="text-lg md:text-xl leading-relaxed text-muted-foreground">
-            I am a full-stack developer with experience in building web applications using a variety of technologies. I have a strong background in React, Node.js, and cloud-based infrastructure. I am passionate about creating efficient and scalable solutions that solve real-world problems.
+          <p className="text-lg md:text-xl leading-relaxed text-muted-foreground md:text-justify">
+          Hello! I'm Syed Mohammed Faham, a passionate <span className="font-bold">Full Stack Developer</span> dedicated to creating seamless and innovative web applications. 
+          With a solid foundation in both front-end and back-end technologies, 
+          I specialize in building dynamic, user-friendly, efficient and scalable solutions that solve real-world problems.
           </p>
+          {/* <h3 className="text-xl font-bold tracking-tighter sm:text-3xl my-4">My Philosophy</h3>
+          <p className="text-lg md:text-xl leading-relaxed text-muted-foreground">
+          I believe in a minimalistic approach to design and functionality, ensuring that each project is not only aesthetically pleasing but also highly functional. My work is driven by a commitment to quality, innovation, and continuous improvement.
+          </p> */}
         </div>
       </div>
     </section>

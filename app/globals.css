@@ -6,17 +6,24 @@
 html, body, #__next {
   height: 100%;
   margin: 0;
-  overflow: hidden; /* Disable the scrollbar */
+  overflow: hidden;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   @apply text-light-gray;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, rgba(18, 18, 18, 0.9) 30%, rgba(0, 0, 0, 1) 60%);
+  /* background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, rgba(18, 18, 18, 0.9) 30%, rgba(0, 0, 0, 1) 60%); */
+  background-color: black;
+
 }
 
 .section {
   @apply flex items-center justify-center min-h-screen;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, rgba(18, 18, 18, 0.9) 30%, rgba(0, 0, 0, 1) 60%);
+  /* background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, rgba(18, 18, 18, 0.9) 30%, rgba(0, 0, 0, 1) 60%); */
+  background-color: black
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -65,4 +72,40 @@ a {
 
 .disabled\:opacity-50:disabled {
   opacity: 0.5;
+}
+
+.cursor-follower {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle,  rgba(255, 255, 255, 0.15) 0%, rgba(18, 18, 18, 0.9) 30%, rgba(0, 0, 0, 1) 60%);
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: transform 0.2s ease, width 0.1s ease, height 0.1s ease, background-color 0.1s ease;
+  z-index: 10;
+  mix-blend-mode: difference; 
+}
+
+.text-gradient {
+  background: linear-gradient(90deg, #00c6ff, #00ffcc, #9d14ff, #00ffcc ,#00c6ff, #9d14ff);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-animation 6s ease infinite;
+}
+
+
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
