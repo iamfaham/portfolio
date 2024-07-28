@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
-import IconCloud from "@/components/magicui/icon-cloud";
-import { NeonGradientCard } from './magicui/neon-gradient-card';
+// import IconCloud from "@/components/magicui/icon-cloud";
+// import { NeonGradientCard } from './magicui/neon-gradient-card';
 
 export default function SkillsSection({ setInteractingWithIconCloud }: any) {
   const isInteractingRef = useRef(false);
@@ -27,7 +27,6 @@ export default function SkillsSection({ setInteractingWithIconCloud }: any) {
     "github",
     "figma",
     "tailwindcss",
-    "socketio",
     "solidity",
     "materialui",
     "go",
@@ -74,7 +73,7 @@ export default function SkillsSection({ setInteractingWithIconCloud }: any) {
             Here are some of the technologies I&apos;m proficient in.
           </p>
           {/* <NeonGradientCard> */}
-            <div 
+            {/* <div 
               className="bg-gray-900 w-10/12 md:w-11/12 lg:w-1/2 rounded-full"
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
@@ -82,7 +81,7 @@ export default function SkillsSection({ setInteractingWithIconCloud }: any) {
               onTouchEnd={handleTouchEnd}
             >
               <IconCloud iconSlugs={slugs} />
-            </div>
+            </div> */}
           {/* </NeonGradientCard> */}
         </div>
       </div>

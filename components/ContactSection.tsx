@@ -14,16 +14,16 @@ export default function ContactSection() {
             <input
               type="text"
               placeholder="Name"
-              className="w-full rounded-md bg-background px-4 py-2 text-foreground shadow-sm hover:bg-accent hover:text-accent-foreground focus:outline-none focus:ring-1 focus:ring-accent disabled:cursor-not-allowed disabled:opacity-50"
+              className="w-full rounded-md bg-background px-4 py-2 text-foreground shadow-sm hover:bg-gray-900 hover:text-accent-foreground focus:outline-none focus:ring-1 focus:ring-accent disabled:cursor-not-allowed disabled:opacity-50"
             />
             <input
               type="email"
               placeholder="Email"
-              className="w-full rounded-md bg-background px-4 py-2 text-foreground shadow-sm hover:bg-accent hover:text-accent-foreground focus:outline-none focus:ring-1 focus:ring-accent disabled:cursor-not-allowed disabled:opacity-50"
+              className="w-full rounded-md bg-background px-4 py-2 text-foreground shadow-sm hover:bg-gray-900 hover:text-accent-foreground focus:outline-none focus:ring-1 focus:ring-accent disabled:cursor-not-allowed disabled:opacity-50"
             />
             <textarea
               placeholder="Message"
-              className="w-full rounded-md bg-background px-4 py-2 text-foreground shadow-sm hover:bg-accent hover:text-accent-foreground focus:outline-none focus:ring-1 focus:ring-accent disabled:cursor-not-allowed disabled:opacity-50"
+              className="w-full rounded-md bg-background px-4 py-2 text-foreground shadow-sm hover:bg-gray-900 hover:text-accent-foreground focus:outline-none focus:ring-1 focus:ring-accent disabled:cursor-not-allowed disabled:opacity-50"
             />
             <button
               type="submit"

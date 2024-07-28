@@ -1,5 +1,6 @@
-import {NeonGradientCard} from "@/components/magicui/neon-gradient-card"
-
+import ShineBorder from "@/components/magicui/shine-border"
+import ShimmerButton from "./magicui/shimmer-button";
+import Link from "next/link";
 
 const projects = [
   {
@@ -21,7 +22,7 @@ const projects = [
 
 export default function ProjectsSection() {
   return (
-    <section id="projects" className="section w-full py-12 md:py-24 lg:py-32">
+    <section id="projects" className="section w-full py-10 md:py-20 lg:py-26">
       <div className="container max-w-6xl mx-auto px-4 md:px-6">
         <div className="flex flex-col items-center text-center space-y-6">
           <h2 className="text-3xl font-bold tracking-tighter md:text-5xl">Featured Projects</h2>
@@ -30,8 +31,8 @@ export default function ProjectsSection() {
           </p>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {projects.map((project, index) => (
-              <NeonGradientCard key={index} >
-                <div  className=" rounded-lg overflow-hidden shadow-lg p-2 md:p-6 ">
+              <ShineBorder key={index}  color={["#87CEEB", "#A020F0", "#00FFFF"]}>
+                <div  className=" rounded-lg overflow-hidden shadow-lg p-0 md:p-6 ">
                   <h3 className="text-xl font-bold">{project.title}</h3>
 
                   <p className="text-md text-gray-400 mt-2">{project.description}</p>
@@ -44,17 +45,19 @@ export default function ProjectsSection() {
                     View Project
                   </a>
                 </div>
-              </NeonGradientCard >
+              </ShineBorder >
             ))}
           </div>
-          <a
+            <Link
             href="https://github.com/iamfaham"
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-8 inline-block bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700"
+            className="inline-block text-white py-2 px-4"
           >
-            Show More
-          </a>
+            <ShimmerButton shimmerColor="#87CEEB">
+              <span className="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white lg:text-lg"> Show More </span>
+            </ShimmerButton>
+          </Link>
         </div>
       </div>
     </section>

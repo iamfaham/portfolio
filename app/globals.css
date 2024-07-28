@@ -30,9 +30,6 @@ h1, h2, h3, h4, h5, h6 {
   @apply text-white font-bold;
 }
 
-a {
-  @apply text-soft-purple hover:text-teal;
-}
 
 .button {
   @apply bg-soft-purple text-dark-gray hover:bg-teal;
