@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useAnimation } from 'framer-motion';
 
-export const useSmoothScroll = (currentSection: number, setCurrentSection: (index: number) => void) => {
+export const useSmoothScroll = (currentSection: number, setCurrentSection: (index: number) => void, isInteractingWithIconCloud: boolean) => {
   const controls = useAnimation();
   const [isAnimating, setIsAnimating] = useState(false);
 
@@ -11,7 +11,7 @@ export const useSmoothScroll = (currentSection: number, setCurrentSection: (inde
     let touchEndY = 0;
 
     const handleWheel = (event: WheelEvent) => {
-      if (isAnimating) return;
+      if (isAnimating || isInteractingWithIconCloud) return;
 
       event.preventDefault();
 
@@ -31,7 +31,7 @@ export const useSmoothScroll = (currentSection: number, setCurrentSection: (inde
     };
 
     const handleTouchEnd = () => {
-      if (isAnimating) return;
+      if (isAnimating || isInteractingWithIconCloud) return;
 
       if (touchStartY - touchEndY > 50) {
         // Swiped up
@@ -57,7 +57,7 @@ export const useSmoothScroll = (currentSection: number, setCurrentSection: (inde
       window.removeEventListener('touchmove', handleTouchMove);
       window.removeEventListener('touchend', handleTouchEnd);
     };
-  }, [currentSection, isAnimating, setCurrentSection]);
+  }, [currentSection, isAnimating, isInteractingWithIconCloud, setCurrentSection]);
 
   useEffect(() => {
     const sections = document.querySelectorAll<HTMLElement>('.section');

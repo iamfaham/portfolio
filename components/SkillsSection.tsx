@@ -1,8 +1,8 @@
+import { useState } from 'react';
 import IconCloud from "@/components/magicui/icon-cloud";
 
-export default function SkillsSection() {
-
-  const slugs:any[] = [
+export default function SkillsSection({ setInteractingWithIconCloud }: any) {
+  const slugs: string[] = [
     "typescript",
     "javascript",
     "react",
@@ -32,10 +32,22 @@ export default function SkillsSection() {
     "python",
     "fastapi",
     "supabase",
-  ]
+  ];
+
+  const handleMouseEnter = () => setInteractingWithIconCloud(true);
+  const handleMouseLeave = () => setInteractingWithIconCloud(false);
+  const handleTouchStart = () => setInteractingWithIconCloud(true);
+  const handleTouchEnd = () => setInteractingWithIconCloud(false);
 
   return (
-    <section id="skills" className="section w-full py-10 md:py-20 lg:py-26">
+    <section
+      id="skills"
+      className="section w-full py-10 md:py-20 lg:py-26"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
+    >
       <div className="container max-w-6xl mx-auto px-4 md:px-6 ">
         <div className="flex flex-col items-center text-center space-y-4">
           <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">My Skills</h2>
@@ -43,7 +55,7 @@ export default function SkillsSection() {
             Here are some of the technologies I&apos;m proficient in.
           </p>
           <div className="bg-gray-900 w-10/12 md:w-11/12 lg:w-1/2 rounded-full">
-            <IconCloud iconSlugs={slugs}></IconCloud>
+            <IconCloud iconSlugs={slugs} />
           </div>
         </div>
       </div>
