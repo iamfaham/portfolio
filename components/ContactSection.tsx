@@ -8,7 +8,7 @@ export default function ContactSection() {
         <div className="flex flex-col items-center space-y-8">
           <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Get in Touch</h2>
           <p className="text-lg md:text-xl leading-relaxed text-muted-foreground">
-            Have a project in mind? Let's discuss how I can help.
+            Have a project in mind? Let&apos;s discuss how I can help.
           </p>
           <form className="w-full max-w-lg mx-auto space-y-4">
             <input

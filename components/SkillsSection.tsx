@@ -40,7 +40,7 @@ export default function SkillsSection() {
         <div className="flex flex-col items-center text-center space-y-4">
           <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">My Skills</h2>
           <p className="text-lg md:text-xl leading-relaxed text-muted-foreground">
-            Here are some of the technologies I'm proficient in.
+            Here are some of the technologies I&apos;m proficient in.
           </p>
           <div className="bg-gray-900 w-full md:w-11/12 lg:w-1/2 rounded-full">
             <IconCloud iconSlugs={slugs}></IconCloud>

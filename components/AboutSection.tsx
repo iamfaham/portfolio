@@ -12,14 +12,10 @@ export default function AboutSection() {
         <div className="flex-grow text-center md:text-left">
           <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl mb-4">About Me</h2>
           <p className="text-lg md:text-xl leading-relaxed text-muted-foreground md:text-justify">
-          Hello! I'm Syed Mohammed Faham, a passionate <span className="font-bold">Full Stack Developer</span> dedicated to creating seamless and innovative web applications. 
+          Hello! I&apos;m Syed Mohammed Faham, a passionate <span className="font-bold">Full Stack Developer</span> dedicated to creating seamless and innovative web applications. 
           With a solid foundation in both front-end and back-end technologies, 
           I specialize in building dynamic, user-friendly, efficient and scalable solutions that solve real-world problems.
           </p>
-          {/* <h3 className="text-xl font-bold tracking-tighter sm:text-3xl my-4">My Philosophy</h3>
-          <p className="text-lg md:text-xl leading-relaxed text-muted-foreground">
-          I believe in a minimalistic approach to design and functionality, ensuring that each project is not only aesthetically pleasing but also highly functional. My work is driven by a commitment to quality, innovation, and continuous improvement.
-          </p> */}
         </div>
       </div>
     </section>

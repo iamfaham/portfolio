@@ -6,7 +6,7 @@ export default function ExperienceSection() {
         <div className="flex flex-col items-center text-center space-y-8">
           <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">My Experience</h2>
           <p className="text-lg md:text-xl leading-relaxed text-muted-foreground">
-            Here are some of the companies I've worked with.
+            Here are some of the companies I&apos;ve worked with.
           </p>
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {/* Experience items go here */}
