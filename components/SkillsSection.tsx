@@ -43,10 +43,6 @@ export default function SkillsSection({ setInteractingWithIconCloud }: any) {
     <section
       id="skills"
       className="section w-full py-10 md:py-20 lg:py-26"
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-      onTouchStart={handleTouchStart}
-      onTouchEnd={handleTouchEnd}
     >
       <div className="container max-w-6xl mx-auto px-4 md:px-6 ">
         <div className="flex flex-col items-center text-center space-y-4">
@@ -54,7 +50,13 @@ export default function SkillsSection({ setInteractingWithIconCloud }: any) {
           <p className="text-lg md:text-xl leading-relaxed text-muted-foreground">
             Here are some of the technologies I&apos;m proficient in.
           </p>
-          <div className="bg-gray-900 w-10/12 md:w-11/12 lg:w-1/2 rounded-full">
+          <div 
+            className="bg-gray-900 w-10/12 md:w-11/12 lg:w-1/2 rounded-full"
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+            onTouchStart={handleTouchStart}
+            onTouchEnd={handleTouchEnd}
+          >
             <IconCloud iconSlugs={slugs} />
           </div>
         </div>
