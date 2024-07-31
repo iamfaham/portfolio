@@ -10,6 +10,7 @@ import ExperienceSection from '@/components/ExperienceSection';
 import ContactSection from '@/components/ContactSection';
 import { useSmoothScroll } from '@/hooks/useSmoothScroll';
 import { isTouchDevice } from '@/utils/detectTouchDevice';
+import TestimonialSection from '@/components/TestimonialSection';
 
 export default function Portfolio() {
   const [currentSection, setCurrentSection] = useState(0);
@@ -41,6 +42,9 @@ export default function Portfolio() {
       </div>
       <div id="experienceDiv" className="section">
         <ExperienceSection />
+      </div>
+      <div id="testimonialDiv" className="section">
+        <TestimonialSection />
       </div>
       <div id="contactDiv" className="section">
         <ContactSection />
