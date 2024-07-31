@@ -28,7 +28,7 @@ const BlurInCopy = ({ children, className, variant, duration = 1 }: BlurIntProps
       variants={combinedVariants}
       className={cn(
         className,
-        "font-display text-center text-lg font-bold tracking-[-0.02em] drop-shadow-sm md:text-3xl md:leading-[2rem] md:mt-5",
+        "font-display text-center text-lg font-medium tracking-[-0.02em] drop-shadow-sm md:text-3xl md:leading-[2rem] md:mt-5 md:mx-20",
       )}
     >
       {children}

@@ -11,10 +11,10 @@ export default function HeroSection() {
       <div className="container xl:space-y-16">
         <div className="max-w-[1300px] mx-auto gap-4 px-4">
           <Meteors number={30} />
-          <div className="flex flex-col items-center">
+          <div className="flex flex-col items-center md:justify-center">
             <BlurIn word='Hello & Welcome' className="" />
             <br />
-            <BlurInCopy  className="text-2xl text-center font-medium" >This is the digital realm of <span className='text-gradient'>Syed Mohammed Faham</span>, a passionate Full Stack Developer crafting seamless and innovative web solutions.</BlurInCopy>
+            <BlurInCopy>This is the digital realm of <span className='text-gradient'>Syed Mohammed Faham</span>, a passionate Full Stack Developer crafting seamless and innovative web solutions.</BlurInCopy>
             <br />
             <button className="mt-8 text-white animate-bounce opacity-15 cursor-default">
               <FaArrowDown size={30} />

@@ -87,7 +87,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .text-gradient {
-  background: linear-gradient(90deg, #00c6ff, #00ffcc, #9d14ff, #00ffcc ,#00c6ff, #9d14ff);
+  background: linear-gradient(90deg, #00c6ff, #00ffcc, #b54dff, #00ffcc ,#00c6ff, #b54dff);
   background-size: 300% 300%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
