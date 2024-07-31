@@ -88,7 +88,7 @@ export default function SkillsSection() {
             Here are some of the technologies I&apos;m proficient in.
           </p>
           <ShineBorder color={["#87CEEB", "#A020F0", "#00FFFF"]} >
-          <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 md:gap-8 my-4 md:my-8'>
+          <div className='grid grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 md:gap-8 my-4 md:my-8'>
             {skills.map((skill, index) => (
               <motion.div
                 key={index}
