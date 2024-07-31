@@ -1,11 +1,16 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import { isTouchDevice } from '@/utils/detectTouchDevice';
 
 const CursorFollower = () => {
   const followerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    if (isTouchDevice()) {
+      return; // Exit if it is a touch device
+    }
+
     const moveFollower = (event: MouseEvent) => {
       const { clientX: x, clientY: y } = event;
       if (followerRef.current) {

@@ -77,14 +77,15 @@ h1, h2, h3, h4, h5, h6 {
   left: 0;
   width: 200px;
   height: 200px;
-  background: radial-gradient(circle,  rgba(255, 255, 255, 0.15) 0%, rgba(18, 18, 18, 0.9) 30%, rgba(0, 0, 0, 1) 60%);
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, rgba(18, 18, 18, 0.9) 30%, rgba(0, 0, 0, 1) 60%);
   border-radius: 50%;
   pointer-events: none;
   transform: translate(-50%, -50%);
   transition: transform 0.2s ease, width 0.1s ease, height 0.1s ease, background-color 0.1s ease;
   z-index: 10;
-  mix-blend-mode: difference; 
+  mix-blend-mode: difference;
 }
+
 
 .text-gradient {
   background: linear-gradient(90deg, #00c6ff, #00ffcc, #b54dff, #00ffcc ,#00c6ff, #b54dff);
@@ -92,6 +93,12 @@ h1, h2, h3, h4, h5, h6 {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: gradient-animation 6s ease infinite;
+  font-weight: 700;
+}
+
+.section {
+  height: 100vh;
+  scroll-snap-align: start;
 }
 
 
