@@ -15,9 +15,9 @@ export default function ContactSection() {
   });
   const [isSending, setIsSending] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const publicKey: any = process.env.PUBLIC_KEY
-  const templateId: any = process.env.TEMPLATE_ID
-  const serviceId: any = process.env.SERVICE_ID
+  const publicKey: any = process.env.NEXT_PUBLIC_EMAILJS_KEY;
+  const templateId: any = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+  const serviceId: any = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
 
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
