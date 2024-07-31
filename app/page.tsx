@@ -38,7 +38,7 @@ export default function Portfolio() {
         <ProjectsSection />
       </div>
       <div id="skillsDiv" className="section">
-        <SkillsSection setInteractingWithIconCloud={setIsInteractingWithIconCloud} />
+        <SkillsSection />
       </div>
       <div id="experienceDiv" className="section">
         <ExperienceSection />
