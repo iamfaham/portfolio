@@ -11,6 +11,7 @@ import ContactSection from '@/components/ContactSection';
 // import TestimonialSection from '@/components/TestimonialSection';
 import useSectionVisibility from '@/hooks/useSectionVisibility';
 import { throttle } from '@/utils/throttle';
+import Head from 'next/head';
 
 const sections = [
   'heroDiv',
@@ -72,6 +73,11 @@ export default function Portfolio() {
   }, [setCurrentSection, touchStartY, touchEndY, isInteractiveElement]);
 
   return (
+    <main>
+    <Head>
+      <meta name="keywords" content="portfolio, developer, projects, skills" />
+      <meta name="google-site-verification" content="Ssijj4aoUCOKQXAAVqy1hYbYZGlnjEehmCXB2fGV6zs" />
+    </Head>
     <motion.div
       className="min-h-screen overflow-hidden"
       initial={{ y: 0 }}
@@ -95,6 +101,7 @@ export default function Portfolio() {
         </div>
       ))}
     </motion.div>
+    </main>
   );
 }
 
