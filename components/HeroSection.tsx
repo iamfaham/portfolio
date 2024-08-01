@@ -6,7 +6,7 @@ import BlurInCopy from '@/components/magicui/blur-in-copy';
 
 export default function HeroSection() {
   return (
-    <section className="w-full pt-4 md:pt-0">
+    <section className="w-full pt-4 md:pt-0 flex justify-center">
       <div className="container xl:space-y-16">
         <div className="max-w-[1300px] mx-auto gap-4 px-4">
           <Meteors number={30} />
@@ -15,7 +15,7 @@ export default function HeroSection() {
             <br />
             <BlurInCopy>
               This is the digital realm of{' '}
-              <span className="block sm:inline text-gradient">
+              <span className="block sm:inline text-gradient ">
                 Syed Mohammed Faham
               </span>
               , a passionate Full Stack Developer crafting seamless and innovative web solutions.
