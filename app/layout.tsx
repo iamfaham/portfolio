@@ -17,6 +17,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <meta name="google-site-verification" content="Ssijj4aoUCOKQXAAVqy1hYbYZGlnjEehmCXB2fGV6zs" />
+        <meta name="keywords" content="portfolio, developer, projects, skills" />
+      </head>
       <body className="bg-dark-gray text-light-gray">
         <CursorFollower />
         <main className="flex-1 h-screen">{children}</main>
