@@ -1,4 +1,3 @@
-/* styles/globals.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -15,14 +14,12 @@ html {
 
 body {
   @apply text-light-gray;
-  /* background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, rgba(18, 18, 18, 0.9) 30%, rgba(0, 0, 0, 1) 60%); */
   background-color: black;
 
 }
 
 .section {
   @apply flex items-center justify-center min-h-screen;
-  /* background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, rgba(18, 18, 18, 0.9) 30%, rgba(0, 0, 0, 1) 60%); */
   background-color: black
 }
 
@@ -78,6 +75,7 @@ h1, h2, h3, h4, h5, h6 {
   width: 200px;
   height: 200px;
   background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, rgba(18, 18, 18, 0.9) 30%, rgba(0, 0, 0, 1) 60%);
+  /*   background: radial-gradient(circle, rgba(53, 141, 255, 0.15) 0%, rgba(0, 18, 35, 0.9) 30%, rgba(0, 0, 0, 1) 60%); */
   border-radius: 50%;
   pointer-events: none;
   transform: translate(-50%, -50%);

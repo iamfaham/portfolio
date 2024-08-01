@@ -4,8 +4,6 @@ import { useState } from 'react';
 import emailjs from 'emailjs-com';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLinkedin, faGithub, faXTwitter } from '@fortawesome/free-brands-svg-icons';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
@@ -15,10 +13,10 @@ export default function ContactSection() {
   });
   const [isSending, setIsSending] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const publicKey: any = process.env.NEXT_PUBLIC_EMAILJS_KEY;
-  const templateId: any = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
-  const serviceId: any = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
 
+  const publicKey = process.env.NEXT_PUBLIC_EMAILJS_KEY!;
+  const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!;
+  const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!;
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -30,20 +28,20 @@ export default function ContactSection() {
 
     try {
       const result = await emailjs.send(
-        serviceId, 
-        templateId, 
+        serviceId,
+        templateId,
         formData,
-        publicKey 
+        publicKey
       );
       if (result.text === 'OK') {
-        toast.success('Your message has been sent successfully!');
         setFormData({ name: '', email: '', message: '' });
-        setIsSubmitted(true); // Disable the button after successful submission
+        setIsSubmitted(true); // Set the form as submitted
       } else {
-        toast.error('Failed to send your message. Please try again.');
+        alert('Failed to send your message. Please try again.');
       }
     } catch (error) {
-      toast.error('An error occurred while sending your message. Please try again.');
+      console.error("Error during email send:", error);
+      alert('An error occurred while sending your message. Please try again.');
     } finally {
       setIsSending(false);
     }
@@ -87,10 +85,10 @@ export default function ContactSection() {
               />
               <button
                 type="submit"
-                className="w-full rounded-md bg-primary px-4 py-2 text-primary-foreground shadow-sm hover:bg-primary/90 focus:outline-none focus:ring-1 focus:ring-primary disabled:cursor-not-allowed disabled:opacity-50"
-                disabled={isSending || isSubmitted} // Disable the button if sending or already submitted
+                className="rounded-md border border-slate-500 bg-primary px-4 py-2 text-primary-foreground shadow-sm hover:bg-primary/90 focus:outline-none focus:ring-1 focus:ring-primary disabled:cursor-not-allowed disabled:opacity-50"
+                disabled={isSending || isSubmitted}
               >
-                {isSending ? 'Sending...' : 'Submit'}
+                {isSending ? 'Sending...' : isSubmitted ? 'Submitted' : 'Submit'}
               </button>
             </form>
             <div className="mt-8">
@@ -110,7 +108,6 @@ export default function ContactSection() {
           </div>
         </div>
       </section>
-      <ToastContainer position="top-right" autoClose={5000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover />
     </>
   );
 }

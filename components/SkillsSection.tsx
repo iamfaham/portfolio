@@ -30,10 +30,6 @@ const skills = [
     icon: <SiTypescript className="h-6 w-6 md:h-16 md:w-16 text-blue-500" />
   },
   {
-    name: "FastAPI",
-    icon: <SiFastapi className="h-6 w-6 md:h-16 md:w-16 text-green-600" />
-  },
-  {
     name: "MongoDB",
     icon: <SiMongodb className="h-6 w-6 md:h-16 md:w-16 text-green-500" />
   },
@@ -42,28 +38,32 @@ const skills = [
     icon: <SiSupabase className="h-6 w-6 md:h-16 md:w-16 text-green-400" />
   },
   {
-    name: "Python",
-    icon: <FaPython className="h-6 w-6 md:h-16 md:w-16 text-yellow-400" />
-  },
-  {
     name: "npm",
     icon: <SiNpm className="h-6 w-6 md:h-16 md:w-16 text-red-500" />
-  },
-  {
-    name: "Docker",
-    icon: <FaDocker className="h-6 w-6 md:h-16 md:w-16 text-blue-500" />
-  },
-  {
-    name: "Git",
-    icon: <FaGitAlt className="h-6 w-6 md:h-16 md:w-16 text-orange-500" />
   },
   {
     name: "GitHub",
     icon: <FaGithub className="h-6 w-6 md:h-16 md:w-16 text-white" />
   },
   {
+    name: "Git",
+    icon: <FaGitAlt className="h-6 w-6 md:h-16 md:w-16 text-orange-500" />
+  },
+  {
     name: "Framer Motion",
     icon: <SiFramer className="h-6 w-6 md:h-16 md:w-16 text-pink-500" />
+  },
+  {
+    name: "FastAPI",
+    icon: <SiFastapi className="h-6 w-6 md:h-16 md:w-16 text-green-600" />
+  },
+  {
+    name: "Python",
+    icon: <FaPython className="h-6 w-6 md:h-16 md:w-16 text-yellow-400" />
+  },
+  {
+    name: "Docker",
+    icon: <FaDocker className="h-6 w-6 md:h-16 md:w-16 text-blue-500" />
   },
 ];
 
