@@ -21,7 +21,7 @@ export default function AboutSection() {
           With a solid foundation in both front-end and back-end technologies, 
           I specialize in building dynamic, user-friendly, efficient and scalable solutions that solve real-world problems.
           </p>
-          <p>Read my Blogs: <Link className="underline" href='/blogs'>dev.to</Link></p>
+          <p>Read my Blogs: <Link target="_blank" className="underline" href='/blogs'>dev.to</Link></p>
         </div>
       </div>
     </section>
