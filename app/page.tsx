@@ -71,7 +71,8 @@ export default function Portfolio() {
     };
   }, [setCurrentSection, touchStartY, touchEndY, isInteractiveElement]);
 
-  return (
+  return ( <main>
+    
     <motion.div
       className="min-h-screen overflow-hidden"
       initial={{ y: 0 }}
@@ -94,7 +95,7 @@ export default function Portfolio() {
           {index === 5 && <ContactSection />}
         </div>
       ))}
-    </motion.div>
+    </motion.div></main>
   );
 }
 

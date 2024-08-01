@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { FaArrowDown } from 'react-icons/fa';
 import Meteors from '@/components/magicui/meteors';
@@ -12,9 +11,15 @@ export default function HeroSection() {
         <div className="max-w-[1300px] mx-auto gap-4 px-4">
           <Meteors number={30} />
           <div className="flex flex-col items-center md:justify-center">
-            <BlurIn word='Hello & Welcome' className="" />
+            <BlurIn word="Hello & Welcome" className="" />
             <br />
-            <BlurInCopy>This is the digital realm of <span className='text-gradient'>Syed Mohammed Faham</span>, a passionate Full Stack Developer crafting seamless and innovative web solutions.</BlurInCopy>
+            <BlurInCopy>
+              This is the digital realm of{' '}
+              <span className="block sm:inline text-gradient">
+                Syed Mohammed Faham
+              </span>
+              , a passionate Full Stack Developer crafting seamless and innovative web solutions.
+            </BlurInCopy>
             <br />
             <button className="mt-8 text-white animate-bounce opacity-15 cursor-default">
               <FaArrowDown size={30} />

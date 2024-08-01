@@ -20,8 +20,9 @@ export default function AboutSection() {
           Hello! I&apos;m Syed Mohammed Faham, a passionate <span className="font-bold">Full Stack Developer</span> dedicated to creating seamless and innovative web applications. 
           With a solid foundation in both front-end and back-end technologies, 
           I specialize in building dynamic, user-friendly, efficient and scalable solutions that solve real-world problems.
-          </p>
-          <p>Read my Blogs: <Link target="_blank" className="underline" href='/blogs'>dev.to</Link></p>
+          I enjoy continuous learning and staying updated with industry trends, particularly in cybersecurity. Outside of work, I love reading technology blogs, acquiring new skills, engaging in strategic video games.
+          </p> <br />
+          <p className="text-lg md:text-xl">Explore my latest <Link target="_blank" className=" text-cyan-500 hover:text-cyan-700" href='/blogs'>blogs here.</Link></p>
         </div>
       </div>
     </section>
