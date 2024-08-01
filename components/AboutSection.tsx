@@ -1,6 +1,7 @@
 import { motion } from "framer-motion"
 import { useRef } from "react";
 import { NeonGradientCard } from "./magicui/neon-gradient-card";
+import Link from "next/link";
 
 export default function AboutSection() {
   const constraintsRef = useRef(null)
@@ -20,6 +21,7 @@ export default function AboutSection() {
           With a solid foundation in both front-end and back-end technologies, 
           I specialize in building dynamic, user-friendly, efficient and scalable solutions that solve real-world problems.
           </p>
+          <p>Read my Blogs: <Link className="underline" href='/blogs'>dev.to</Link></p>
         </div>
       </div>
     </section>
