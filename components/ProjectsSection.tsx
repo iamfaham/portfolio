@@ -40,7 +40,7 @@ export default function ProjectsSection() {
                     href={project.projectUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-block mt-4 text-blue-500 hover:text-blue-700"
+                    className="inline-block mt-4 text-cyan-500 hover:text-cyan-700"
                   >
                     View Project
                   </a>
