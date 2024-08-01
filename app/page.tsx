@@ -83,7 +83,7 @@ export default function Portfolio() {
           key={section}
           id={section}
           className="section"
-          ref={(el:any ) => (sectionRefs.current[index] = el)}
+          ref={(el: any) => (sectionRefs.current[index] = el)}
         >
           {index === 0 && <HeroSection />}
           {index === 1 && <AboutSection />}
