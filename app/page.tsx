@@ -8,7 +8,6 @@ import ProjectsSection from '@/components/ProjectsSection';
 import SkillsSection from '@/components/SkillsSection';
 import ExperienceSection from '@/components/ExperienceSection';
 import ContactSection from '@/components/ContactSection';
-// import TestimonialSection from '@/components/TestimonialSection';
 import useSectionVisibility from '@/hooks/useSectionVisibility';
 import { throttle } from '@/utils/throttle';
 import { debounce } from '@/utils/debounce';
@@ -19,7 +18,6 @@ const sections = [
   'projectsDiv',
   'skillsDiv',
   'experienceDiv',
-  // 'testimonialDiv',
   'contactDiv',
 ];
 
@@ -28,6 +26,10 @@ export default function Portfolio() {
   const [isScrolling, setIsScrolling] = useState(false);
   const [touchStartY, setTouchStartY] = useState(0);
   const [touchEndY, setTouchEndY] = useState(0);
+
+  const isMobile = () => {
+    return window.innerWidth <= 768;
+  };
 
   useEffect(() => {
     const handleScroll = throttle((event: WheelEvent) => {
@@ -69,8 +71,8 @@ export default function Portfolio() {
 
       setTimeout(() => {
         setIsScrolling(false);
-      }, 2000);
-    }, 1500);
+      }, isMobile() ? 500 : 2000); // Different debounce durations based on device type
+    }, isMobile() ? 500 : 2000); // Different debounce durations based on device type
 
     window.addEventListener('wheel', handleScroll);
     window.addEventListener('touchstart', handleTouchStart);

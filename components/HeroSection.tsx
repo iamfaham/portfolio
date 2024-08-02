@@ -15,7 +15,7 @@ export default function HeroSection() {
             <br />
             <BlurInCopy>
               This is the digital realm of{' '}
-              <span className="block sm:inline text-gradient ">
+              <span className="block sm:inline text-gradient">
                 Syed Mohammed Faham
               </span>
               , a passionate Full Stack Developer crafting seamless and innovative web solutions.
