@@ -11,6 +11,7 @@ import ContactSection from '@/components/ContactSection';
 // import TestimonialSection from '@/components/TestimonialSection';
 import useSectionVisibility from '@/hooks/useSectionVisibility';
 import { throttle } from '@/utils/throttle';
+import { debounce } from '@/utils/debounce';
 
 const sections = [
   'heroDiv',
@@ -24,39 +25,52 @@ const sections = [
 
 export default function Portfolio() {
   const { sectionRefs, currentSection, setCurrentSection } = useSectionVisibility(sections);
+  const [isScrolling, setIsScrolling] = useState(false);
   const [touchStartY, setTouchStartY] = useState(0);
   const [touchEndY, setTouchEndY] = useState(0);
-  const [isInteractiveElement, setIsInteractiveElement] = useState(false);
 
   useEffect(() => {
     const handleScroll = throttle((event: WheelEvent) => {
+      if (isScrolling) return;
+
+      setIsScrolling(true);
+
       if (event.deltaY > 0) {
         setCurrentSection((prev) => Math.min(prev + 1, sections.length - 1));
       } else {
         setCurrentSection((prev) => Math.max(prev - 1, 0));
       }
-    }, 1000); // Adjust the limit as needed
+
+      setTimeout(() => {
+        setIsScrolling(false);
+      }, 1500);
+    }, 1500);
 
     const handleTouchStart = (event: TouchEvent) => {
-      const interactiveElement = event.target as HTMLElement;
-      setIsInteractiveElement(interactiveElement.hasAttribute('data-interactive'));
       setTouchStartY(event.touches[0].clientY);
       setTouchEndY(event.touches[0].clientY);
     };
 
     const handleTouchMove = (event: TouchEvent) => {
-      if (isInteractiveElement) return;
       setTouchEndY(event.touches[0].clientY);
     };
 
-    const handleTouchEnd = () => {
-      if (isInteractiveElement) return;
-      if (touchStartY - touchEndY > 50) {
+    const handleTouchEnd = debounce(() => {
+      if (isScrolling) return;
+
+      setIsScrolling(true);
+
+      const touchDistance = touchStartY - touchEndY;
+      if (touchDistance > 50) {
         setCurrentSection((prev) => Math.min(prev + 1, sections.length - 1));
-      } else if (touchEndY - touchStartY > 50) {
+      } else if (touchDistance < -50) {
         setCurrentSection((prev) => Math.max(prev - 1, 0));
       }
-    };
+
+      setTimeout(() => {
+        setIsScrolling(false);
+      }, 2000);
+    }, 1500);
 
     window.addEventListener('wheel', handleScroll);
     window.addEventListener('touchstart', handleTouchStart);
@@ -69,33 +83,32 @@ export default function Portfolio() {
       window.removeEventListener('touchmove', handleTouchMove);
       window.removeEventListener('touchend', handleTouchEnd);
     };
-  }, [setCurrentSection, touchStartY, touchEndY, isInteractiveElement]);
+  }, [isScrolling, touchStartY, touchEndY, setCurrentSection]);
 
-  return ( <main>
-    
-    <motion.div
-      className="min-h-screen overflow-hidden"
-      initial={{ y: 0 }}
-      animate={{ y: -currentSection * 100 + 'vh' }}
-      transition={{ duration: 0.8, ease: 'easeInOut' }} // Slow animation settings
-    >
-      {sections.map((section, index) => (
-        <div
-          key={section}
-          id={section}
-          className="section"
-          ref={(el: any) => (sectionRefs.current[index] = el)}
-        >
-          {index === 0 && <HeroSection />}
-          {index === 1 && <AboutSection />}
-          {index === 2 && <ProjectsSection />}
-          {index === 3 && <SkillsSection />}
-          {index === 4 && <ExperienceSection />}
-          {/* {index === 5 && <TestimonialSection />} */}
-          {index === 5 && <ContactSection />}
-        </div>
-      ))}
-    </motion.div></main>
+  return (
+    <main>
+      <motion.div
+        className="min-h-screen overflow-hidden"
+        initial={{ y: 0 }}
+        animate={{ y: -currentSection * 100 + 'vh' }}
+        transition={{ duration: 0.8, ease: 'easeInOut' }}
+      >
+        {sections.map((section, index) => (
+          <div
+            key={section}
+            id={section}
+            className="section"
+            ref={(el: any) => (sectionRefs.current[index] = el)}
+          >
+            {index === 0 && <HeroSection />}
+            {index === 1 && <AboutSection />}
+            {index === 2 && <ProjectsSection />}
+            {index === 3 && <SkillsSection />}
+            {index === 4 && <ExperienceSection />}
+            {index === 5 && <ContactSection />}
+          </div>
+        ))}
+      </motion.div>
+    </main>
   );
 }
-

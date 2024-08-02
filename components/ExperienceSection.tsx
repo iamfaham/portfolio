@@ -37,7 +37,7 @@ export default function ExperienceSection() {
                   <h3 className="text-xl md:text-2xl font-semibold">{experience.role}</h3>
                   <p className="text-sm md:text-md text-muted-foreground italic">{experience.company}</p>
                   <p className="text-xs md:text-sm text-muted-foreground">{experience.duration}</p>
-                  <p className="text-md mt-4">{experience.description}</p>
+                  <p className="text-md mt-4 opacity-75">{experience.description}</p>
                 </div>
               </ShineBorder>
             ))}
