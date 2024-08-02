@@ -15,10 +15,10 @@ export default function HeroSection() {
             <br />
             <BlurInCopy>
               This is the digital realm of{' '}
-              <span className="block sm:inline text-gradient">
+              <span className="block md:inline text-gradient">
                 Syed Mohammed Faham
               </span>
-              , a passionate Full Stack Developer crafting seamless and innovative web solutions.
+              <span className='hidden md:inline'>,</span> a passionate Full Stack Developer crafting seamless and innovative web solutions.
             </BlurInCopy>
             <br />
             <button className="mt-8 text-white animate-bounce opacity-15 cursor-default">

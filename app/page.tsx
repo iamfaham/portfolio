@@ -72,7 +72,7 @@ export default function Portfolio() {
       setTimeout(() => {
         setIsScrolling(false);
       }, isMobile() ? 500 : 2000); // Different debounce durations based on device type
-    }, isMobile() ? 500 : 2000); // Different debounce durations based on device type
+    }, isMobile() ? 200 : 2000); // Different debounce durations based on device type
 
     window.addEventListener('wheel', handleScroll);
     window.addEventListener('touchstart', handleTouchStart);
