@@ -1,4 +1,4 @@
-import ShineBorder from "@/components/magicui/shine-border"
+import ShineBorder from "@/components/magicui/shine-border";
 import ShimmerButton from "./magicui/shimmer-button";
 import Link from "next/link";
 
@@ -6,17 +6,17 @@ const projects = [
   {
     title: "SeCode",
     description: "A VS code extension for analysing security flaws in your code.",
-    projectUrl: "https://github.com/iamfaham/secode"
+    projectUrl: "https://github.com/iamfaham/secode",
   },
   {
-    title: "Project Two",
-    description: "A brief description of Project Two. This project involves...",
-    projectUrl: "https://github.com/yourusername/project-two"
+    title: "Visualify",
+    description: "Developed Visualify, an AI-based image editor using Cloudinary SDK",
+    projectUrl: "https://github.com/iamfaham/Visualify",
   },
   {
-    title: "Project Three",
-    description: "A brief description of Project Three. This project involves...",
-    projectUrl: "https://github.com/yourusername/project-three"
+    title: "To be updated",
+    description: "",
+    projectUrl: "https://github.com/iamfaham",
   },
 ];
 
@@ -31,31 +31,32 @@ export default function ProjectsSection() {
           </p>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {projects.map((project, index) => (
-              <ShineBorder key={index}  color={["#87CEEB", "#A020F0", "#00FFFF"]}>
-                <div  className=" rounded-lg overflow-hidden shadow-lg p-0 md:p-6 ">
+              <ShineBorder key={index} color={["#87CEEB", "#A020F0", "#00FFFF"]} className="z-1">
+                <div className="rounded-lg overflow-hidden shadow-lg p-0 md:p-6 z-10 relative">
                   <h3 className="text-xl font-bold">{project.title}</h3>
-
                   <p className="text-md text-gray-400 mt-2">{project.description}</p>
-                  <a
+                  <Link
                     href={project.projectUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-block mt-4 text-cyan-500 hover:text-cyan-700"
+                    className="inline-block mt-4 text-cyan-500 hover:text-cyan-700 z-10 relative"
                   >
                     View Project
-                  </a>
+                  </Link>
                 </div>
-              </ShineBorder >
+              </ShineBorder>
             ))}
           </div>
-            <Link
+          <Link
             href="https://github.com/iamfaham"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block text-white py-2 px-4"
           >
             <ShimmerButton shimmerColor="#87CEEB">
-              <span className="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white lg:text-lg"> Show More </span>
+              <span className="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white lg:text-lg">
+                Show More
+              </span>
             </ShimmerButton>
           </Link>
         </div>
