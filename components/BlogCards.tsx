@@ -26,7 +26,7 @@ export default function BlogCards() {
       {blogs.map((blog: any) => (
         <ShineBorder key={blog.id} color={["#87CEEB", "#A020F0", "#00FFFF"]}>
             <div className="bg-transparent shadow-md rounded-lg overflow-hidden z-10">
-                <Image src={blog.social_image} alt={blog.title} className="w-full h-48 object-cover hidden md:block" />
+                <Image src={blog.social_image} alt={blog.title} width={500} height={300} className="w-full h-48 rounded-lg object-cover hidden md:block" />
                 <div className="p-4">
                     <h2 className="text-xl font-semibold mb-2">{blog.title}</h2>
                     <p className="text-gray-500 text-sm md:text-md">{blog.description}</p>
