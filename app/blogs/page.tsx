@@ -7,7 +7,7 @@ export const metadata = {
 
 export default function BlogsPage() {
   return (
-    <div className="container mx-auto py-12 bg-black w-full h-full px-10">
+    <div className="container mx-auto py-12 bg-black w-full h-full px-10 overflow-auto">
       <h1 className="text-4xl font-bold text-center mb-8">Recent Blogs</h1>
       <BlogCards />
     </div>
