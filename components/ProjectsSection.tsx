@@ -4,19 +4,19 @@ import Link from "next/link";
 
 const projects = [
   {
+    title: "EncypherX",
+    description: "EncypherX, a password manager with AES-encrypted password storage, etc.",
+    projectUrl: "https://github.com/iamfaham/EncypherX",
+  },
+  {
     title: "SeCode",
     description: "A VS code extension for analysing security flaws in your code.",
     projectUrl: "https://github.com/iamfaham/secode",
   },
   {
     title: "Visualify",
-    description: "Developed Visualify, an AI-based image editor using Cloudinary SDK",
+    description: "An AI-based image editor using Next.js and Cloudinary SDK",
     projectUrl: "https://github.com/iamfaham/Visualify",
-  },
-  {
-    title: "To be updated",
-    description: "",
-    projectUrl: "https://github.com/iamfaham",
   },
 ];
 

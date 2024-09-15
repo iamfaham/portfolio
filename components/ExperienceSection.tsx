@@ -12,7 +12,7 @@ export default function ExperienceSection() {
       role: 'Frontend Developer',
       company: 'Freelance',
       duration: 'Apr 2024 - Jun 2024',
-      description: 'Designed responsive web interfaces and worked closely with clients to meet their needs.',
+      description: 'Designed responsive web interface and worked closely with clients to meet their needs.',
     },
     {
       role: 'GDSC Design Lead',
