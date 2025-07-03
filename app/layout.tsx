@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import CursorFollower from "@/components/CursorFollower";
+import { SmoothCursor } from "@/components/ui/smooth-cursor";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -28,6 +29,7 @@ export default function RootLayout({
       </head>
       <body className="bg-dark-gray text-light-gray">
         <CursorFollower />
+        <SmoothCursor />
         <main className="flex-1 h-screen">{children}</main>
       </body>
     </html>
