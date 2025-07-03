@@ -1,30 +1,9 @@
 import ShineBorder from "./magicui/shine-border";
 import PaginationCarousel from "./PaginationCarousel";
+import { getExperience } from "@/lib/data";
 
 export default function ExperienceSection() {
-  const experiences = [
-    {
-      role: "Full-Stack Developer",
-      company: "Tech Consulting Partners",
-      duration: "May 2024 - December 2024",
-      description:
-        "Developing web applications, integrating AI features, and improving performance.",
-    },
-    {
-      role: "Frontend Developer",
-      company: "Freelance",
-      duration: "Apr 2024 - Jun 2024",
-      description:
-        "Designed responsive web interface and worked closely with clients to meet their needs.",
-    },
-    {
-      role: "GDSC Design Lead",
-      company: "Google Developer Student Clubs, OIST",
-      duration: "Jun 2022 - May 2023",
-      description:
-        "Led design projects, conducted workshops, and collaborated with developers.",
-    },
-  ];
+  const experiences = getExperience();
 
   const renderExperience = (experience: any, index: number) => (
     <ShineBorder key={index} color={["#87CEEB", "#A020F0", "#00FFFF"]}>

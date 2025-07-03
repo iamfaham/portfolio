@@ -8,6 +8,7 @@ import {
   faGithub,
   faXTwitter,
 } from "@fortawesome/free-brands-svg-icons";
+import { getPersonalInfo } from "@/lib/data";
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
@@ -21,6 +22,8 @@ export default function ContactSection() {
   const publicKey = process.env.NEXT_PUBLIC_EMAILJS_KEY!;
   const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!;
   const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!;
+
+  const personalInfo = getPersonalInfo();
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -118,7 +121,7 @@ export default function ContactSection() {
               </h3>
               <div className="flex justify-center space-x-6">
                 <a
-                  href="https://www.linkedin.com/in/iamfaham"
+                  href={personalInfo.social.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="LinkedIn"
@@ -127,7 +130,7 @@ export default function ContactSection() {
                   <FontAwesomeIcon icon={faLinkedin} className="text-3xl" />
                 </a>
                 <a
-                  href="https://twitter.com/iamfaham"
+                  href={personalInfo.social.twitter}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Twitter"
@@ -136,7 +139,7 @@ export default function ContactSection() {
                   <FontAwesomeIcon icon={faXTwitter} className="text-3xl" />
                 </a>
                 <a
-                  href="https://github.com/iamfaham"
+                  href={personalInfo.social.github}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="GitHub"

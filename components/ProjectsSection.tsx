@@ -2,28 +2,12 @@ import ShineBorder from "@/components/magicui/shine-border";
 import ShimmerButton from "./magicui/shimmer-button";
 import PaginationCarousel from "./PaginationCarousel";
 import Link from "next/link";
-
-const projects = [
-  {
-    title: "EncypherX",
-    description:
-      "EncypherX, a password manager with AES-encrypted password storage, etc.",
-    projectUrl: "https://github.com/iamfaham/EncypherX",
-  },
-  {
-    title: "SeCode",
-    description:
-      "A VS code extension for analysing security flaws in your code.",
-    projectUrl: "https://github.com/iamfaham/secode",
-  },
-  {
-    title: "Visualify",
-    description: "An AI-based image editor using Next.js and Cloudinary SDK",
-    projectUrl: "https://github.com/iamfaham/Visualify",
-  },
-];
+import { getProjects, getPersonalInfo } from "@/lib/data";
 
 export default function ProjectsSection() {
+  const projects = getProjects();
+  const personalInfo = getPersonalInfo();
+
   const renderProject = (project: any, index: number) => (
     <ShineBorder
       key={index}
@@ -72,7 +56,7 @@ export default function ProjectsSection() {
           </div>
 
           <Link
-            href="https://github.com/iamfaham"
+            href={personalInfo.social.github}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block text-white py-2 px-4"

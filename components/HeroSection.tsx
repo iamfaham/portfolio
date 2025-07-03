@@ -3,8 +3,11 @@ import { FaArrowDown } from "react-icons/fa";
 import Meteors from "@/components/magicui/meteors";
 import BlurIn from "@/components/magicui/blur-in";
 import BlurInCopy from "@/components/magicui/blur-in-copy";
+import { getPersonalInfo } from "@/lib/data";
 
 export default function HeroSection() {
+  const personalInfo = getPersonalInfo();
+
   return (
     <section className="w-full pt-4 md:pt-0 flex justify-center">
       <div className="container xl:space-y-16">
@@ -16,10 +19,10 @@ export default function HeroSection() {
             <BlurInCopy>
               This is the digital realm of{" "}
               <span className="block md:inline text-gradient">
-                Syed Mohammed Faham
+                {personalInfo.name}
               </span>
-              <span className="hidden md:inline">,</span> a passionate AI/ML
-              Developer crafting intelligent and innovative solutions.
+              <span className="hidden md:inline">,</span>{" "}
+              {personalInfo.description}
             </BlurInCopy>
             <br />
             <button className="mt-8 text-white animate-bounce opacity-15 cursor-default">

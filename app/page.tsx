@@ -1,28 +1,23 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
-import HeroSection from '@/components/HeroSection';
-import AboutSection from '@/components/AboutSection';
-import ProjectsSection from '@/components/ProjectsSection';
-import SkillsSection from '@/components/SkillsSection';
-import ExperienceSection from '@/components/ExperienceSection';
-import ContactSection from '@/components/ContactSection';
-import useSectionVisibility from '@/hooks/useSectionVisibility';
-import { throttle } from '@/utils/throttle';
-import { debounce } from '@/utils/debounce';
+import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import HeroSection from "@/components/HeroSection";
+import AboutSection from "@/components/AboutSection";
+import ProjectsSection from "@/components/ProjectsSection";
+import SkillsSection from "@/components/SkillsSection";
+import ExperienceSection from "@/components/ExperienceSection";
+import ContactSection from "@/components/ContactSection";
+import useSectionVisibility from "@/hooks/useSectionVisibility";
+import { throttle } from "@/utils/throttle";
+import { debounce } from "@/utils/debounce";
+import { getSections } from "@/lib/data";
 
-const sections = [
-  'heroDiv',
-  'aboutDiv',
-  'projectsDiv',
-  'skillsDiv',
-  'experienceDiv',
-  'contactDiv',
-];
+const sections = getSections();
 
 export default function Portfolio() {
-  const { sectionRefs, currentSection, setCurrentSection } = useSectionVisibility(sections);
+  const { sectionRefs, currentSection, setCurrentSection } =
+    useSectionVisibility(sections);
   const [isScrolling, setIsScrolling] = useState(false);
   const [touchStartY, setTouchStartY] = useState(0);
   const [touchEndY, setTouchEndY] = useState(0);
@@ -57,33 +52,39 @@ export default function Portfolio() {
       setTouchEndY(event.touches[0].clientY);
     };
 
-    const handleTouchEnd = debounce(() => {
-      if (isScrolling) return;
+    const handleTouchEnd = debounce(
+      () => {
+        if (isScrolling) return;
 
-      setIsScrolling(true);
+        setIsScrolling(true);
 
-      const touchDistance = touchStartY - touchEndY;
-      if (touchDistance > 50) {
-        setCurrentSection((prev) => Math.min(prev + 1, sections.length - 1));
-      } else if (touchDistance < -50) {
-        setCurrentSection((prev) => Math.max(prev - 1, 0));
-      }
+        const touchDistance = touchStartY - touchEndY;
+        if (touchDistance > 50) {
+          setCurrentSection((prev) => Math.min(prev + 1, sections.length - 1));
+        } else if (touchDistance < -50) {
+          setCurrentSection((prev) => Math.max(prev - 1, 0));
+        }
 
-      setTimeout(() => {
-        setIsScrolling(false);
-      }, isMobile() ? 500 : 2000); // Different debounce durations based on device type
-    }, isMobile() ? 200 : 2000); // Different debounce durations based on device type
+        setTimeout(
+          () => {
+            setIsScrolling(false);
+          },
+          isMobile() ? 500 : 2000
+        );
+      },
+      isMobile() ? 200 : 2000
+    );
 
-    window.addEventListener('wheel', handleScroll);
-    window.addEventListener('touchstart', handleTouchStart);
-    window.addEventListener('touchmove', handleTouchMove);
-    window.addEventListener('touchend', handleTouchEnd);
+    window.addEventListener("wheel", handleScroll);
+    window.addEventListener("touchstart", handleTouchStart);
+    window.addEventListener("touchmove", handleTouchMove);
+    window.addEventListener("touchend", handleTouchEnd);
 
     return () => {
-      window.removeEventListener('wheel', handleScroll);
-      window.removeEventListener('touchstart', handleTouchStart);
-      window.removeEventListener('touchmove', handleTouchMove);
-      window.removeEventListener('touchend', handleTouchEnd);
+      window.removeEventListener("wheel", handleScroll);
+      window.removeEventListener("touchstart", handleTouchStart);
+      window.removeEventListener("touchmove", handleTouchMove);
+      window.removeEventListener("touchend", handleTouchEnd);
     };
   }, [isScrolling, touchStartY, touchEndY, setCurrentSection]);
 
@@ -92,8 +93,8 @@ export default function Portfolio() {
       <motion.div
         className="min-h-screen overflow-hidden"
         initial={{ y: 0 }}
-        animate={{ y: -currentSection * 100 + 'vh' }}
-        transition={{ duration: 0.8, ease: 'easeInOut' }}
+        animate={{ y: -currentSection * 100 + "vh" }}
+        transition={{ duration: 0.8, ease: "easeInOut" }}
       >
         {sections.map((section, index) => (
           <div

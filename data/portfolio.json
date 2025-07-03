@@ -1,0 +1,162 @@
+{
+  "personal": {
+    "name": "Syed Mohammed Faham",
+    "title": "AI/ML Developer",
+    "description": "a passionate AI/ML Developer crafting intelligent and innovative solutions",
+    "about": {
+      "intro": "Hello! I'm Syed Mohammed Faham, a passionate AI/ML Developer dedicated to creating intelligent and innovative machine learning solutions.",
+      "expertise": "With expertise in artificial intelligence, machine learning algorithms, and data science, I specialize in building intelligent systems, predictive models, and AI-powered applications that solve complex real-world problems.",
+      "interests": "I enjoy continuous learning and staying updated with industry trends, particularly in Generative AI. Outside of work, I love reading technology blogs, acquiring new skills, engaging in strategic video games and Coffee."
+    },
+    "social": {
+      "github": "https://github.com/iamfaham",
+      "linkedin": "https://www.linkedin.com/in/iamfaham",
+      "twitter": "https://twitter.com/iamfaham"
+    }
+  },
+  "projects": [
+    {
+      "title": "EncypherX",
+      "description": "EncypherX, a password manager with AES-encrypted password storage, etc.",
+      "projectUrl": "https://github.com/iamfaham/EncypherX",
+      "technologies": ["React", "Node.js", "AES Encryption"],
+      "image": null
+    },
+    {
+      "title": "SeCode",
+      "description": "A VS code extension for analysing security flaws in your code.",
+      "projectUrl": "https://github.com/iamfaham/secode",
+      "technologies": ["TypeScript", "VS Code API", "Security Analysis"],
+      "image": null
+    },
+    {
+      "title": "Visualify",
+      "description": "An AI-based image editor using Next.js and Cloudinary SDK",
+      "projectUrl": "https://github.com/iamfaham/Visualify",
+      "technologies": ["Next.js", "AI/ML", "Cloudinary", "Image Processing"],
+      "image": null
+    }
+  ],
+  "experience": [
+    {
+      "role": "Full-Stack Developer",
+      "company": "Tech Consulting Partners",
+      "duration": "May 2024 - December 2024",
+      "description": "Developing web applications, integrating AI features, and improving performance.",
+      "technologies": ["React", "Node.js", "AI Integration", "Performance Optimization"]
+    },
+    {
+      "role": "Frontend Developer",
+      "company": "Freelance",
+      "duration": "Apr 2024 - Jun 2024",
+      "description": "Designed responsive web interface and worked closely with clients to meet their needs.",
+      "technologies": ["React", "TypeScript", "Responsive Design", "Client Communication"]
+    },
+    {
+      "role": "GDSC Design Lead",
+      "company": "Google Developer Student Clubs, OIST",
+      "duration": "Jun 2022 - May 2023",
+      "description": "Led design projects, conducted workshops, and collaborated with developers.",
+      "technologies": ["UI/UX Design", "Workshop Leadership", "Team Collaboration"]
+    }
+  ],
+  "skills": [
+    {
+      "name": "Next.js",
+      "icon": "SiNextdotjs",
+      "color": "text-white"
+    },
+    {
+      "name": "React",
+      "icon": "FaReact",
+      "color": "text-blue-400"
+    },
+    {
+      "name": "Node.js",
+      "icon": "FaNodeJs",
+      "color": "text-green-500"
+    },
+    {
+      "name": "Tailwind CSS",
+      "icon": "SiTailwindcss",
+      "color": "text-teal-500"
+    },
+    {
+      "name": "JavaScript",
+      "icon": "FaJsSquare",
+      "color": "text-yellow-500"
+    },
+    {
+      "name": "TypeScript",
+      "icon": "SiTypescript",
+      "color": "text-blue-500"
+    },
+    {
+      "name": "MongoDB",
+      "icon": "SiMongodb",
+      "color": "text-green-500"
+    },
+    {
+      "name": "Supabase",
+      "icon": "SiSupabase",
+      "color": "text-green-400"
+    },
+    {
+      "name": "npm",
+      "icon": "SiNpm",
+      "color": "text-red-500"
+    },
+    {
+      "name": "GitHub",
+      "icon": "FaGithub",
+      "color": "text-white"
+    },
+    {
+      "name": "Git",
+      "icon": "FaGitAlt",
+      "color": "text-orange-500"
+    },
+    {
+      "name": "Framer Motion",
+      "icon": "SiFramer",
+      "color": "text-pink-500"
+    },
+    {
+      "name": "FastAPI",
+      "icon": "SiFastapi",
+      "color": "text-green-600"
+    },
+    {
+      "name": "Python",
+      "icon": "FaPython",
+      "color": "text-yellow-400"
+    },
+    {
+      "name": "Docker",
+      "icon": "FaDocker",
+      "color": "text-blue-500"
+    }
+  ],
+  "sections": [
+    "heroDiv",
+    "aboutDiv",
+    "projectsDiv",
+    "skillsDiv",
+    "experienceDiv",
+    "contactDiv"
+  ],
+  "colorMap": {
+    "text-white": "#ffffff",
+    "text-blue-400": "#60a5fa",
+    "text-green-500": "#10b981",
+    "text-teal-500": "#14b8a6",
+    "text-yellow-500": "#eab308",
+    "text-blue-500": "#3b82f6",
+    "text-green-400": "#4ade80",
+    "text-red-500": "#ef4444",
+    "text-orange-500": "#f97316",
+    "text-pink-500": "#ec4899",
+    "text-green-600": "#059669",
+    "text-yellow-400": "#facc15"
+  }
+} 

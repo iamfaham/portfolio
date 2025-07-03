@@ -1,36 +1,68 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Developer Portfolio – Modern Next.js Template
 
-## Getting Started
+This is a modern, interactive portfolio website template for developers. Clone it, update `portfolio.json`, and use it freely. The site showcases projects, skills, experience, and contact information in a visually engaging and responsive format. All content is easily customizable via a single JSON file.
 
-First, run the development server:
+## ✨ Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Animated full-page sections** for Hero, About, Projects, Skills, Experience, and Contact
+- **Smooth scroll and swipe navigation** (desktop and mobile)
+- **Animated cursor and magic UI effects**
+- **Responsive design** for all devices
+- **Dynamic blog fetching** from Dev.to with animated loader
+- **All data (projects, skills, experience, etc.) is managed via a single JSON file for easy updates**
+- **Modern UI/UX** with Tailwind CSS, Framer Motion, and custom components
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠️ Tech Stack
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- [Next.js 14](https://nextjs.org/)
+- [React 18](https://react.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Framer Motion](https://www.framer.com/motion/)
+- [React Icons](https://react-icons.github.io/react-icons/)
+- [EmailJS](https://www.emailjs.com/) (for contact form)
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## 📁 Project Structure
 
-## Learn More
+- `app/` – Next.js app directory (pages, layout, global styles)
+- `components/` – All UI and section components
+- `components/magicui/` – Custom animated UI elements
+- `components/ui/` – Additional UI utilities (e.g., smooth cursor)
+- `lib/` – Data access and utility functions
+- `data/portfolio.json` – All portfolio content (projects, skills, experience, personal info, color map)
+- `public/` – Static assets (images, favicon, etc.)
 
-To learn more about Next.js, take a look at the following resources:
+## 🚀 Getting Started
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. **Install dependencies:**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
 
-## Deploy on Vercel
+2. **Run the development server:**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+3. **Open your browser:**
+   Visit [http://localhost:3000](http://localhost:3000) to view the site.
+
+## 📝 Customization
+
+- **Edit `data/portfolio.json`** to update your projects, skills, experience, and personal info. This is the only file you need to change to personalize the portfolio for yourself.
+- **Images:** Place your profile and project images in the `public/` directory and reference them in the JSON or components.
+- **Styling:** Tweak Tailwind classes or add new styles in `app/globals.css`.
+
+## 📬 Contact
+
+The contact form uses [EmailJS](https://www.emailjs.com/). Set your EmailJS keys in your environment variables for it to work.
+
+---
+
+**This project is a modern developer portfolio template. Clone it, update `portfolio.json`, and make it your own!**

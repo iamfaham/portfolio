@@ -2,9 +2,11 @@ import { motion } from "framer-motion";
 import { useRef } from "react";
 import { NeonGradientCard } from "./magicui/neon-gradient-card";
 import Link from "next/link";
+import { getPersonalInfo } from "@/lib/data";
 
 export default function AboutSection() {
   const constraintsRef = useRef(null);
+  const personalInfo = getPersonalInfo();
 
   return (
     <section id="about" className="section w-full py-12 md:py-24 lg:py-32">
@@ -17,7 +19,7 @@ export default function AboutSection() {
               drag
               dragConstraints={constraintsRef}
               src="/profile.png"
-              alt="Syed Mohammed Faham"
+              alt={personalInfo.name}
               className="rounded-full object-cover"
               data-interactive
             />
@@ -32,23 +34,15 @@ export default function AboutSection() {
 
           <div className="space-y-3 sm:space-y-4">
             <p className="text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed text-muted-foreground">
-              Hello! I&apos;m Syed Mohammed Faham, a passionate{" "}
-              <span className="font-bold">AI/ML Developer</span> dedicated to
-              creating intelligent and innovative machine learning solutions.
+              {personalInfo.about.intro}
             </p>
 
             <p className="text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed text-muted-foreground">
-              With expertise in artificial intelligence, machine learning
-              algorithms, and data science, I specialize in building intelligent
-              systems, predictive models, and AI-powered applications that solve
-              complex real-world problems.
+              {personalInfo.about.expertise}
             </p>
 
             <p className="text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed text-muted-foreground">
-              I enjoy continuous learning and staying updated with industry
-              trends, particularly in Generative AI. Outside of work, I love
-              reading technology blogs, acquiring new skills, engaging in
-              strategic video games and Coffee.
+              {personalInfo.about.interests}
             </p>
           </div>
 
