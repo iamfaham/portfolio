@@ -8,7 +8,7 @@ export default function ExperienceSection() {
       company: "Tech Consulting Partners",
       duration: "May 2024 - December 2024",
       description:
-        "Developing web applications, collaborating on features, and improving performance.",
+        "Developing web applications, integrating AI features, and improving performance.",
     },
     {
       role: "Frontend Developer",

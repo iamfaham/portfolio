@@ -79,7 +79,7 @@ export default function ProjectsSection() {
           >
             <ShimmerButton shimmerColor="#87CEEB">
               <span className="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white lg:text-lg">
-                Show More
+                Explore more projects on GitHub
               </span>
             </ShimmerButton>
           </Link>
