@@ -1,8 +1,8 @@
-import React from 'react';
-import { FaArrowDown } from 'react-icons/fa';
-import Meteors from '@/components/magicui/meteors';
-import BlurIn from '@/components/magicui/blur-in';
-import BlurInCopy from '@/components/magicui/blur-in-copy';
+import React from "react";
+import { FaArrowDown } from "react-icons/fa";
+import Meteors from "@/components/magicui/meteors";
+import BlurIn from "@/components/magicui/blur-in";
+import BlurInCopy from "@/components/magicui/blur-in-copy";
 
 export default function HeroSection() {
   return (
@@ -14,11 +14,12 @@ export default function HeroSection() {
             <BlurIn word="Hello & Welcome" className="" />
             <br />
             <BlurInCopy>
-              This is the digital realm of{' '}
+              This is the digital realm of{" "}
               <span className="block md:inline text-gradient">
                 Syed Mohammed Faham
               </span>
-              <span className='hidden md:inline'>,</span> a passionate Full Stack Developer crafting seamless and innovative web solutions.
+              <span className="hidden md:inline">,</span> a passionate AI/ML
+              Developer crafting intelligent and innovative solutions.
             </BlurInCopy>
             <br />
             <button className="mt-8 text-white animate-bounce opacity-15 cursor-default">
