@@ -59,6 +59,16 @@ This is a modern, interactive portfolio website template for developers. Clone i
 - **Images:** Place your profile and project images in the `public/` directory and reference them in the JSON or components.
 - **Styling:** Tweak Tailwind classes or add new styles in `app/globals.css`.
 
+## 🔍 SEO Configuration
+
+For proper SEO, update these files with your domain information:
+
+- **`next-sitemap.config.js`** - Set your `siteUrl`
+- **`public/robots.txt`** - Update the Host and Sitemap URLs
+- **`public/sitemap.xml`** and **`public/sitemap-0.xml`** - Update `siteUrl` references in `next-sitemap.config.js` and it will generate these files automatically on build
+
+The sitemap will be automatically generated when you build the project.
+
 ## 📬 Contact
 
 The contact form uses [EmailJS](https://www.emailjs.com/). Set your EmailJS keys in your environment variables for it to work.

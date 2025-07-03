@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 const config = {
-  siteUrl: "https://iamfaham.netlify.app",
+  siteUrl: "https://iamfaham.me",
   generateRobotsTxt: true,
   // optional
   robotsTxtOptions: {
