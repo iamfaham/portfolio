@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import ShineBorder from "./magicui/shine-border";
 import { AnimatedCircularProgressBar } from "./magicui/animated-circular-progress-bar";
+import PaginationCarousel from "./PaginationCarousel";
 import Image from "next/image";
 
 export default function BlogCards() {
@@ -48,6 +49,32 @@ export default function BlogCards() {
 
     fetchBlogs();
   }, []);
+
+  const renderBlogCard = (blog: any, index: number) => (
+    <ShineBorder key={blog.id} color={["#87CEEB", "#A020F0", "#00FFFF"]}>
+      <div className="bg-transparent shadow-md rounded-lg overflow-hidden z-10 h-full">
+        <Image
+          src={blog.social_image}
+          alt={blog.title}
+          width={500}
+          height={300}
+          className="w-full h-48 rounded-lg object-cover hidden md:block"
+        />
+        <div className="p-4">
+          <h2 className="text-xl font-semibold mb-2">{blog.title}</h2>
+          <p className="text-gray-500 text-sm md:text-md">{blog.description}</p>
+          <a
+            href={blog.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-cyan-500 mt-4 block text-sm md:text-md text-end"
+          >
+            Read More
+          </a>
+        </div>
+      </div>
+    </ShineBorder>
+  );
 
   if (loading) {
     return (
@@ -96,34 +123,41 @@ export default function BlogCards() {
   }
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      {blogs.map((blog: any) => (
-        <ShineBorder key={blog.id} color={["#87CEEB", "#A020F0", "#00FFFF"]}>
-          <div className="bg-transparent shadow-md rounded-lg overflow-hidden z-10">
-            <Image
-              src={blog.social_image}
-              alt={blog.title}
-              width={500}
-              height={300}
-              className="w-full h-48 rounded-lg object-cover hidden md:block"
-            />
-            <div className="p-4">
-              <h2 className="text-xl font-semibold mb-2">{blog.title}</h2>
-              <p className="text-gray-500 text-sm md:text-md">
-                {blog.description}
-              </p>
-              <a
-                href={blog.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-cyan-500 mt-4 block text-sm md:text-md text-end"
-              >
-                Read More
-              </a>
-            </div>
-          </div>
-        </ShineBorder>
-      ))}
-    </div>
+    <>
+      {/* Mobile: 1 blog per page */}
+      <div className="block sm:hidden flex items-center justify-center min-h-[50vh]">
+        <PaginationCarousel
+          items={blogs}
+          itemsPerPage={1}
+          renderItem={renderBlogCard}
+          className="space-y-6"
+        />
+      </div>
+
+      {/* Small Tablet: 1 blog per page */}
+      <div className="hidden sm:block md:hidden flex items-center justify-center min-h-[50vh]">
+        <PaginationCarousel
+          items={blogs}
+          itemsPerPage={1}
+          renderItem={renderBlogCard}
+          className="space-y-6"
+        />
+      </div>
+
+      {/* Medium Tablet: 2 blogs per page */}
+      <div className="hidden md:block lg:hidden flex items-center justify-center min-h-[50vh]">
+        <PaginationCarousel
+          items={blogs}
+          itemsPerPage={2}
+          renderItem={renderBlogCard}
+          className="space-y-6"
+        />
+      </div>
+
+      {/* Desktop: Grid Layout */}
+      <div className="hidden lg:grid lg:grid-cols-3 gap-6 w-full">
+        {blogs.map((blog: any) => renderBlogCard(blog, 0))}
+      </div>
+    </>
   );
 }
