@@ -32,6 +32,10 @@ export default function Portfolio() {
       // Don't handle scroll if dialog is open or already scrolling
       if (isScrolling || isDialogOpen) return;
 
+      // Prevent default browser scrolling
+      event.preventDefault();
+      event.stopPropagation();
+
       setIsScrolling(true);
 
       if (event.deltaY > 0) {
@@ -85,6 +89,15 @@ export default function Portfolio() {
     // Listen for dialog open/close events
     const handleDialogToggle = (event: CustomEvent) => {
       setIsDialogOpen(event.detail.isOpen);
+
+      // When dialog closes, ensure custom scrolling is properly restored
+      if (!event.detail.isOpen) {
+        // Small delay to ensure DOM cleanup is complete
+        setTimeout(() => {
+          // Force a reflow to ensure proper rendering
+          document.body.offsetHeight;
+        }, 100);
+      }
     };
 
     window.addEventListener("wheel", handleScroll);

@@ -16,9 +16,13 @@ export default function MobileWarningDialog({
   const [deviceType, setDeviceType] = useState<"mobile" | "tablet" | "unknown">(
     "unknown"
   );
+  const [scrollPosition, setScrollPosition] = useState(0);
 
   useEffect(() => {
     if (isVisible) {
+      // Store current scroll position before opening dialog
+      setScrollPosition(window.scrollY || 0);
+
       // Determine device type based on screen width
       const width = window.innerWidth;
       if (width < 768) {
@@ -29,11 +33,12 @@ export default function MobileWarningDialog({
         setDeviceType("unknown");
       }
 
-      // Disable scrolling when dialog is open - multiple methods for better coverage
+      // Disable scrolling when dialog is open - improved method
       document.body.style.overflow = "hidden";
       document.body.style.position = "fixed";
       document.body.style.width = "100%";
-      document.body.style.top = `-${window.scrollY}px`;
+      document.body.style.height = "100%";
+      document.body.style.top = `-${scrollPosition}px`;
 
       // Add a class to the html element for additional CSS-based prevention
       document.documentElement.classList.add("dialog-open");
@@ -43,18 +48,16 @@ export default function MobileWarningDialog({
         new CustomEvent("dialogOpen", { detail: { isOpen: true } })
       );
     } else {
-      // Re-enable scrolling when dialog is closed
-      const scrollY = document.body.style.top;
+      // Re-enable scrolling when dialog is closed - improved method
       document.body.style.overflow = "";
       document.body.style.position = "";
       document.body.style.width = "";
+      document.body.style.height = "";
       document.body.style.top = "";
       document.documentElement.classList.remove("dialog-open");
 
-      // Restore scroll position
-      if (scrollY) {
-        window.scrollTo(0, parseInt(scrollY || "0") * -1);
-      }
+      // Don't call window.scrollTo - let the custom scrolling handle it
+      // Just ensure the body is properly positioned
 
       // Dispatch custom event to re-enable portfolio's custom scroll handling
       window.dispatchEvent(
@@ -64,23 +67,36 @@ export default function MobileWarningDialog({
 
     // Cleanup function to re-enable scrolling
     return () => {
-      const scrollY = document.body.style.top;
       document.body.style.overflow = "";
       document.body.style.position = "";
       document.body.style.width = "";
+      document.body.style.height = "";
       document.body.style.top = "";
       document.documentElement.classList.remove("dialog-open");
 
-      if (scrollY) {
-        window.scrollTo(0, parseInt(scrollY || "0") * -1);
-      }
+      // Don't call window.scrollTo - let the custom scrolling handle it
 
       // Ensure portfolio's custom scroll handling is re-enabled
       window.dispatchEvent(
         new CustomEvent("dialogOpen", { detail: { isOpen: false } })
       );
     };
-  }, [isVisible]);
+  }, [isVisible, scrollPosition]);
+
+  // Additional cleanup when component unmounts
+  useEffect(() => {
+    return () => {
+      // Final cleanup to ensure scrolling is restored
+      document.body.style.overflow = "";
+      document.body.style.position = "";
+      document.body.style.width = "";
+      document.body.style.height = "";
+      document.body.style.top = "";
+      document.documentElement.classList.remove("dialog-open");
+
+      // Don't call window.scrollTo - let the custom scrolling handle it
+    };
+  }, [scrollPosition]);
 
   const handleRefresh = () => {
     window.location.reload();

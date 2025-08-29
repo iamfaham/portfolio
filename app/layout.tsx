@@ -25,6 +25,10 @@ export default function RootLayout({
           name="google-site-verification"
           content="Ssijj4aoUCOKQXAAVqy1hYbYZGlnjEehmCXB2fGV6zs"
         />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+        />
         <link rel="icon" href="/favicon-2.ico" />
       </head>
       <body className="bg-dark-gray text-light-gray">
