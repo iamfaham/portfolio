@@ -126,32 +126,38 @@ export default function BlogCards() {
     <>
       {/* Mobile: 1 blog per page */}
       <div className="block sm:hidden flex items-center justify-center min-h-[50vh]">
-        <PaginationCarousel
-          items={blogs}
-          itemsPerPage={1}
-          renderItem={renderBlogCard}
-          className="space-y-6"
-        />
+        <div className="w-full max-w-md mx-auto">
+          <PaginationCarousel
+            items={blogs}
+            itemsPerPage={1}
+            renderItem={renderBlogCard}
+            className="space-y-6"
+          />
+        </div>
       </div>
 
       {/* Small Tablet: 1 blog per page */}
       <div className="hidden sm:block md:hidden flex items-center justify-center min-h-[50vh]">
-        <PaginationCarousel
-          items={blogs}
-          itemsPerPage={1}
-          renderItem={renderBlogCard}
-          className="space-y-6"
-        />
+        <div className="w-full max-w-md mx-auto">
+          <PaginationCarousel
+            items={blogs}
+            itemsPerPage={1}
+            renderItem={renderBlogCard}
+            className="space-y-6"
+          />
+        </div>
       </div>
 
       {/* Medium Tablet: 2 blogs per page */}
       <div className="hidden md:block lg:hidden flex items-center justify-center min-h-[50vh]">
-        <PaginationCarousel
-          items={blogs}
-          itemsPerPage={2}
-          renderItem={renderBlogCard}
-          className="space-y-6"
-        />
+        <div className="w-full max-w-2xl mx-auto">
+          <PaginationCarousel
+            items={blogs}
+            itemsPerPage={2}
+            renderItem={renderBlogCard}
+            className="space-y-6"
+          />
+        </div>
       </div>
 
       {/* Desktop: Grid Layout */}

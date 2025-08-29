@@ -39,7 +39,7 @@ export default function ExperienceSection() {
           </div>
 
           {/* Mobile Pagination Layout */}
-          <div className="md:hidden w-full max-w-sm">
+          <div className="md:hidden w-full max-w-md mx-auto">
             <PaginationCarousel
               items={experiences}
               itemsPerPage={1}

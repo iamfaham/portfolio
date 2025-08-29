@@ -124,7 +124,7 @@ export default function ProjectsSection() {
           </div>
 
           {/* Mobile Pagination Layout */}
-          <div className="md:hidden w-full max-w-sm">
+          <div className="md:hidden w-full max-w-md mx-auto">
             <PaginationCarousel
               items={projects}
               itemsPerPage={1}
