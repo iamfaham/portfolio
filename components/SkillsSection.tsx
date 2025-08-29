@@ -1,22 +1,17 @@
 // components/SkillsSection.tsx
+import { FaPython, FaDocker, FaGitAlt, FaGithub } from "react-icons/fa";
 import {
-  FaJsSquare,
-  FaReact,
-  FaNodeJs,
-  FaPython,
-  FaDocker,
-  FaGitAlt,
-  FaGithub,
-} from "react-icons/fa";
-import {
-  SiTypescript,
-  SiNextdotjs,
-  SiTailwindcss,
   SiFastapi,
-  SiMongodb,
   SiSupabase,
-  SiNpm,
-  SiFramer,
+  SiPytorch,
+  SiScikitlearn,
+  SiTensorflow,
+  SiPandas,
+  SiNumpy,
+  SiPlotly,
+  SiLangchain,
+  SiStreamlit,
+  SiPostgresql,
 } from "react-icons/si";
 import { motion } from "framer-motion";
 import ShineBorder from "./magicui/shine-border";
@@ -24,21 +19,21 @@ import { getSkills, getColorMap } from "@/lib/data";
 
 // Icon mapping
 const iconMap: { [key: string]: any } = {
-  SiNextdotjs: SiNextdotjs,
-  FaReact: FaReact,
-  FaNodeJs: FaNodeJs,
-  SiTailwindcss: SiTailwindcss,
-  FaJsSquare: FaJsSquare,
-  SiTypescript: SiTypescript,
-  SiMongodb: SiMongodb,
-  SiSupabase: SiSupabase,
-  SiNpm: SiNpm,
-  FaGithub: FaGithub,
-  FaGitAlt: FaGitAlt,
-  SiFramer: SiFramer,
   SiFastapi: SiFastapi,
+  SiSupabase: SiSupabase,
+  SiPytorch: SiPytorch,
+  SiScikitlearn: SiScikitlearn,
+  SiTensorflow: SiTensorflow,
+  SiPandas: SiPandas,
+  SiNumpy: SiNumpy,
+  SiPlotly: SiPlotly,
+  SiLangchain: SiLangchain,
+  SiStreamlit: SiStreamlit,
+  SiPostgresql: SiPostgresql,
   FaPython: FaPython,
   FaDocker: FaDocker,
+  FaGitAlt: FaGitAlt,
+  FaGithub: FaGithub,
 };
 
 const itemVariants = {

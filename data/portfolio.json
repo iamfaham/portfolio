@@ -50,49 +50,54 @@
   ],
   "skills": [
     {
-      "name": "Next.js",
-      "icon": "SiNextdotjs",
-      "color": "text-white"
+      "name": "PyTorch",
+      "icon": "SiPytorch",
+      "color": "text-red-600"
     },
     {
-      "name": "React",
-      "icon": "FaReact",
-      "color": "text-blue-400"
+      "name": "scikit-learn",
+      "icon": "SiScikitlearn",
+      "color": "text-orange-600"
     },
     {
-      "name": "Node.js",
-      "icon": "FaNodeJs",
-      "color": "text-green-500"
+      "name": "TensorFlow",
+      "icon": "SiTensorflow",
+      "color": "text-orange-500"
     },
     {
-      "name": "Tailwind CSS",
-      "icon": "SiTailwindcss",
-      "color": "text-teal-500"
+      "name": "Pandas",
+      "icon": "SiPandas",
+      "color": "text-blue-600"
     },
     {
-      "name": "JavaScript",
-      "icon": "FaJsSquare",
-      "color": "text-yellow-500"
+      "name": "NumPy",
+      "icon": "SiNumpy",
+      "color": "text-blue-700"
     },
     {
-      "name": "TypeScript",
-      "icon": "SiTypescript",
-      "color": "text-blue-500"
+      "name": "Plotly",
+      "icon": "SiPlotly",
+      "color": "text-purple-500"
     },
     {
-      "name": "MongoDB",
-      "icon": "SiMongodb",
-      "color": "text-green-500"
+      "name": "LangChain",
+      "icon": "SiLangchain",
+      "color": "text-green-800"
+    },
+    {
+      "name": "Streamlit",
+      "icon": "SiStreamlit",
+      "color": "text-red-500"
+    },
+    {
+      "name": "PostgreSQL",
+      "icon": "SiPostgresql",
+      "color": "text-blue-600"
     },
     {
       "name": "Supabase",
       "icon": "SiSupabase",
       "color": "text-green-400"
-    },
-    {
-      "name": "npm",
-      "icon": "SiNpm",
-      "color": "text-red-500"
     },
     {
       "name": "GitHub",
@@ -103,11 +108,6 @@
       "name": "Git",
       "icon": "FaGitAlt",
       "color": "text-orange-500"
-    },
-    {
-      "name": "Framer Motion",
-      "icon": "SiFramer",
-      "color": "text-pink-500"
     },
     {
       "name": "FastAPI",
@@ -135,16 +135,18 @@
   ],
   "colorMap": {
     "text-white": "#ffffff",
-    "text-blue-400": "#60a5fa",
-    "text-green-500": "#10b981",
-    "text-teal-500": "#14b8a6",
-    "text-yellow-500": "#eab308",
-    "text-blue-500": "#3b82f6",
     "text-green-400": "#4ade80",
     "text-red-500": "#ef4444",
     "text-orange-500": "#f97316",
-    "text-pink-500": "#ec4899",
     "text-green-600": "#059669",
-    "text-yellow-400": "#facc15"
+    "text-yellow-400": "#facc15",
+    "text-red-600": "#dc2626",
+    "text-orange-600": "#ea580c",
+    "text-blue-500": "#3b82f6",
+    "text-blue-600": "#2563eb",
+    "text-blue-700": "#1d4ed8",
+    "text-purple-500": "#a855f7",
+    "text-blue-800": "#1e40af",
+    "text-green-800": "#166534"
   }
 } 
