@@ -21,6 +21,7 @@ export default function Portfolio() {
   const [isScrolling, setIsScrolling] = useState(false);
   const [touchStartY, setTouchStartY] = useState(0);
   const [touchEndY, setTouchEndY] = useState(0);
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   const isMobile = () => {
     return window.innerWidth <= 768;
@@ -28,7 +29,8 @@ export default function Portfolio() {
 
   useEffect(() => {
     const handleScroll = throttle((event: WheelEvent) => {
-      if (isScrolling) return;
+      // Don't handle scroll if dialog is open or already scrolling
+      if (isScrolling || isDialogOpen) return;
 
       setIsScrolling(true);
 
@@ -44,17 +46,22 @@ export default function Portfolio() {
     }, 1500);
 
     const handleTouchStart = (event: TouchEvent) => {
+      // Don't handle touch if dialog is open
+      if (isDialogOpen) return;
       setTouchStartY(event.touches[0].clientY);
       setTouchEndY(event.touches[0].clientY);
     };
 
     const handleTouchMove = (event: TouchEvent) => {
+      // Don't handle touch if dialog is open
+      if (isDialogOpen) return;
       setTouchEndY(event.touches[0].clientY);
     };
 
     const handleTouchEnd = debounce(
       () => {
-        if (isScrolling) return;
+        // Don't handle touch if dialog is open or already scrolling
+        if (isScrolling || isDialogOpen) return;
 
         setIsScrolling(true);
 
@@ -75,18 +82,28 @@ export default function Portfolio() {
       isMobile() ? 200 : 2000
     );
 
+    // Listen for dialog open/close events
+    const handleDialogToggle = (event: CustomEvent) => {
+      setIsDialogOpen(event.detail.isOpen);
+    };
+
     window.addEventListener("wheel", handleScroll);
     window.addEventListener("touchstart", handleTouchStart);
     window.addEventListener("touchmove", handleTouchMove);
     window.addEventListener("touchend", handleTouchEnd);
+    window.addEventListener("dialogOpen", handleDialogToggle as EventListener);
 
     return () => {
       window.removeEventListener("wheel", handleScroll);
       window.removeEventListener("touchstart", handleTouchStart);
       window.removeEventListener("touchmove", handleTouchMove);
       window.removeEventListener("touchend", handleTouchEnd);
+      window.removeEventListener(
+        "dialogOpen",
+        handleDialogToggle as EventListener
+      );
     };
-  }, [isScrolling, touchStartY, touchEndY, setCurrentSection]);
+  }, [isScrolling, touchStartY, touchEndY, setCurrentSection, isDialogOpen]);
 
   return (
     <main>

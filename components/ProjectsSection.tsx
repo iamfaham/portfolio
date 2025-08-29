@@ -42,26 +42,15 @@ export default function ProjectsSection() {
         <p className="text-md text-gray-400 mt-2 mb-4">{project.description}</p>
 
         {/* GitHub stats and metadata */}
-        {project.githubData && (
+        {/* {project.githubData && (
           <div className="flex items-center gap-4 mb-4 text-sm text-gray-400 border-t border-gray-700 pt-3">
             {project.githubData.language && (
               <span className="flex items-center gap-1">
                 💻 {project.githubData.language}
               </span>
             )}
-            {project.githubData.forks_count > 0 && (
-              <span className="flex items-center gap-1">
-                🍴 {project.githubData.forks_count}
-              </span>
-            )}
-            {project.githubData.topics &&
-              project.githubData.topics.length > 0 && (
-                <span className="flex items-center gap-1">
-                  🏷️ {project.githubData.topics.slice(0, 3).join(", ")}
-                </span>
-              )}
           </div>
-        )}
+        )} */}
 
         <Link
           href={project.projectUrl}

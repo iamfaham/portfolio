@@ -12,6 +12,19 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Prevent scrolling when dialog is open */
+html.dialog-open {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+}
+
+html.dialog-open body {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+}
+
 body {
   @apply text-light-gray;
   background-color: black;
