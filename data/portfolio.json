@@ -16,25 +16,13 @@
   },
   "projects": [
     {
-      "title": "EncypherX",
-      "description": "EncypherX, a password manager with AES-encrypted password storage, etc.",
-      "projectUrl": "https://github.com/iamfaham/EncypherX",
-      "technologies": ["React", "Node.js", "AES Encryption"],
-      "image": null
+      "githubRepo": "iamfaham/multimodal-sentiment-analysis"
     },
     {
-      "title": "SeCode",
-      "description": "A VS code extension for analysing security flaws in your code.",
-      "projectUrl": "https://github.com/iamfaham/secode",
-      "technologies": ["TypeScript", "VS Code API", "Security Analysis"],
-      "image": null
+      "githubRepo": "iamfaham/secode"
     },
     {
-      "title": "Visualify",
-      "description": "An AI-based image editor using Next.js and Cloudinary SDK",
-      "projectUrl": "https://github.com/iamfaham/Visualify",
-      "technologies": ["Next.js", "AI/ML", "Cloudinary", "Image Processing"],
-      "image": null
+      "githubRepo": "iamfaham/Visualify"
     }
   ],
   "experience": [

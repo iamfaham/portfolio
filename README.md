@@ -9,6 +9,7 @@ This is a modern, interactive portfolio website template for developers. Clone i
 - **Animated cursor and magic UI effects**
 - **Responsive design** for all devices
 - **Dynamic blog fetching** from Dev.to with animated loader
+- **GitHub API integration** for automatic project data fetching
 - **All data (projects, skills, experience, etc.) is managed via a single JSON file for easy updates**
 - **Modern UI/UX** with Tailwind CSS, Framer Motion, and custom components
 
