@@ -1,5 +1,6 @@
 import axios from "axios";
 import { GITHUB_CONFIG } from "./config";
+import { formatProjectTitle } from "./utils";
 
 export interface GitHubRepo {
   id: number;
@@ -102,7 +103,7 @@ class GitHubService {
   // Convert GitHub repo data to our Project interface
   convertToProject(githubRepo: GitHubRepo): Project {
     return {
-      title: githubRepo.name,
+      title: formatProjectTitle(githubRepo.name),
       description: githubRepo.description || "No description available",
       projectUrl: githubRepo.html_url,
       technologies: githubRepo.topics || [],

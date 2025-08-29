@@ -1,5 +1,6 @@
 import portfolioData from "@/data/portfolio.json";
 import { githubService } from "./github";
+import { formatProjectTitle } from "./utils";
 
 export interface Project {
   title: string;
@@ -74,8 +75,9 @@ export const getProjects = async (): Promise<Project[]> => {
       } catch (error) {
         console.error(`Failed to fetch project ${config.githubRepo}:`, error);
         // Fallback to basic project info
+        const repoName = config.githubRepo.split("/")[1] || "Unknown Project";
         projects.push({
-          title: config.githubRepo.split("/")[1] || "Unknown Project",
+          title: formatProjectTitle(repoName),
           description: "Project details unavailable",
           projectUrl: `https://github.com/${config.githubRepo}`,
           technologies: [],
@@ -93,13 +95,16 @@ export const getProjects = async (): Promise<Project[]> => {
 
 // Keep the synchronous version for backward compatibility
 export const getProjectsSync = (): Project[] => {
-  return portfolioData.projects.map((config) => ({
-    title: config.githubRepo.split("/")[1] || "Unknown Project",
-    description: "Project details unavailable",
-    projectUrl: `https://github.com/${config.githubRepo}`,
-    technologies: [],
-    image: null,
-  }));
+  return portfolioData.projects.map((config) => {
+    const repoName = config.githubRepo.split("/")[1] || "Unknown Project";
+    return {
+      title: formatProjectTitle(repoName),
+      description: "Project details unavailable",
+      projectUrl: `https://github.com/${config.githubRepo}`,
+      technologies: [],
+      image: null,
+    };
+  });
 };
 
 export const getExperience = (): Experience[] => {
