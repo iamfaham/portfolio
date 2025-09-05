@@ -5,8 +5,12 @@
 html, body, #__next {
   height: 100%;
   margin: 0;
-  /* Only prevent default scrolling, allow our custom scroller to work */
-  overflow: hidden;
+  /* Enable vertical scrolling for CSS scroll snap, prevent horizontal */
+  overflow-x: hidden;
+  overflow-y: auto;
+  /* Prevent layout shifts */
+  position: relative;
+  width: 100%;
 }
 
 html {
@@ -81,11 +85,24 @@ html.dialog-open body {
 body {
   @apply text-light-gray;
   background-color: black;
+  /* Prevent horizontal scrolling and layout shifts */
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
+  position: relative;
 }
 
 .section {
   @apply flex items-center justify-center min-h-screen;
-  background-color: black
+  background-color: black;
+  /* CSS Scroll Snap properties */
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  /* Performance optimizations for smoother scrolling */
+  will-change: transform;
+  backface-visibility: hidden;
+  perspective: 1000px;
+  transform-style: preserve-3d;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -162,7 +179,213 @@ h1, h2, h3, h4, h5, h6 {
 .section {
   height: 100vh;
   scroll-snap-align: start;
+  scroll-snap-stop: always;
+  /* Prevent horizontal overflow and layout shifts */
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+  position: relative;
 }
+
+/* Floating overlay navigation */
+.floating-nav {
+  position: fixed;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 25px;
+  padding: 15px 8px;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.floating-nav:hover {
+  background: rgba(0, 0, 0, 0.9);
+  border-color: rgba(0, 198, 255, 0.3);
+  box-shadow: 0 8px 32px rgba(0, 198, 255, 0.1);
+}
+
+/* Navigation dots */
+.nav-dot {
+  display: block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  margin: 8px 0;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+.nav-dot:hover {
+  background: rgba(0, 198, 255, 0.6);
+  transform: scale(1.2);
+}
+
+.nav-dot.active {
+  background: #00c6ff;
+  transform: scale(1.4);
+  box-shadow: 0 0 25px rgba(0, 198, 255, 0.8);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.nav-dot.active::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: -25px;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 2px;
+  background: #00c6ff;
+  border-radius: 1px;
+  animation: slideIn 0.3s ease;
+}
+
+.nav-dot.active::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(0, 198, 255, 0.3);
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.5);
+    opacity: 0;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    width: 0;
+    opacity: 0;
+  }
+  to {
+    width: 20px;
+    opacity: 1;
+  }
+}
+
+/* Tooltip for nav dots */
+.nav-tooltip {
+  position: absolute;
+  right: 35px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.9);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-dot:hover .nav-tooltip {
+  opacity: 1;
+}
+
+/* Scroll progress indicator */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: rgba(0, 198, 255, 0.2);
+  z-index: 1001;
+}
+
+.scroll-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #00c6ff, #00ffcc, #b54dff);
+  width: 0%;
+  transition: width 0.1s ease;
+}
+
+/* Mobile navigation */
+@media (max-width: 768px) {
+  .floating-nav {
+    right: 15px;
+    padding: 12px 6px;
+  }
+  
+  .nav-dot {
+    width: 10px;
+    height: 10px;
+    margin: 6px 0;
+  }
+  
+  .nav-dot.active::before {
+    right: -20px;
+    width: 15px;
+  }
+  
+  .nav-tooltip {
+    right: 30px;
+    font-size: 11px;
+    padding: 4px 8px;
+  }
+  
+  /* Prevent horizontal scrolling on mobile */
+  body {
+    touch-action: pan-y;
+    overscroll-behavior-x: none;
+  }
+  
+  .scroll-container {
+    touch-action: pan-y;
+    overscroll-behavior-x: none;
+  }
+}
+
+/* Scroll container for CSS scroll snap */
+.scroll-container {
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  /* Prevent layout shifts and horizontal scrolling */
+  position: relative;
+  width: 100%;
+  max-width: 100vw;
+  /* Hide scrollbar but keep functionality */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+/* Ensure no scrollbars appear anywhere */
+.scroll-container::-webkit-scrollbar {
+  display: none; /* WebKit */
+}
+
+/* Additional overflow prevention */
+* {
+  box-sizing: border-box;
+}
+
+
+
 
 
 @keyframes gradient-animation {

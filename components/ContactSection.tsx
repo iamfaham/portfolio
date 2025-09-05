@@ -58,12 +58,9 @@ export default function ContactSection() {
 
   return (
     <>
-      <section
-        id="contact"
-        className="section w-full py-12 md:py-24 lg:py-32 z-100"
-      >
+      <section id="contact" className="section w-full py-8 md:py-12 lg:py-16">
         <div className="container max-w-6xl mx-auto px-4 md:px-6 text-center">
-          <div className="flex flex-col items-center space-y-8">
+          <div className="flex flex-col items-center space-y-6">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
               Get in Touch
             </h2>
@@ -71,7 +68,7 @@ export default function ContactSection() {
               Have a project in mind? Let&apos;s discuss how I can help.
             </p>
             <form
-              className="w-full max-w-lg mx-auto space-y-4"
+              className="w-full max-w-lg mx-auto space-y-3"
               onSubmit={handleSubmit}
             >
               <input
@@ -97,6 +94,7 @@ export default function ContactSection() {
                 placeholder="Message"
                 value={formData.message}
                 onChange={handleChange}
+                rows={4}
                 className="w-full rounded-md bg-background px-4 py-2 text-foreground shadow-sm hover:bg-gray-900 hover:text-accent-foreground focus:outline-none focus:ring-1 focus:ring-accent disabled:cursor-not-allowed disabled:opacity-50"
                 required
               />
@@ -115,7 +113,7 @@ export default function ContactSection() {
                 <div className="absolute inset-0 rounded-md bg-gradient-to-r from-cyan-400 to-cyan-600 opacity-0 hover:opacity-20 transition-opacity duration-300"></div>
               </button>
             </form>
-            <div className="mt-8">
+            <div className="mt-6">
               <h3 className="text-xl font-semibold mb-4">
                 Connect with me at:
               </h3>

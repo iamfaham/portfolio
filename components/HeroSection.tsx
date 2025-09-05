@@ -30,21 +30,6 @@ export default function HeroSection() {
 
   return (
     <section className="w-full pt-4 md:pt-0 flex justify-center">
-      {/* Prism Background */}
-      {/* <div className="absolute inset-0 z-0">
-        <Prism
-          animationType="rotate"
-          timeScale={0.5}
-          height={3.5}
-          baseWidth={6.0}
-          scale={3.5}
-          hueShift={0}
-          colorFrequency={1}
-          noise={0.1}
-          glow={1}
-        />
-      </div> */}
-
       <div className="container xl:space-y-16">
         <div className="max-w-[1300px] mx-auto gap-4 px-4">
           <Meteors number={30} />
