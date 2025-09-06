@@ -37,24 +37,20 @@ export default function PaginationCarousel({
       {/* Navigation Arrows */}
       {totalPages > 1 && (
         <>
-          <motion.button
+          <button
             onClick={goToPrevious}
             disabled={currentPage === 0}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 p-2 rounded-full bg-black/50 hover:bg-black/70 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 backdrop-blur-sm"
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 p-2 rounded-full bg-black/50 hover:bg-black/70 disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-200 backdrop-blur-sm"
           >
             <ChevronLeft className="w-6 h-6 text-white" />
-          </motion.button>
-          <motion.button
+          </button>
+          <button
             onClick={goToNext}
             disabled={currentPage === totalPages - 1}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 p-2 rounded-full bg-black/50 hover:bg-black/70 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 backdrop-blur-sm"
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 p-2 rounded-full bg-black/50 hover:bg-black/70 disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-200 backdrop-blur-sm"
           >
             <ChevronRight className="w-6 h-6 text-white" />
-          </motion.button>
+          </button>
         </>
       )}
 

@@ -11,8 +11,8 @@ export default function AboutSection() {
   return (
     <section id="about" className="section w-full py-12 md:py-24 lg:py-32">
       <div className="container max-w-6xl mx-auto px-4 md:px-6 flex flex-col lg:flex-row items-center space-y-8 md:space-y-0 md:space-x-8 lg:space-x-12 xl:space-x-16">
-        {/* Profile Image Section - Unchanged */}
-        <motion.div ref={constraintsRef} className=" w-1/2 md:w-1/3 lg:w-3/4">
+        {/* Profile Image Section */}
+        <motion.div ref={constraintsRef} className="w-1/2 md:w-1/3 lg:w-3/4">
           <NeonGradientCard className="rounded-full">
             <motion.img
               loading="lazy"

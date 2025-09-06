@@ -24,7 +24,7 @@ export const usePagination = ({
       setSlideDirection("left");
       setCurrentPage((prev) => prev + 1);
 
-      // Reset direction after animation
+      // Reset direction after animation completes
       setTimeout(() => {
         setSlideDirection(null);
       }, 300);
@@ -36,7 +36,7 @@ export const usePagination = ({
       setSlideDirection("right");
       setCurrentPage((prev) => prev - 1);
 
-      // Reset direction after animation
+      // Reset direction after animation completes
       setTimeout(() => {
         setSlideDirection(null);
       }, 300);

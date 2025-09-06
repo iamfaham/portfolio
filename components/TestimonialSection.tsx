@@ -11,8 +11,8 @@ export default function TestimonialSection() {
           {/* Testimonial cards would go here */}
           <div className="bg-gray-800 p-6 rounded-lg">
             <p className="text-gray-300 mb-4">
-              "Great work on the project! Very professional and delivered on
-              time."
+              &quot;Great work on the project! Very professional and delivered
+              on time.&quot;
             </p>
             <div className="flex items-center">
               <div className="w-10 h-10 bg-gray-600 rounded-full mr-4"></div>
