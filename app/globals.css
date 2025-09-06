@@ -286,24 +286,6 @@ h1, h2, h3, h4, h5, h6 {
   opacity: 1;
 }
 
-/* Scroll progress indicator */
-.scroll-progress {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 3px;
-  background: rgba(0, 198, 255, 0.2);
-  z-index: 1001;
-}
-
-.scroll-progress-bar {
-  height: 100%;
-  background: linear-gradient(90deg, #00c6ff, #00ffcc, #b54dff);
-  width: 0%;
-  transition: width 0.1s ease;
-}
-
 /* Mobile navigation */
 @media (max-width: 768px) {
   .floating-nav {

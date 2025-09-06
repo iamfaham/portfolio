@@ -48,13 +48,20 @@ export default function FloatingNav() {
       }
     });
 
-    // Fallback scroll handler for progress bar
+    // Fallback scroll handler for progress bar - throttled for performance
+    let ticking = false;
     const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      const docHeight =
-        document.documentElement.scrollHeight - window.innerHeight;
-      const progress = Math.min((scrollTop / docHeight) * 100, 100);
-      setScrollProgress(progress);
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const scrollTop = window.scrollY;
+          const docHeight =
+            document.documentElement.scrollHeight - window.innerHeight;
+          const progress = Math.min((scrollTop / docHeight) * 100, 100);
+          setScrollProgress(progress);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -83,14 +90,6 @@ export default function FloatingNav() {
 
   return (
     <>
-      {/* Scroll progress indicator */}
-      <div className="scroll-progress">
-        <div
-          className="scroll-progress-bar"
-          style={{ width: `${scrollProgress}%` }}
-        />
-      </div>
-
       {/* Floating navigation overlay */}
       <nav className="floating-nav">
         {navItems.map((item) => {
