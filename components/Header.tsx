@@ -1,6 +1,14 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import {
+  FaHome,
+  FaUser,
+  FaProjectDiagram,
+  FaCode,
+  FaBriefcase,
+  FaEnvelope,
+} from "react-icons/fa";
 
 export default function FloatingNav() {
   const [activeSection, setActiveSection] = useState("heroDiv");
@@ -65,12 +73,12 @@ export default function FloatingNav() {
   };
 
   const navItems = [
-    { name: "Home", id: "heroDiv" },
-    { name: "About", id: "aboutDiv" },
-    { name: "Projects", id: "projectsDiv" },
-    { name: "Skills", id: "skillsDiv" },
-    { name: "Experience", id: "experienceDiv" },
-    { name: "Contact", id: "contactDiv" },
+    { name: "Home", id: "heroDiv", icon: FaHome },
+    { name: "About", id: "aboutDiv", icon: FaUser },
+    { name: "Projects", id: "projectsDiv", icon: FaProjectDiagram },
+    { name: "Skills", id: "skillsDiv", icon: FaCode },
+    { name: "Experience", id: "experienceDiv", icon: FaBriefcase },
+    { name: "Contact", id: "contactDiv", icon: FaEnvelope },
   ];
 
   return (
@@ -87,6 +95,7 @@ export default function FloatingNav() {
       <nav className="floating-nav">
         {navItems.map((item) => {
           const isActive = activeSection === item.id;
+          const IconComponent = item.icon;
           return (
             <div
               key={item.id}
@@ -94,6 +103,7 @@ export default function FloatingNav() {
               onClick={() => scrollToSection(item.id)}
               title={item.name}
             >
+              <IconComponent className="nav-icon" />
               <div className="nav-tooltip">{item.name}</div>
             </div>
           );
