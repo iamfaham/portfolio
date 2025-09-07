@@ -12,7 +12,10 @@ export default function AboutSection() {
     <section id="about" className="section w-full py-12 md:py-24 lg:py-32">
       <div className="container max-w-6xl mx-auto px-4 md:px-6 flex flex-col lg:flex-row items-center space-y-8 md:space-y-0 md:space-x-8 lg:space-x-12 xl:space-x-16">
         {/* Profile Image Section */}
-        <motion.div ref={constraintsRef} className="w-1/2 md:w-1/3 lg:w-3/4">
+        <motion.div
+          ref={constraintsRef}
+          className="w-56 h-56 md:w-64 md:h-64 lg:w-80 lg:h-80 flex-shrink-0"
+        >
           <NeonGradientCard className="rounded-full">
             <motion.img
               loading="lazy"
@@ -20,7 +23,7 @@ export default function AboutSection() {
               dragConstraints={constraintsRef}
               src="/profile.png"
               alt={personalInfo.name}
-              className="rounded-full object-cover"
+              className="w-full h-full rounded-full object-cover"
               data-interactive
             />
           </NeonGradientCard>
