@@ -178,8 +178,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .section {
   height: 100vh;
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
+  /* scroll-snap-align: start; */
+  /* scroll-snap-stop: always; */
   /* Prevent horizontal overflow and layout shifts */
   width: 100%;
   max-width: 100vw;
