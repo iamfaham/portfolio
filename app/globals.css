@@ -96,13 +96,13 @@ body {
   @apply flex items-center justify-center min-h-screen;
   background-color: black;
   /* CSS Scroll Snap properties */
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
+  /* scroll-snap-align: start; */
+  /* scroll-snap-stop: always; */
   /* Performance optimizations for smoother scrolling */
-  will-change: transform;
-  backface-visibility: hidden;
-  perspective: 1000px;
-  transform-style: preserve-3d;
+  /* will-change: transform; */
+  /* backface-visibility: hidden; */
+  /* perspective: 1000px; */
+  /* transform-style: preserve-3d; */
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -327,7 +327,7 @@ h1, h2, h3, h4, h5, h6 {
   height: 100vh;
   overflow-x: hidden;
   overflow-y: scroll;
-  scroll-snap-type: y mandatory;
+  /* scroll-snap-type: y mandatory; */
   scroll-behavior: smooth;
   /* Prevent layout shifts and horizontal scrolling */
   position: relative;
@@ -389,4 +389,37 @@ h1, h2, h3, h4, h5, h6 {
 .container::-webkit-scrollbar-thumb {
   @apply bg-gray-700;
   border-radius: 5px;
+}
+
+/* Glass card — shared across all redesigned sections */
+.glass-card {
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
+}
+.glass-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0, 198, 255, 0.15), transparent);
+  pointer-events: none;
+}
+
+/* Section label — small uppercase cyan tag above section titles */
+.section-label {
+  color: rgba(0, 198, 255, 0.5);
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  display: block;
+}
+
+/* Dot grid background applied to page wrapper */
+.dot-grid {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 32px 32px;
 }

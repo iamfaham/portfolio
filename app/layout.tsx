@@ -31,7 +31,7 @@ export default function RootLayout({
         />
         <link rel="icon" href="/favicon-2.ico" />
       </head>
-      <body className="bg-dark-gray text-light-gray">
+      <body className="bg-black text-light-gray">
         <CursorFollower />
         <SmoothCursor />
         <main className="flex-1 h-screen">{children}</main>
