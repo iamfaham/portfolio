@@ -126,3 +126,24 @@ export const getSections = (): string[] => {
 export const getColorMap = (): { [key: string]: string } => {
   return portfolioData.colorMap;
 };
+
+export interface Stats {
+  aiProjects: number;
+  technologies: number;
+  githubStars: number;
+}
+
+export interface Testimonial {
+  name: string;
+  role: string;
+  text: string;
+  linkedinUrl: string;
+}
+
+export const getStats = (): Stats => {
+  return (portfolioData as any).stats as Stats;
+};
+
+export const getTestimonials = (): Testimonial[] => {
+  return ((portfolioData as any).testimonials ?? []) as Testimonial[];
+};
