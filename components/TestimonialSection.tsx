@@ -1,29 +1,63 @@
 "use client";
 
+import { getTestimonials } from "@/lib/data";
+import AnimatedSection from "@/components/AnimatedSection";
+import { StaggerContainer, StaggerItem } from "@/components/StaggerContainer";
+
 export default function TestimonialSection() {
+  const testimonials = getTestimonials();
+
+  if (testimonials.length === 0) return null;
+
   return (
-    <div className="py-20 bg-gray-900">
-      <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center text-white mb-12">
-          What People Say
-        </h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {/* Testimonial cards would go here */}
-          <div className="bg-gray-800 p-6 rounded-lg">
-            <p className="text-gray-300 mb-4">
-              &quot;Great work on the project! Very professional and delivered
-              on time.&quot;
-            </p>
-            <div className="flex items-center">
-              <div className="w-10 h-10 bg-gray-600 rounded-full mr-4"></div>
-              <div>
-                <h4 className="text-white font-semibold">John Doe</h4>
-                <p className="text-gray-400 text-sm">Client</p>
-              </div>
-            </div>
-          </div>
-        </div>
+    <section className="relative w-full py-24 px-6">
+      <div className="max-w-5xl mx-auto">
+        <AnimatedSection className="mb-12 text-center">
+          <p className="section-label" style={{ display: "block", textAlign: "center" }}>
+            Kind Words
+          </p>
+          <h2 className="text-white text-5xl font-extrabold tracking-[-1.5px]">Testimonials</h2>
+        </AnimatedSection>
+
+        <StaggerContainer className="grid md:grid-cols-3 gap-4">
+          {testimonials.map((t) => {
+            const initials = t.name
+              .split(" ")
+              .map((n) => n[0])
+              .join("")
+              .slice(0, 2)
+              .toUpperCase();
+
+            return (
+              <StaggerItem key={t.name}>
+                <div className="glass-card p-6 flex flex-col gap-4 h-full">
+                  <div className="text-[#00c6ff]/20 font-serif text-5xl leading-none">&ldquo;</div>
+                  <p className="text-white/40 text-sm leading-relaxed italic flex-1">{t.text}</p>
+                  <div className="flex items-center gap-3 pt-4 border-t border-white/5">
+                    <div className="w-9 h-9 rounded-full bg-[#00c6ff]/10 border border-[#00c6ff]/20 flex items-center justify-center text-[#00c6ff]/50 text-xs font-bold flex-shrink-0">
+                      {initials}
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <p className="text-white text-sm font-bold truncate">{t.name}</p>
+                      <p className="text-white/25 text-[11px] truncate">{t.role}</p>
+                    </div>
+                    {t.linkedinUrl && (
+                      <a
+                        href={t.linkedinUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[#00c6ff]/40 border border-[#00c6ff]/15 px-2 py-0.5 rounded text-[10px] hover:text-[#00c6ff]/60 transition-colors flex-shrink-0"
+                      >
+                        LinkedIn
+                      </a>
+                    )}
+                  </div>
+                </div>
+              </StaggerItem>
+            );
+          })}
+        </StaggerContainer>
       </div>
-    </div>
+    </section>
   );
 }
