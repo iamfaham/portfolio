@@ -25,10 +25,10 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-10 py-4 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-10 py-4 transition-all duration-300 backdrop-blur-md border-b ${
         scrolled
-          ? "bg-black/80 backdrop-blur-md border-b border-white/[0.04]"
-          : "bg-transparent"
+          ? "bg-black/70 border-white/[0.08] shadow-[0_1px_0_rgba(0,198,255,0.04)]"
+          : "bg-white/[0.02] border-white/[0.04]"
       }`}
     >
       <span className="text-white font-extrabold text-base tracking-tight">
