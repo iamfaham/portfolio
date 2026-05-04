@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { getPersonalInfo, getStats } from "@/lib/data";
 import { StaggerContainer, StaggerItem } from "@/components/StaggerContainer";
-import Meteors from "@/components/magicui/meteors";
+import ParticleField from "@/components/ParticleField";
 
 export default function HeroSection() {
   const personalInfo = getPersonalInfo();
@@ -11,9 +11,9 @@ export default function HeroSection() {
 
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center text-center px-5 pb-24 overflow-hidden">
-      {/* Meteor shower */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none -z-10">
-        <Meteors number={18} />
+      {/* Particle constellation */}
+      <div className="absolute inset-0 -z-10">
+        <ParticleField count={55} />
       </div>
 
       {/* Animated background blobs */}

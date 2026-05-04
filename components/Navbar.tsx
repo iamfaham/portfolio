@@ -26,7 +26,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-5 sm:px-10 py-4">
+      <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-5 sm:px-10 py-4 max-md:bg-black/70 max-md:backdrop-blur-md max-md:border-b max-md:border-white/[0.06]">
         <span className="text-white font-extrabold text-base tracking-tight">
           Faham.
         </span>
