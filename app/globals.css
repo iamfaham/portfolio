@@ -373,22 +373,35 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-::selection{
-  background: purple ;
+::selection {
+  background: rgba(0, 198, 255, 0.3);
 }
 
-::-moz-selection{
-  background: purple ;
+::-moz-selection {
+  background: rgba(0, 198, 255, 0.3);
 }
 
-.container::-webkit-scrollbar {
-  width: 10px;
-  background-color: black;
+/* Scrollbar — cyan on black */
+::-webkit-scrollbar {
+  width: 6px;
 }
 
-.container::-webkit-scrollbar-thumb {
-  @apply bg-gray-700;
-  border-radius: 5px;
+::-webkit-scrollbar-track {
+  background: #000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 198, 255, 0.25);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 198, 255, 0.45);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 198, 255, 0.25) #000;
 }
 
 /* Glass card — shared across all redesigned sections */

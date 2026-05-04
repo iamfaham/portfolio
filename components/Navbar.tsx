@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Link from "next/link";
 
 const scrollLinks = [
   { label: "About", id: "aboutDiv" },
@@ -24,23 +23,22 @@ export default function Navbar() {
   };
 
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-10 py-4 transition-all duration-300 backdrop-blur-md border-b ${
-        scrolled
-          ? "bg-black/70 border-white/[0.08] shadow-[0_1px_0_rgba(0,198,255,0.04)]"
-          : "bg-white/[0.02] border-white/[0.04]"
-      }`}
-    >
+    <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-10 py-4">
       <span className="text-white font-extrabold text-base tracking-tight">
         Faham.
       </span>
 
-      <div className="hidden md:flex items-center gap-7">
+      {/* Glass pill — only the nav links get the glassmorphism treatment */}
+      <div
+        className={`hidden md:flex items-center gap-1 px-2 py-1.5 rounded-full border border-white/[0.08] backdrop-blur-md transition-all duration-300 ${
+          scrolled ? "bg-white/[0.06]" : "bg-white/[0.03]"
+        }`}
+      >
         {scrollLinks.map((link) => (
           <button
             key={link.id}
             onClick={() => scrollTo(link.id)}
-            className="text-white/30 hover:text-white/70 text-sm transition-colors duration-200 cursor-pointer"
+            className="text-white/40 hover:text-white/80 text-sm px-4 py-1.5 rounded-full hover:bg-white/[0.06] transition-all duration-200 cursor-pointer"
           >
             {link.label}
           </button>
@@ -49,7 +47,7 @@ export default function Navbar() {
           href="https://dev.to/iamfaham"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-white/30 hover:text-white/70 text-sm transition-colors duration-200"
+          className="text-white/40 hover:text-white/80 text-sm px-4 py-1.5 rounded-full hover:bg-white/[0.06] transition-all duration-200"
         >
           Blog
         </a>
