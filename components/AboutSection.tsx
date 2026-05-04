@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { getPersonalInfo } from "@/lib/data";
 import AnimatedSection from "@/components/AnimatedSection";
 
@@ -9,10 +8,15 @@ const quickFacts = [
   { icon: "📍", label: "Based in", value: "Buffalo, US" },
   { icon: "🎓", label: "Focus", value: "AI / ML / GenAI" },
   { icon: "💼", label: "Available for", value: "Freelance & Full-time" },
-  { icon: "✉️", label: "Contact", value: "m.faham.s@gmail.com" },
+  { icon: "✉️", label: "Contact", value: "iamfaham5@gmail.com" },
 ];
 
-const interests = ["Generative AI", "Agentic Systems", "LLMs", "Strategy Games"];
+const interests = [
+  "Generative AI",
+  "Agentic Systems",
+  "LLMs",
+  "Strategy Games",
+];
 
 export default function AboutSection() {
   const personalInfo = getPersonalInfo();
@@ -22,7 +26,9 @@ export default function AboutSection() {
       <div className="max-w-4xl mx-auto">
         <AnimatedSection className="mb-12">
           <p className="section-label">Who I Am</p>
-          <h2 className="text-white text-5xl font-extrabold tracking-[-1.5px]">About Me</h2>
+          <h2 className="text-white text-5xl font-extrabold tracking-[-1.5px]">
+            About Me
+          </h2>
         </AnimatedSection>
 
         <div className="grid grid-cols-1 lg:grid-cols-[220px_1fr] gap-12 items-start">
@@ -41,10 +47,16 @@ export default function AboutSection() {
             <div className="glass-card p-4 flex flex-col gap-3">
               {quickFacts.map(({ icon, label, value }) => (
                 <div key={label} className="flex items-start gap-3">
-                  <span className="text-sm w-5 text-center flex-shrink-0 mt-0.5">{icon}</span>
+                  <span className="text-sm w-5 text-center flex-shrink-0 mt-0.5">
+                    {icon}
+                  </span>
                   <div>
-                    <p className="text-white/65 text-[11px] font-semibold">{label}</p>
-                    <p className="text-white/35 text-xs leading-snug">{value}</p>
+                    <p className="text-white/65 text-[11px] font-semibold">
+                      {label}
+                    </p>
+                    <p className="text-white/35 text-xs leading-snug">
+                      {value}
+                    </p>
                   </div>
                 </div>
               ))}
@@ -55,17 +67,28 @@ export default function AboutSection() {
           <AnimatedSection delay={0.2} className="flex flex-col gap-5 pt-1">
             <p className="text-white/45 text-sm leading-relaxed">
               Hello! I&apos;m{" "}
-              <span className="text-[#00c6ff]/80 font-semibold">{personalInfo.name}</span>
+              <span className="text-[#00c6ff]/80 font-semibold">
+                {personalInfo.name}
+              </span>
               {", "}
-              {personalInfo.about.intro.replace(`Hello! I'm ${personalInfo.name}, `, "")}
+              {personalInfo.about.intro.replace(
+                `Hello! I'm ${personalInfo.name}, `,
+                "",
+              )}
             </p>
-            <p className="text-white/45 text-sm leading-relaxed">{personalInfo.about.expertise}</p>
-            <p className="text-white/45 text-sm leading-relaxed">{personalInfo.about.interests}</p>
+            <p className="text-white/45 text-sm leading-relaxed">
+              {personalInfo.about.expertise}
+            </p>
+            <p className="text-white/45 text-sm leading-relaxed">
+              {personalInfo.about.interests}
+            </p>
 
             <div className="h-px bg-white/5" />
 
             <div>
-              <p className="text-white/20 text-[10px] tracking-[2px] uppercase mb-2.5">Interests</p>
+              <p className="text-white/20 text-[10px] tracking-[2px] uppercase mb-2.5">
+                Interests
+              </p>
               <div className="flex flex-wrap gap-2">
                 {interests.map((tag) => (
                   <span
@@ -78,12 +101,6 @@ export default function AboutSection() {
               </div>
             </div>
 
-            <Link
-              href="/blogs"
-              className="inline-flex items-center gap-1.5 text-[#00c6ff] text-sm font-semibold border-b border-[#00c6ff]/20 pb-0.5 w-fit hover:border-[#00c6ff]/50 transition-colors duration-200"
-            >
-              Read my latest blogs on Dev.to →
-            </Link>
           </AnimatedSection>
         </div>
       </div>

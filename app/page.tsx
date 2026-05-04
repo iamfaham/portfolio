@@ -17,9 +17,9 @@ export default function Portfolio() {
       <main className="pt-16">
         <div id="heroDiv"><HeroSection /></div>
         <div id="aboutDiv"><AboutSection /></div>
+        <div id="experienceDiv"><ExperienceSection /></div>
         <div id="projectsDiv"><ProjectsSection /></div>
         <div id="capabilitiesDiv"><CapabilitiesSection /></div>
-        <div id="experienceDiv"><ExperienceSection /></div>
         <div id="blogDiv"><BlogPreview /></div>
         <div id="testimonialsDiv"><TestimonialSection /></div>
         <div id="contactDiv"><ContactSection /></div>

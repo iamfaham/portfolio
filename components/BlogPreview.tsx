@@ -38,12 +38,14 @@ export default function BlogPreview() {
             <p className="section-label">Writing</p>
             <h2 className="text-white text-5xl font-extrabold tracking-[-1.5px]">Latest Posts</h2>
           </div>
-          <Link
-            href="/blogs"
+          <a
+            href="https://dev.to/iamfaham"
+            target="_blank"
+            rel="noopener noreferrer"
             className="text-[#00c6ff] text-xs font-semibold border-b border-[#00c6ff]/20 pb-0.5 mb-1.5 whitespace-nowrap hover:border-[#00c6ff]/50 transition-colors"
           >
             View all on Dev.to →
-          </Link>
+          </a>
         </AnimatedSection>
 
         {loading ? (

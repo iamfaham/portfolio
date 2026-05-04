@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { getPersonalInfo, getStats } from "@/lib/data";
 import { StaggerContainer, StaggerItem } from "@/components/StaggerContainer";
 
@@ -9,8 +10,22 @@ export default function HeroSection() {
 
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center text-center px-6 pb-24 overflow-hidden">
-      {/* Ambient glow blob */}
-      <div className="fixed top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full bg-[#00c6ff]/[0.05] blur-[120px] pointer-events-none -z-0" />
+      {/* Animated background blobs */}
+      <motion.div
+        className="fixed top-[-10%] left-1/2 -translate-x-1/2 w-[700px] h-[700px] rounded-full bg-[#00c6ff]/[0.045] blur-[130px] pointer-events-none -z-10"
+        animate={{ scale: [1, 1.12, 1], opacity: [0.045, 0.07, 0.045] }}
+        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+      />
+      <motion.div
+        className="fixed top-[20%] left-[15%] w-[350px] h-[350px] rounded-full bg-[#03DAC6]/[0.03] blur-[100px] pointer-events-none -z-10"
+        animate={{ y: [0, -40, 0], x: [0, 20, 0], opacity: [0.03, 0.055, 0.03] }}
+        transition={{ duration: 11, repeat: Infinity, ease: "easeInOut" }}
+      />
+      <motion.div
+        className="fixed top-[30%] right-[10%] w-[280px] h-[280px] rounded-full bg-[#00c6ff]/[0.025] blur-[90px] pointer-events-none -z-10"
+        animate={{ y: [0, 30, 0], x: [0, -15, 0], opacity: [0.025, 0.05, 0.025] }}
+        transition={{ duration: 9, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+      />
 
       <StaggerContainer className="relative z-10 flex flex-col items-center">
         {/* Role chip */}

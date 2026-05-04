@@ -45,12 +45,14 @@ export default function Navbar() {
             {link.label}
           </button>
         ))}
-        <Link
-          href="/blogs"
+        <a
+          href="https://dev.to/iamfaham"
+          target="_blank"
+          rel="noopener noreferrer"
           className="text-white/30 hover:text-white/70 text-sm transition-colors duration-200"
         >
           Blog
-        </Link>
+        </a>
       </div>
 
       <a
