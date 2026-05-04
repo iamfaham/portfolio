@@ -54,7 +54,7 @@ export default function CapabilitiesSection() {
           <p className="section-label" style={{ display: "block", textAlign: "center" }}>
             What I Do
           </p>
-          <h2 className="text-white text-5xl font-extrabold tracking-[-1.5px]">Capabilities</h2>
+          <h2 className="text-white text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-[-1px] sm:tracking-[-1.5px]">Capabilities</h2>
           <p className="text-white/25 text-sm mt-2.5 leading-relaxed">
             Areas I&apos;ve shipped in and can hit the ground running on.
           </p>

@@ -16,7 +16,7 @@ export default function TestimonialSection() {
           <p className="section-label" style={{ display: "block", textAlign: "center" }}>
             Kind Words
           </p>
-          <h2 className="text-white text-5xl font-extrabold tracking-[-1.5px]">Testimonials</h2>
+          <h2 className="text-white text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-[-1px] sm:tracking-[-1.5px]">Testimonials</h2>
         </AnimatedSection>
 
         <StaggerContainer className="grid md:grid-cols-3 gap-4">

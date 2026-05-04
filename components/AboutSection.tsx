@@ -26,14 +26,14 @@ export default function AboutSection() {
       <div className="max-w-4xl mx-auto">
         <AnimatedSection className="mb-12">
           <p className="section-label">Who I Am</p>
-          <h2 className="text-white text-5xl font-extrabold tracking-[-1.5px]">
+          <h2 className="text-white text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-[-1px] sm:tracking-[-1.5px]">
             About Me
           </h2>
         </AnimatedSection>
 
-        <div className="grid grid-cols-1 lg:grid-cols-[220px_1fr] gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-[220px_1fr] gap-8 lg:gap-12 items-start">
           {/* Left col */}
-          <AnimatedSection delay={0.1} className="flex flex-col gap-4">
+          <AnimatedSection delay={0.1} className="flex flex-col gap-4 max-w-[260px] sm:max-w-none mx-auto sm:mx-0 w-full">
             <div className="w-full aspect-square rounded-2xl border border-[#00c6ff]/15 overflow-hidden relative">
               <Image
                 src="/profile.png"

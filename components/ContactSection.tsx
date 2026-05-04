@@ -3,12 +3,20 @@
 import { useState } from "react";
 import emailjs from "emailjs-com";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLinkedin, faGithub, faXTwitter } from "@fortawesome/free-brands-svg-icons";
+import {
+  faLinkedin,
+  faGithub,
+  faXTwitter,
+} from "@fortawesome/free-brands-svg-icons";
 import { getPersonalInfo } from "@/lib/data";
 import AnimatedSection from "@/components/AnimatedSection";
 
 export default function ContactSection() {
-  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
   const [isSending, setIsSending] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const personalInfo = getPersonalInfo();
@@ -18,7 +26,7 @@ export default function ContactSection() {
   const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!;
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -27,7 +35,12 @@ export default function ContactSection() {
     e.preventDefault();
     setIsSending(true);
     try {
-      const result = await emailjs.send(serviceId, templateId, formData, publicKey);
+      const result = await emailjs.send(
+        serviceId,
+        templateId,
+        formData,
+        publicKey,
+      );
       if (result.text === "OK") {
         setFormData({ name: "", email: "", message: "" });
         setIsSubmitted(true);
@@ -43,21 +56,42 @@ export default function ContactSection() {
   };
 
   const socials = [
-    { icon: faLinkedin, label: "LinkedIn", handle: "iamfaham", url: personalInfo.social.linkedin },
-    { icon: faGithub, label: "GitHub", handle: "iamfaham", url: personalInfo.social.github },
-    { icon: faXTwitter, label: "Twitter / X", handle: "iamfaham", url: personalInfo.social.twitter },
+    {
+      icon: faLinkedin,
+      label: "LinkedIn",
+      handle: "iamfaham",
+      url: personalInfo.social.linkedin,
+    },
+    {
+      icon: faGithub,
+      label: "GitHub",
+      handle: "iamfaham",
+      url: personalInfo.social.github,
+    },
+    {
+      icon: faXTwitter,
+      label: "Twitter / X",
+      handle: "iamfaham",
+      url: personalInfo.social.twitter,
+    },
   ];
 
   return (
     <section className="relative w-full py-24 px-6">
       <div className="max-w-4xl mx-auto">
         <AnimatedSection className="mb-12 text-center">
-          <p className="section-label" style={{ display: "block", textAlign: "center" }}>
+          <p
+            className="section-label"
+            style={{ display: "block", textAlign: "center" }}
+          >
             Say Hello
           </p>
-          <h2 className="text-white text-5xl font-extrabold tracking-[-1.5px]">Get in Touch</h2>
+          <h2 className="text-white text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-[-1px] sm:tracking-[-1.5px]">
+            Get in Touch
+          </h2>
           <p className="text-white/25 text-sm mt-2.5 leading-relaxed max-w-md mx-auto">
-            Have a project in mind or just want to talk AI? Drop a message and I&apos;ll get back to you.
+            Have a project in mind or just want to talk AI? Drop a message and
+            I&apos;ll get back to you.
           </p>
         </AnimatedSection>
 
@@ -67,8 +101,18 @@ export default function ContactSection() {
             <form onSubmit={handleSubmit} className="flex flex-col gap-4">
               {(
                 [
-                  { name: "name", label: "Name", type: "text", placeholder: "Your name" },
-                  { name: "email", label: "Email", type: "email", placeholder: "your@email.com" },
+                  {
+                    name: "name",
+                    label: "Name",
+                    type: "text",
+                    placeholder: "Your name",
+                  },
+                  {
+                    name: "email",
+                    label: "Email",
+                    type: "email",
+                    placeholder: "your@email.com",
+                  },
                 ] as const
               ).map(({ name, label, type, placeholder }) => (
                 <div key={name} className="flex flex-col gap-1.5">
@@ -87,7 +131,9 @@ export default function ContactSection() {
                 </div>
               ))}
               <div className="flex flex-col gap-1.5">
-                <label className="text-white/25 text-[11px] tracking-widest uppercase">Message</label>
+                <label className="text-white/25 text-[11px] tracking-widest uppercase">
+                  Message
+                </label>
                 <textarea
                   name="message"
                   placeholder="What's on your mind?"
@@ -103,7 +149,11 @@ export default function ContactSection() {
                 disabled={isSending || isSubmitted}
                 className="bg-[#00c6ff]/10 border border-[#00c6ff]/30 text-[#00c6ff] py-3 rounded-xl text-sm font-semibold hover:bg-[#00c6ff]/18 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                {isSending ? "Sending..." : isSubmitted ? "Sent!" : "Send Message →"}
+                {isSending
+                  ? "Sending..."
+                  : isSubmitted
+                    ? "Sent!"
+                    : "Send Message →"}
               </button>
             </form>
           </div>
@@ -111,7 +161,9 @@ export default function ContactSection() {
           {/* Right panel */}
           <div className="flex flex-col gap-4">
             <div className="glass-card p-5">
-              <p className="text-white/20 text-[10px] tracking-[2px] uppercase mb-3.5">Find me on</p>
+              <p className="text-white/20 text-[10px] tracking-[2px] uppercase mb-3.5">
+                Find me on
+              </p>
               <div className="flex flex-col gap-2.5">
                 {socials.map(({ icon, label, handle, url }) => (
                   <a
@@ -121,17 +173,28 @@ export default function ContactSection() {
                     rel="noopener noreferrer"
                     className="flex items-center gap-3 p-2.5 rounded-xl border border-white/5 bg-white/[0.02] hover:border-[#00c6ff]/20 transition-colors"
                   >
-                    <FontAwesomeIcon icon={icon} className="text-white/40 text-base w-5 flex-shrink-0" />
-                    <span className="text-white/50 text-xs font-medium">{label}</span>
-                    <span className="text-[#00c6ff]/50 text-[11px] ml-auto">{handle}</span>
+                    <FontAwesomeIcon
+                      icon={icon}
+                      className="text-white/40 text-base w-5 flex-shrink-0"
+                    />
+                    <span className="text-white/50 text-xs font-medium">
+                      {label}
+                    </span>
+                    <span className="text-[#00c6ff]/50 text-[11px] ml-auto">
+                      {handle}
+                    </span>
                   </a>
                 ))}
               </div>
             </div>
 
             <div className="glass-card p-5">
-              <p className="text-white/20 text-[10px] tracking-[2px] uppercase mb-2">Or email directly</p>
-              <p className="text-[#00c6ff] text-sm font-semibold">m.faham.s@gmail.com</p>
+              <p className="text-white/20 text-[10px] tracking-[2px] uppercase mb-2">
+                Or email directly
+              </p>
+              <p className="text-[#00c6ff] text-sm font-semibold">
+                iamfaham5@gmail.com
+              </p>
             </div>
           </div>
         </div>

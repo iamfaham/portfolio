@@ -12,7 +12,7 @@ export default function ExperienceSection() {
       <div className="max-w-3xl mx-auto">
         <AnimatedSection className="mb-12">
           <p className="section-label">Where I&apos;ve Worked</p>
-          <h2 className="text-white text-5xl font-extrabold tracking-[-1.5px]">Experience</h2>
+          <h2 className="text-white text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-[-1px] sm:tracking-[-1.5px]">Experience</h2>
         </AnimatedSection>
 
         <div className="relative">

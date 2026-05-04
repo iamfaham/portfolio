@@ -36,7 +36,7 @@ export default function BlogPreview() {
         <AnimatedSection className="mb-12 flex items-end justify-between gap-4">
           <div>
             <p className="section-label">Writing</p>
-            <h2 className="text-white text-5xl font-extrabold tracking-[-1.5px]">Latest Posts</h2>
+            <h2 className="text-white text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-[-1px] sm:tracking-[-1.5px]">Latest Posts</h2>
           </div>
           <a
             href="https://dev.to/iamfaham"
