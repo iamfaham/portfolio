@@ -164,9 +164,9 @@
     "text-green-800": "#166534"
   },
   "stats": {
-    "aiProjects": 3,
+    "totalCommits": 500,
     "technologies": 15,
-    "githubStars": 24
+    "commitStreak": 30
   },
   "testimonials": []
 }

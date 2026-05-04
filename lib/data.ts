@@ -128,9 +128,9 @@ export const getColorMap = (): { [key: string]: string } => {
 };
 
 export interface Stats {
-  aiProjects: number;
+  totalCommits: number;
   technologies: number;
-  githubStars: number;
+  commitStreak: number;
 }
 
 export interface Testimonial {

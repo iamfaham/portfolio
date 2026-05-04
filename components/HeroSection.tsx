@@ -80,9 +80,9 @@ export default function HeroSection() {
         <StaggerItem>
           <div className="glass-card flex divide-x divide-white/[0.05]">
             {[
-              { value: `${stats.aiProjects}+`, label: "AI Projects" },
+              { value: `${stats.totalCommits}+`, label: "Commits" },
               { value: `${stats.technologies}+`, label: "Technologies" },
-              { value: `${stats.githubStars}★`, label: "GitHub Stars" },
+              { value: `${stats.commitStreak}d`, label: "Commit Streak" },
             ].map(({ value, label }) => (
               <div key={label} className="px-5 sm:px-8 py-3.5 text-center">
                 <div className="text-[#00c6ff] text-lg sm:text-xl font-extrabold tracking-tight">{value}</div>
