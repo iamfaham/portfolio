@@ -31,6 +31,7 @@ export default function ContactSection() {
       if (result.text === "OK") {
         setFormData({ name: "", email: "", message: "" });
         setIsSubmitted(true);
+        setTimeout(() => setIsSubmitted(false), 4000);
       } else {
         alert("Failed to send your message. Please try again.");
       }
