@@ -365,7 +365,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Glass card — shared across all redesigned sections */
 .glass-card {
-  background: rgba(255, 255, 255, 0.025);
+  background: #000;
   border: 1px solid rgba(255, 255, 255, 0.07);
   border-radius: 16px;
   position: relative;

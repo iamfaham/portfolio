@@ -21,6 +21,7 @@ const GLOW_RADIUS = 60;
 export default function ParticleField({ count = 55 }: { count?: number }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const mouseRef = useRef<{ x: number; y: number } | null>(null);
+  const scrollVelocityRef = useRef(0);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -60,10 +61,16 @@ export default function ParticleField({ count = 55 }: { count?: number }) {
       const connectionDist = window.innerWidth < 640 ? 90 : 120;
       const mouse = mouseRef.current;
 
+      // Decay scroll velocity each frame
+      scrollVelocityRef.current *= 0.88;
+
       for (const p of particles) {
         // Dampen toward base velocity each frame
         p.vx += (p.baseVx - p.vx) * 0.05;
         p.vy += (p.baseVy - p.vy) * 0.05;
+
+        // Scroll drift
+        p.vy += scrollVelocityRef.current;
 
         // Mouse repulsion
         if (mouse) {
@@ -144,6 +151,12 @@ export default function ParticleField({ count = 55 }: { count?: number }) {
     const handleMouseLeave = () => {
       mouseRef.current = null;
     };
+    let lastScrollY = window.scrollY;
+    const handleScroll = () => {
+      const delta = window.scrollY - lastScrollY;
+      lastScrollY = window.scrollY;
+      scrollVelocityRef.current += delta * 0.06;
+    };
 
     resize();
     init();
@@ -151,11 +164,13 @@ export default function ParticleField({ count = 55 }: { count?: number }) {
 
     window.addEventListener("resize", handleResize);
     window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     document.documentElement.addEventListener("mouseleave", handleMouseLeave);
     return () => {
       cancelAnimationFrame(animId);
       window.removeEventListener("resize", handleResize);
       window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("scroll", handleScroll);
       document.documentElement.removeEventListener("mouseleave", handleMouseLeave);
     };
   }, [count]);
