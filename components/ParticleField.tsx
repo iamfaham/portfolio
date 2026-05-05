@@ -56,7 +56,8 @@ export default function ParticleField({ count = 55 }: { count?: number }) {
     };
 
     const draw = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "rgba(0,0,0,0.14)";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       const connectionDist = window.innerWidth < 640 ? 90 : 120;
       const mouse = mouseRef.current;
