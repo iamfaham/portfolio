@@ -1,14 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
-import ParticleField from "@/components/ParticleField";
 
 export default function HeroBackground() {
   return (
     <>
-      <div className="absolute inset-0 -z-10">
-        <ParticleField count={55} />
-      </div>
       <motion.div
         className="fixed top-[-10%] left-1/2 -translate-x-1/2 w-[400px] sm:w-[700px] h-[400px] sm:h-[700px] rounded-full bg-[#00c6ff]/[0.045] blur-[130px] pointer-events-none -z-10"
         animate={{ scale: [1, 1.12, 1], opacity: [0.045, 0.07, 0.045] }}

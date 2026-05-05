@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import CursorFollower from "@/components/CursorFollower";
 import { SmoothCursor } from "@/components/ui/smooth-cursor";
+import ParticleField from "@/components/ParticleField";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -32,6 +33,7 @@ export default function RootLayout({
         <link rel="icon" href="/favicon-2.ico" />
       </head>
       <body className="bg-black text-light-gray">
+        <ParticleField count={55} />
         <CursorFollower />
         <SmoothCursor />
         <main className="flex-1 h-screen">{children}</main>

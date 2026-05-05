@@ -7,12 +7,20 @@ interface Particle {
   y: number;
   vx: number;
   vy: number;
+  baseVx: number;
+  baseVy: number;
   size: number;
   opacity: number;
 }
 
+const REPEL_RADIUS = 100;
+const REPEL_STRENGTH = 0.45;
+const MAX_SPEED = 2.5;
+const GLOW_RADIUS = 60;
+
 export default function ParticleField({ count = 55 }: { count?: number }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const mouseRef = useRef<{ x: number; y: number } | null>(null);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -29,23 +37,55 @@ export default function ParticleField({ count = 55 }: { count?: number }) {
     };
 
     const init = () => {
-      // Fewer particles on small screens for performance
       const n = window.innerWidth < 640 ? Math.floor(count * 0.5) : count;
-      particles = Array.from({ length: n }, () => ({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        vx: (Math.random() - 0.5) * 0.28,
-        vy: (Math.random() - 0.5) * 0.28,
-        size: Math.random() * 1.4 + 0.4,
-        opacity: Math.random() * 0.35 + 0.08,
-      }));
+      particles = Array.from({ length: n }, () => {
+        const vx = (Math.random() - 0.5) * 0.28;
+        const vy = (Math.random() - 0.5) * 0.28;
+        return {
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          vx,
+          vy,
+          baseVx: vx,
+          baseVy: vy,
+          size: Math.random() * 1.4 + 0.4,
+          opacity: Math.random() * 0.35 + 0.08,
+        };
+      });
     };
 
     const draw = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       const connectionDist = window.innerWidth < 640 ? 90 : 120;
+      const mouse = mouseRef.current;
 
+      for (const p of particles) {
+        // Dampen toward base velocity each frame
+        p.vx += (p.baseVx - p.vx) * 0.05;
+        p.vy += (p.baseVy - p.vy) * 0.05;
+
+        // Mouse repulsion
+        if (mouse) {
+          const dx = p.x - mouse.x;
+          const dy = p.y - mouse.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < REPEL_RADIUS && dist > 0) {
+            const force = (1 - dist / REPEL_RADIUS) * REPEL_STRENGTH;
+            p.vx += (dx / dist) * force;
+            p.vy += (dy / dist) * force;
+          }
+        }
+
+        // Clamp speed
+        const speed = Math.sqrt(p.vx * p.vx + p.vy * p.vy);
+        if (speed > MAX_SPEED) {
+          p.vx = (p.vx / speed) * MAX_SPEED;
+          p.vy = (p.vy / speed) * MAX_SPEED;
+        }
+      }
+
+      // Draw connection lines
       for (let i = 0; i < particles.length; i++) {
         for (let j = i + 1; j < particles.length; j++) {
           const dx = particles[i].x - particles[j].x;
@@ -62,7 +102,21 @@ export default function ParticleField({ count = 55 }: { count?: number }) {
         }
       }
 
+      // Draw particles with optional glow
       for (const p of particles) {
+        if (mouse) {
+          const dx = p.x - mouse.x;
+          const dy = p.y - mouse.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < GLOW_RADIUS) {
+            const glowOpacity = (1 - dist / GLOW_RADIUS) * 0.22;
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.size * 5, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(0,198,255,${glowOpacity})`;
+            ctx.fill();
+          }
+        }
+
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
         ctx.fillStyle = `rgba(0,198,255,${p.opacity})`;
@@ -84,22 +138,32 @@ export default function ParticleField({ count = 55 }: { count?: number }) {
       resize();
       init();
     };
+    const handleMouseMove = (e: MouseEvent) => {
+      mouseRef.current = { x: e.clientX, y: e.clientY };
+    };
+    const handleMouseLeave = () => {
+      mouseRef.current = null;
+    };
 
     resize();
     init();
     draw();
 
     window.addEventListener("resize", handleResize);
+    window.addEventListener("mousemove", handleMouseMove);
+    document.documentElement.addEventListener("mouseleave", handleMouseLeave);
     return () => {
       cancelAnimationFrame(animId);
       window.removeEventListener("resize", handleResize);
+      window.removeEventListener("mousemove", handleMouseMove);
+      document.documentElement.removeEventListener("mouseleave", handleMouseLeave);
     };
   }, [count]);
 
   return (
     <canvas
       ref={canvasRef}
-      className="absolute inset-0 w-full h-full pointer-events-none"
+      className="fixed inset-0 w-screen h-screen pointer-events-none -z-10"
     />
   );
 }
