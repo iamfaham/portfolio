@@ -14,11 +14,11 @@ interface Particle {
 }
 
 const REPEL_RADIUS = 100;
-const REPEL_STRENGTH = 0.45;
+const REPEL_STRENGTH = 0.35;
 const MAX_SPEED = 2.5;
 const GLOW_RADIUS = 60;
 
-export default function ParticleField({ count = 55 }: { count?: number }) {
+export default function ParticleField({ count = 45 }: { count?: number }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const mouseRef = useRef<{ x: number; y: number } | null>(null);
   const scrollVelocityRef = useRef(0);
@@ -49,31 +49,27 @@ export default function ParticleField({ count = 55 }: { count?: number }) {
           vy,
           baseVx: vx,
           baseVy: vy,
-          size: Math.random() * 1.4 + 0.4,
-          opacity: Math.random() * 0.35 + 0.08,
+          size: Math.random() * 1.0 + 0.3,
+          opacity: Math.random() * 0.18 + 0.05,
         };
       });
     };
 
     const draw = () => {
-      ctx.fillStyle = "rgba(0,0,0,0.14)";
+      ctx.fillStyle = "rgba(0,0,0,0.18)";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      const connectionDist = window.innerWidth < 640 ? 90 : 120;
+      const connectionDist = window.innerWidth < 640 ? 80 : 110;
       const mouse = mouseRef.current;
 
-      // Decay scroll velocity each frame
       scrollVelocityRef.current *= 0.88;
 
       for (const p of particles) {
-        // Dampen toward base velocity each frame
         p.vx += (p.baseVx - p.vx) * 0.05;
         p.vy += (p.baseVy - p.vy) * 0.05;
 
-        // Scroll drift
         p.vy += scrollVelocityRef.current;
 
-        // Mouse repulsion
         if (mouse) {
           const dx = p.x - mouse.x;
           const dy = p.y - mouse.y;
@@ -85,7 +81,6 @@ export default function ParticleField({ count = 55 }: { count?: number }) {
           }
         }
 
-        // Clamp speed
         const speed = Math.sqrt(p.vx * p.vx + p.vy * p.vy);
         if (speed > MAX_SPEED) {
           p.vx = (p.vx / speed) * MAX_SPEED;
@@ -93,7 +88,7 @@ export default function ParticleField({ count = 55 }: { count?: number }) {
         }
       }
 
-      // Draw connection lines
+      // Connection lines
       for (let i = 0; i < particles.length; i++) {
         for (let j = i + 1; j < particles.length; j++) {
           const dx = particles[i].x - particles[j].x;
@@ -101,8 +96,8 @@ export default function ParticleField({ count = 55 }: { count?: number }) {
           const dist = Math.sqrt(dx * dx + dy * dy);
           if (dist < connectionDist) {
             ctx.beginPath();
-            ctx.strokeStyle = `rgba(0,198,255,${(1 - dist / connectionDist) * 0.1})`;
-            ctx.lineWidth = 0.5;
+            ctx.strokeStyle = `rgba(0,198,255,${(1 - dist / connectionDist) * 0.06})`;
+            ctx.lineWidth = 0.4;
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
             ctx.stroke();
@@ -110,17 +105,16 @@ export default function ParticleField({ count = 55 }: { count?: number }) {
         }
       }
 
-      // Draw particles with optional glow
+      // Particles + glow
       for (const p of particles) {
         if (mouse) {
           const dx = p.x - mouse.x;
           const dy = p.y - mouse.y;
           const dist = Math.sqrt(dx * dx + dy * dy);
           if (dist < GLOW_RADIUS) {
-            const glowOpacity = (1 - dist / GLOW_RADIUS) * 0.22;
             ctx.beginPath();
-            ctx.arc(p.x, p.y, p.size * 5, 0, Math.PI * 2);
-            ctx.fillStyle = `rgba(0,198,255,${glowOpacity})`;
+            ctx.arc(p.x, p.y, p.size * 4, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(0,198,255,${(1 - dist / GLOW_RADIUS) * 0.14})`;
             ctx.fill();
           }
         }
@@ -142,21 +136,15 @@ export default function ParticleField({ count = 55 }: { count?: number }) {
       animId = requestAnimationFrame(draw);
     };
 
-    const handleResize = () => {
-      resize();
-      init();
-    };
+    const handleResize = () => { resize(); init(); };
     const handleMouseMove = (e: MouseEvent) => {
       mouseRef.current = { x: e.clientX, y: e.clientY };
     };
-    const handleMouseLeave = () => {
-      mouseRef.current = null;
-    };
-    let lastScrollY = window.scrollY;
-    const handleScroll = () => {
-      const delta = window.scrollY - lastScrollY;
-      lastScrollY = window.scrollY;
-      scrollVelocityRef.current += delta * 0.06;
+    const handleMouseLeave = () => { mouseRef.current = null; };
+
+    // wheel fires reliably regardless of which element is scrolling
+    const handleWheel = (e: WheelEvent) => {
+      scrollVelocityRef.current += e.deltaY * 0.007;
     };
 
     resize();
@@ -165,13 +153,13 @@ export default function ParticleField({ count = 55 }: { count?: number }) {
 
     window.addEventListener("resize", handleResize);
     window.addEventListener("mousemove", handleMouseMove);
-    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("wheel", handleWheel, { passive: true });
     document.documentElement.addEventListener("mouseleave", handleMouseLeave);
     return () => {
       cancelAnimationFrame(animId);
       window.removeEventListener("resize", handleResize);
       window.removeEventListener("mousemove", handleMouseMove);
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("wheel", handleWheel);
       document.documentElement.removeEventListener("mouseleave", handleMouseLeave);
     };
   }, [count]);

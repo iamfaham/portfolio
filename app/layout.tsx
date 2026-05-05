@@ -33,7 +33,7 @@ export default function RootLayout({
         <link rel="icon" href="/favicon-2.ico" />
       </head>
       <body className="bg-black text-light-gray">
-        <ParticleField count={55} />
+        <ParticleField />
         <CursorFollower />
         <SmoothCursor />
         <main className="flex-1 h-screen">{children}</main>
