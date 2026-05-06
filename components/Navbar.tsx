@@ -58,12 +58,12 @@ export default function Navbar() {
 
         <div className="flex items-center gap-3">
           <a
-            href="/resume.pdf"
+            href="https://drive.google.com/drive/folders/16fCN8-NGzxrO5ZB27oA4Gfj1g9il0LlV?usp=drive_link"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-[#00c6ff]/10 border border-[#00c6ff]/20 text-[#00c6ff] px-3 sm:px-4 py-1.5 rounded-lg text-xs font-semibold hover:bg-[#00c6ff]/20 transition-colors duration-200"
           >
-            Resume ↓
+            Resume
           </a>
 
           {/* Hamburger — mobile only */}
