@@ -3,8 +3,14 @@ import { getPersonalInfo } from "@/lib/data";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Faham — Links",
-  description: "All of Faham's links in one place",
+  title: "Links",
+  description: "Find Faham on GitHub, LinkedIn, Twitter, Instagram, Medium, and Dev.to — all links in one place.",
+  alternates: { canonical: "https://iamfaham.me/links" },
+  openGraph: {
+    title: "Faham — Links",
+    description: "Find Faham on GitHub, LinkedIn, Twitter, Instagram, Medium, and Dev.to — all links in one place.",
+    url: "https://iamfaham.me/links",
+  },
 };
 
 const links = [
