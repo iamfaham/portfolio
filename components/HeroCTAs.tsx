@@ -1,5 +1,8 @@
 "use client";
 
+const RESUME_URL =
+  "https://drive.google.com/drive/folders/16fCN8-NGzxrO5ZB27oA4Gfj1g9il0LlV?usp=drive_link";
+
 export default function HeroCTAs() {
   return (
     <div className="flex flex-col sm:flex-row gap-3 justify-center mb-14">
@@ -11,6 +14,14 @@ export default function HeroCTAs() {
       >
         View My Work →
       </button>
+      <a
+        href={RESUME_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="border border-white/[0.08] text-white/35 px-7 py-3 rounded-xl text-sm hover:text-white/60 transition-colors duration-200 text-center"
+      >
+        View Resume
+      </a>
       <button
         onClick={() =>
           document.getElementById("contactDiv")?.scrollIntoView({ behavior: "smooth" })
