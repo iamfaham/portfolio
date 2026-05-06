@@ -1,4 +1,4 @@
-import { getPersonalInfo, getStats } from "@/lib/data";
+import { getPersonalInfo } from "@/lib/data";
 import { fetchGitHubStats } from "@/lib/actions";
 import { StaggerContainer, StaggerItem } from "@/components/StaggerContainer";
 import HeroBackground from "@/components/HeroBackground";
@@ -6,8 +6,7 @@ import HeroCTAs from "@/components/HeroCTAs";
 
 export default async function HeroSection() {
   const personalInfo = getPersonalInfo();
-  const { technologies } = getStats();
-  const { totalCommits, commitStreak } = await fetchGitHubStats();
+  const { totalCommits, commitStreak, totalStars } = await fetchGitHubStats();
 
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center text-center px-5 pb-24 overflow-hidden">
@@ -51,8 +50,8 @@ export default async function HeroSection() {
           <div className="glass-card flex divide-x divide-white/[0.05]">
             {[
               { value: `${totalCommits}+`, label: "Commits" },
-              { value: `${technologies}+`, label: "Technologies" },
-              { value: `${commitStreak}d`, label: "Commit Streak" },
+              { value: `${totalStars}+`, label: "GitHub Stars" },
+              { value: `${commitStreak}d`, label: "Streak" },
             ].map(({ value, label }) => (
               <div key={label} className="px-5 sm:px-8 py-3.5 text-center">
                 <div className="text-[#00c6ff] text-lg sm:text-xl font-extrabold tracking-tight">
