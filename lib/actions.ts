@@ -54,7 +54,7 @@ const QUERY = `
           stargazerCount
         }
       }
-      pinnedItems(first: 6, types: REPOSITORY) {
+      pinnedItems(first: 5, types: REPOSITORY) {
         nodes {
           ... on Repository {
             name
