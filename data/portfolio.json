@@ -16,10 +16,24 @@
   },
   "experience": [
     {
-      "role": "Full-Stack Developer",
+      "role": "AI Engineer",
+      "company": "Third Estate Analytics",
+      "duration": "February 2026 - Present",
+      "description": "Built an end-to-end housing code violation detection pipeline using GoPro footage, GPS telemetry, and Gemini vision models with automatic parcel resolution against NYS Erie County public data and dynamic frame extraction.",
+      "technologies": [
+        "Python",
+        "Gemini (LangChain)",
+        "CLIP",
+        "GeoPandas",
+        "GPMF Telemetry",
+        "FFmpeg"
+      ]
+    },
+    {
+      "role": "AI Full-Stack Developer",
       "company": "Tech Consulting Partners",
       "duration": "January 2024 - December 2024",
-      "description": "Developing web applications, integrating AI features, and improving performance.",
+      "description": "Built and deployed full-stack web applications including a virtual try-on system and a React frontend for user interaction.",
       "technologies": [
         "React",
         "Node.js",
@@ -38,94 +52,6 @@
         "Responsive Design",
         "Client Communication"
       ]
-    },
-    {
-      "role": "GDSC Design Lead",
-      "company": "Google Developer Student Clubs, OIST",
-      "duration": "Jun 2022 - May 2023",
-      "description": "Led design projects, conducted workshops, and collaborated with developers.",
-      "technologies": [
-        "UI/UX Design",
-        "Workshop Leadership",
-        "Team Collaboration"
-      ]
-    }
-  ],
-  "skills": [
-    {
-      "name": "PyTorch",
-      "icon": "SiPytorch",
-      "color": "text-red-600"
-    },
-    {
-      "name": "scikit-learn",
-      "icon": "SiScikitlearn",
-      "color": "text-orange-600"
-    },
-    {
-      "name": "TensorFlow",
-      "icon": "SiTensorflow",
-      "color": "text-orange-500"
-    },
-    {
-      "name": "Pandas",
-      "icon": "SiPandas",
-      "color": "text-blue-600"
-    },
-    {
-      "name": "NumPy",
-      "icon": "SiNumpy",
-      "color": "text-blue-700"
-    },
-    {
-      "name": "Plotly",
-      "icon": "SiPlotly",
-      "color": "text-purple-500"
-    },
-    {
-      "name": "LangChain",
-      "icon": "SiLangchain",
-      "color": "text-green-800"
-    },
-    {
-      "name": "Streamlit",
-      "icon": "SiStreamlit",
-      "color": "text-red-500"
-    },
-    {
-      "name": "PostgreSQL",
-      "icon": "SiPostgresql",
-      "color": "text-blue-600"
-    },
-    {
-      "name": "Supabase",
-      "icon": "SiSupabase",
-      "color": "text-green-400"
-    },
-    {
-      "name": "GitHub",
-      "icon": "FaGithub",
-      "color": "text-white"
-    },
-    {
-      "name": "Git",
-      "icon": "FaGitAlt",
-      "color": "text-orange-500"
-    },
-    {
-      "name": "FastAPI",
-      "icon": "SiFastapi",
-      "color": "text-green-600"
-    },
-    {
-      "name": "Python",
-      "icon": "FaPython",
-      "color": "text-yellow-400"
-    },
-    {
-      "name": "Docker",
-      "icon": "FaDocker",
-      "color": "text-blue-500"
     }
   ],
   "sections": [
@@ -157,5 +83,12 @@
     "technologies": 15,
     "commitStreak": 30
   },
-  "testimonials": []
+  "testimonials": [
+    {
+      "name": "Rauhan Ahmed",
+      "role": "AI Engineer",
+      "text": "Faham is an incredibly talented Full Stack Developer who I had the pleasure of working with at Tech Consulting Partners. He's a quick learner who effortlessly adapts to new technologies. Whether it's ReactJS, NextJS, and NodeJS, or any Backend Management, Faham always delivered exceptional results. We worked together on several full stack AI applications, and I was consistently impressed by his ability to handle both frontend and backend development with ease. His deep understanding of complex systems and his positive attitude made him a joy to work with. Faham is not only a skilled developer but also a great teammate — I highly recommend him for any full stack development role.",
+      "linkedinUrl": "https://www.linkedin.com/in/rauhan-ahmed/"
+    }
+  ]
 }
