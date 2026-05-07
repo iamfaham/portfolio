@@ -14,22 +14,11 @@
       "twitter": "https://twitter.com/iamfaham"
     }
   },
-  "projects": [
-    {
-      "githubRepo": "iamfaham/multimodal-sentiment-analysis"
-    },
-    {
-      "githubRepo": "iamfaham/QueryStockAI"
-    },
-    {
-      "githubRepo": "iamfaham/TersAI"
-    }
-  ],
   "experience": [
     {
       "role": "Full-Stack Developer",
       "company": "Tech Consulting Partners",
-      "duration": "May 2024 - December 2024",
+      "duration": "January 2024 - December 2024",
       "description": "Developing web applications, integrating AI features, and improving performance.",
       "technologies": [
         "React",
