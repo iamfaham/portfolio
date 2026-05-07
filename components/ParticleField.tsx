@@ -88,16 +88,18 @@ export default function ParticleField({ count = 45 }: { count?: number }) {
         }
       }
 
-      // Connection lines
+      // Connection lines — steep quadratic falloff so only close pairs show
       for (let i = 0; i < particles.length; i++) {
         for (let j = i + 1; j < particles.length; j++) {
           const dx = particles[i].x - particles[j].x;
           const dy = particles[i].y - particles[j].y;
           const dist = Math.sqrt(dx * dx + dy * dy);
           if (dist < connectionDist) {
+            const t = 1 - dist / connectionDist;
+            const alpha = t * t * t * 0.22;
             ctx.beginPath();
-            ctx.strokeStyle = `rgba(0,198,255,${(1 - dist / connectionDist) * 0.06})`;
-            ctx.lineWidth = 0.4;
+            ctx.strokeStyle = `rgba(0,198,255,${alpha})`;
+            ctx.lineWidth = 0.5;
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
             ctx.stroke();
