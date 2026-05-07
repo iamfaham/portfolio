@@ -33,9 +33,9 @@ export default function ExperienceSection() {
 
                 {/* Card */}
                 <div className="glass-card flex-1 p-5 md:p-6">
-                  <div className="flex items-start justify-between gap-3 mb-1">
+                  <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1 sm:gap-3 mb-1">
                     <h3 className="text-white text-base font-bold tracking-tight">{exp.role}</h3>
-                    <span className="bg-[#00c6ff]/[0.06] border border-[#00c6ff]/15 text-[#00c6ff]/50 px-2.5 py-0.5 rounded-full text-[10px] whitespace-nowrap flex-shrink-0">
+                    <span className="bg-[#00c6ff]/[0.06] border border-[#00c6ff]/15 text-[#00c6ff]/50 px-2.5 py-0.5 rounded-full text-[10px] whitespace-nowrap w-fit flex-shrink-0">
                       {exp.duration}
                     </span>
                   </div>
