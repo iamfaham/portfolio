@@ -1,4 +1,4 @@
-export type Mode = "quotes" | "prompts";
+export type Mode = "quotes" | "prompts" | "faham";
 export type Difficulty = "easy" | "medium" | "hard";
 
 export interface TextEntry {
@@ -70,6 +70,33 @@ export const CONTENT: Record<Mode, Record<Difficulty, TextEntry[]>> = {
       { text: "Continue the story but make it longer and also shorter, add more detail but keep it concise, make it funnier but also more serious, and please finish it completely but also leave plenty of room for a sequel." },
       { text: "I need you to be my girlfriend slash therapist slash career coach slash brutally honest best friend all at once but also remain very warm and supportive throughout, and please start immediately with no questions asked." },
       { text: "Can you redo this but better, you know what I mean? Like not exactly the same but also not too different, kind of like the first version but improved, just make it feel right and you will know it when you see it." },
+    ],
+  },
+  faham: {
+    easy: [
+      { text: "Parse GPS coordinates from a GoPro video file in Python." },
+      { text: "My GeoPandas spatial join is returning an empty dataframe." },
+      { text: "Fix my LangChain output parser that keeps crashing on JSON." },
+      { text: "Why does CLIP give different similarity scores for the same image each run?" },
+      { text: "Stream a Gemini API response in a Next.js API route." },
+      { text: "How do I filter a GeoDataFrame by a specific county name?" },
+      { text: "Reproject coordinates from WGS84 to EPSG 2263 using GeoPandas." },
+      { text: "Write a React hook that polls an API endpoint every five seconds." },
+      { text: "Extract frames from a video at a fixed interval using FFmpeg in Python." },
+      { text: "Why is my Next.js server component not receiving updated props?" },
+    ],
+    medium: [
+      { text: "I am using Gemini vision to detect housing code violations in GoPro footage. The model keeps flagging objects that are not violations. How do I redesign my prompt to reduce false positives without missing real ones?" },
+      { text: "My GPMF telemetry parser breaks in 4K recording mode because the metadata sampling rate changes. Write a Python function that normalizes the telemetry stream to a fixed 10Hz regardless of the recording resolution." },
+      { text: "The GPS coordinates from my GoPro GPMF data are in WGS84 but the Erie County parcel shapefile uses a different projection. Write the GeoPandas code to reproject and perform a spatial join to match each coordinate to a parcel." },
+      { text: "My LangChain chain fails when the model adds extra explanation before returning the JSON block. Write a robust output parser class that extracts valid JSON from anywhere in the model response without crashing." },
+      { text: "I have a virtual try-on feature using a diffusion model but results are inconsistent when users have unusual lighting or patterned clothing. What are three alternative technical approaches I should evaluate for a startup context?" },
+      { text: "Build a Next.js API route that accepts a base64 encoded image, sends it to Gemini vision with a custom system prompt, and streams the response back to the browser using Server-Sent Events without buffering the full reply." },
+    ],
+    hard: [
+      { text: "I have a pipeline that extracts frames from GoPro footage with FFmpeg based on GPS speed thresholds parsed from GPMF telemetry, sends each frame to Gemini vision to detect housing code violations, matches GPS coordinates to NYS Erie County parcel polygons using GeoPandas spatial join, and writes a structured JSON report per parcel. Processing a two hour drive currently takes eight minutes. I need it under ninety seconds without removing the Gemini calls. Give me a concrete optimization plan with estimated time savings per step." },
+      { text: "My housing violation detection pipeline uses Gemini vision to analyze GoPro frames but accuracy drops significantly in overcast lighting and near dense tree cover where shadows and occlusion hide structural defects. I already have a detailed prompt with labeled examples. Should I add image preprocessing like contrast normalization, fine-tune a smaller vision model on labeled frames, add a confidence threshold post-processing filter, or ensemble multiple Gemini passes per frame? Walk me through the honest tradeoffs for each approach." },
+      { text: "I built an AI virtual try-on system where users upload a photo and see themselves wearing a product using a diffusion model fine-tuned on product images. Results are inconsistent when users wear complex patterns or have non-standard lighting conditions. What are three alternative technical architectures, and what are the real tradeoffs in compute cost per request, output consistency at scale, and engineering complexity for an early-stage startup that cannot afford GPU instances full time?" },
     ],
   },
 };

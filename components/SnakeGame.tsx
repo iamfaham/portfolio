@@ -6,6 +6,15 @@ const GRID = 20;
 const SPEED_INITIAL = 185;
 const SPEED_MIN = 65;
 
+const MILESTONES: Record<number, string> = {
+  20: "Built a housing code violation detector using GoPro footage and Gemini AI.",
+  40: "AI Engineer at Third Estate Analytics — turning raw video and GPS into structured insights.",
+  60: "Stack: Python, LangChain, Gemini, React, Next.js, GeoPandas, CLIP, FFmpeg.",
+  80: "500+ commits and always building. Check out my work at iamfaham.me.",
+  100: "You're really good at this. Let's build something together.",
+  120: "Find me on LinkedIn → linkedin.com/in/iamfaham",
+};
+
 type Point = { x: number; y: number };
 type Dir = { x: number; y: number };
 
@@ -42,9 +51,12 @@ function roundRect(
 export default function SnakeGame() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const startRef = useRef<() => void>(() => {});
+  const resumeRef = useRef<() => void>(() => {});
+  const milestoneRef = useRef<string | null>(null);
   const [score, setScore] = useState(0);
   const [best, setBest] = useState(0);
   const [status, setStatus] = useState<"idle" | "playing" | "dead">("idle");
+  const [milestone, setMilestone] = useState<string | null>(null);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -70,7 +82,6 @@ export default function SnakeGame() {
       ctx!.fillStyle = "#000";
       ctx!.fillRect(0, 0, canvas!.width, canvas!.height);
 
-      // Subtle grid
       ctx!.strokeStyle = "rgba(255,255,255,0.025)";
       ctx!.lineWidth = 0.5;
       for (let i = 0; i <= GRID; i++) {
@@ -78,7 +89,6 @@ export default function SnakeGame() {
         ctx!.beginPath(); ctx!.moveTo(0, i * CELL); ctx!.lineTo(GRID * CELL, i * CELL); ctx!.stroke();
       }
 
-      // Food
       ctx!.shadowBlur = 14;
       ctx!.shadowColor = "rgba(0,198,255,0.9)";
       ctx!.fillStyle = "#00c6ff";
@@ -87,7 +97,6 @@ export default function SnakeGame() {
       ctx!.fill();
       ctx!.shadowBlur = 0;
 
-      // Snake segments
       snake.forEach((seg, i) => {
         const isHead = i === 0;
         const t = (snake.length - i) / snake.length;
@@ -99,6 +108,24 @@ export default function SnakeGame() {
         roundRect(ctx!, seg.x * CELL + pad, seg.y * CELL + pad, CELL - pad * 2, CELL - pad * 2, isHead ? 4 : 3);
         ctx!.shadowBlur = 0;
       });
+    }
+
+    function showMilestone(msg: string) {
+      if (intervalId) { clearInterval(intervalId); intervalId = null; }
+      milestoneRef.current = msg;
+      setMilestone(msg);
+
+      let resumed = false;
+      const resume = () => {
+        if (resumed) return;
+        resumed = true;
+        milestoneRef.current = null;
+        setMilestone(null);
+        resumeRef.current = () => {};
+        intervalId = setInterval(tick, speed);
+      };
+      resumeRef.current = resume;
+      setTimeout(resume, 3500);
     }
 
     function tick() {
@@ -123,10 +150,28 @@ export default function SnakeGame() {
         points++;
         setScore(points);
         food = randFood(snake);
+
         if (points % 5 === 0 && speed > SPEED_MIN) {
           speed = Math.max(SPEED_MIN, speed - 15);
           if (intervalId) clearInterval(intervalId);
           intervalId = setInterval(tick, speed);
+        }
+
+        // Milestone at every multiple of 20
+        const milestoneKeys = Object.keys(MILESTONES).map(Number);
+        const matchedKey = milestoneKeys.find(k => k === points);
+        if (matchedKey !== undefined) {
+          showMilestone(MILESTONES[matchedKey]);
+          draw();
+          return;
+        }
+        // Cycle for scores beyond defined milestones
+        if (points > 0 && points % 20 === 0) {
+          const cycleKeys = milestoneKeys.sort((a, b) => a - b);
+          const cycleMsg = MILESTONES[cycleKeys[(Math.floor(points / 20) - 1) % cycleKeys.length]];
+          showMilestone(cycleMsg);
+          draw();
+          return;
         }
       } else {
         snake.pop();
@@ -142,6 +187,8 @@ export default function SnakeGame() {
       points = 0;
       alive = true;
       speed = SPEED_INITIAL;
+      milestoneRef.current = null;
+      setMilestone(null);
       setScore(0);
       setStatus("playing");
       if (intervalId) clearInterval(intervalId);
@@ -162,6 +209,7 @@ export default function SnakeGame() {
     const onKey = (e: KeyboardEvent) => {
       const newDir = DIR_MAP[e.key];
       if (newDir) e.preventDefault();
+      if (milestoneRef.current) { resumeRef.current(); return; }
       if (!alive) { start(); return; }
       if (newDir && !opposite(newDir, dir)) nextDir = newDir;
     };
@@ -172,6 +220,7 @@ export default function SnakeGame() {
       const dx = e.changedTouches[0].clientX - tx;
       const dy = e.changedTouches[0].clientY - ty;
       if (Math.abs(dx) < 10 && Math.abs(dy) < 10) return;
+      if (milestoneRef.current) { resumeRef.current(); return; }
       if (!alive) { start(); return; }
       const newDir: Dir = Math.abs(dx) > Math.abs(dy)
         ? (dx > 0 ? { x: 1, y: 0 } : { x: -1, y: 0 })
@@ -200,7 +249,18 @@ export default function SnakeGame() {
 
       <div className="relative">
         <canvas ref={canvasRef} className="rounded-2xl border border-white/[0.07] block" />
-        {status !== "playing" && (
+
+        {/* Milestone overlay */}
+        {milestone && (
+          <div className="absolute inset-0 flex flex-col items-center justify-center rounded-2xl bg-black/80 backdrop-blur-sm gap-3 px-6">
+            <p className="text-[#00c6ff] text-[10px] tracking-[0.2em] uppercase">Fun fact</p>
+            <p className="text-white/75 text-sm text-center leading-relaxed">{milestone}</p>
+            <p className="text-white/20 text-xs mt-1">Press any key or wait to continue</p>
+          </div>
+        )}
+
+        {/* Game start / over overlay */}
+        {!milestone && status !== "playing" && (
           <div
             className="absolute inset-0 flex flex-col items-center justify-center rounded-2xl bg-black/75 backdrop-blur-sm cursor-pointer gap-2"
             onClick={() => startRef.current()}
