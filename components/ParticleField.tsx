@@ -144,7 +144,7 @@ export default function ParticleField({ count = 45 }: { count?: number }) {
 
     // wheel fires reliably regardless of which element is scrolling
     const handleWheel = (e: WheelEvent) => {
-      scrollVelocityRef.current += e.deltaY * 0.007;
+      scrollVelocityRef.current -= e.deltaY * 0.007;
     };
 
     resize();
