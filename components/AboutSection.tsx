@@ -14,7 +14,7 @@ const quickFacts = [
 const interests = [
   "AI Agents",
   "Computer Vision",
-  "Agentic Systems",
+  "Agentic & RAG Systems",
   "Generative AI",
   "LLMs",
   "Strategy Games",
