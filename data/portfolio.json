@@ -14,38 +14,41 @@
       "twitter": "https://twitter.com/iamfaham"
     }
   },
-  "projects": [
-    {
-      "githubRepo": "iamfaham/multimodal-sentiment-analysis"
-    },
-    {
-      "githubRepo": "iamfaham/QueryStockAI"
-    },
-    {
-      "githubRepo": "iamfaham/TersAI"
-    }
-  ],
   "experience": [
     {
       "role": "Full-Stack Developer",
       "company": "Tech Consulting Partners",
-      "duration": "May 2024 - December 2024",
+      "duration": "January 2024 - December 2024",
       "description": "Developing web applications, integrating AI features, and improving performance.",
-      "technologies": ["React", "Node.js", "AI Integration", "Performance Optimization"]
+      "technologies": [
+        "React",
+        "Node.js",
+        "AI Integration",
+        "Performance Optimization"
+      ]
     },
     {
       "role": "Frontend Developer",
       "company": "Freelance",
       "duration": "Apr 2024 - Jun 2024",
       "description": "Designed responsive web interface and worked closely with clients to meet their needs.",
-      "technologies": ["React", "TypeScript", "Responsive Design", "Client Communication"]
+      "technologies": [
+        "React",
+        "TypeScript",
+        "Responsive Design",
+        "Client Communication"
+      ]
     },
     {
       "role": "GDSC Design Lead",
       "company": "Google Developer Student Clubs, OIST",
       "duration": "Jun 2022 - May 2023",
       "description": "Led design projects, conducted workshops, and collaborated with developers.",
-      "technologies": ["UI/UX Design", "Workshop Leadership", "Team Collaboration"]
+      "technologies": [
+        "UI/UX Design",
+        "Workshop Leadership",
+        "Team Collaboration"
+      ]
     }
   ],
   "skills": [
@@ -148,5 +151,11 @@
     "text-purple-500": "#a855f7",
     "text-blue-800": "#1e40af",
     "text-green-800": "#166534"
-  }
-} 
+  },
+  "stats": {
+    "totalCommits": 500,
+    "technologies": 15,
+    "commitStreak": 30
+  },
+  "testimonials": []
+}

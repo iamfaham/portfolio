@@ -32,53 +32,12 @@ html.dialog-open body {
   height: 100%;
 }
 
-/* Ensure proper scrolling on mobile devices */
+/* Prevent horizontal overflow on all screen sizes */
 @media (max-width: 768px) {
-  html, body {
-    overflow: hidden;
-    position: relative;
-    width: 100%;
-  }
-  
-  html.dialog-open, html.dialog-open body {
-    overflow: hidden;
-    position: fixed;
-    width: 100%;
-    height: 100%;
-  }
-  
-  /* Prevent horizontal overflow on mobile */
   .section {
-    width: 100vw;
+    width: 100%;
     max-width: 100vw;
-    overflow: hidden;
-  }
-}
-
-/* Additional mobile-specific fixes */
-@media (max-width: 768px) {
-  /* Prevent body from being cut off */
-  body {
-    min-width: 100vw;
-    min-height: 100vh;
-    overflow: hidden;
-  }
-  
-  /* Ensure main container doesn't overflow */
-  main {
-    width: 100vw;
-    max-width: 100vw;
-    overflow: hidden;
-  }
-  
-  /* Ensure body is properly positioned after dialog closes */
-  body:not(.dialog-open) {
-    position: relative !important;
-    top: auto !important;
-    left: auto !important;
-    right: auto !important;
-    bottom: auto !important;
-    overflow: hidden;
+    overflow-x: hidden;
   }
 }
 
@@ -96,13 +55,13 @@ body {
   @apply flex items-center justify-center min-h-screen;
   background-color: black;
   /* CSS Scroll Snap properties */
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
+  /* scroll-snap-align: start; */
+  /* scroll-snap-stop: always; */
   /* Performance optimizations for smoother scrolling */
-  will-change: transform;
-  backface-visibility: hidden;
-  perspective: 1000px;
-  transform-style: preserve-3d;
+  /* will-change: transform; */
+  /* backface-visibility: hidden; */
+  /* perspective: 1000px; */
+  /* transform-style: preserve-3d; */
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -178,8 +137,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .section {
   height: 100vh;
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
+  /* scroll-snap-align: start; */
+  /* scroll-snap-stop: always; */
   /* Prevent horizontal overflow and layout shifts */
   width: 100%;
   max-width: 100vw;
@@ -327,7 +286,7 @@ h1, h2, h3, h4, h5, h6 {
   height: 100vh;
   overflow-x: hidden;
   overflow-y: scroll;
-  scroll-snap-type: y mandatory;
+  /* scroll-snap-type: y mandatory; */
   scroll-behavior: smooth;
   /* Prevent layout shifts and horizontal scrolling */
   position: relative;
@@ -373,20 +332,66 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-::selection{
-  background: purple ;
+::selection {
+  background: rgba(0, 198, 255, 0.3);
 }
 
-::-moz-selection{
-  background: purple ;
+::-moz-selection {
+  background: rgba(0, 198, 255, 0.3);
 }
 
-.container::-webkit-scrollbar {
-  width: 10px;
-  background-color: black;
+/* Scrollbar — cyan on black */
+::-webkit-scrollbar {
+  width: 6px;
 }
 
-.container::-webkit-scrollbar-thumb {
-  @apply bg-gray-700;
-  border-radius: 5px;
+::-webkit-scrollbar-track {
+  background: #000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 198, 255, 0.25);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 198, 255, 0.45);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 198, 255, 0.25) #000;
+}
+
+/* Glass card — shared across all redesigned sections */
+.glass-card {
+  background: #000;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
+}
+.glass-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0, 198, 255, 0.15), transparent);
+  pointer-events: none;
+}
+
+/* Section label — small uppercase cyan tag above section titles */
+.section-label {
+  color: rgba(0, 198, 255, 0.5);
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  display: block;
+}
+
+/* Dot grid background applied to page wrapper */
+.dot-grid {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 32px 32px;
 }

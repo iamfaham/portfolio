@@ -15,6 +15,7 @@ const config: Config = {
         'light-gray': '#E0E0E0',
         'soft-purple': '#BB86FC',
         'teal': '#03DAC6',
+        'cyan': '#00c6ff',
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(circle, rgba(18, 18, 18, 0.7), rgba(0, 0, 0, 1))',

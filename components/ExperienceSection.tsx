@@ -1,52 +1,62 @@
-import ShineBorder from "./magicui/shine-border";
-import PaginationCarousel from "./PaginationCarousel";
+"use client";
+
 import { getExperience } from "@/lib/data";
+import AnimatedSection from "@/components/AnimatedSection";
+import { StaggerContainer, StaggerItem } from "@/components/StaggerContainer";
 
 export default function ExperienceSection() {
   const experiences = getExperience();
 
-  const renderExperience = (experience: any, index: number) => (
-    <ShineBorder key={index} color={["#87CEEB", "#A020F0", "#00FFFF"]}>
-      <div className="rounded-lg p-2 md:p-6 shadow-lg">
-        <h3 className="text-xl md:text-2xl font-semibold">{experience.role}</h3>
-        <p className="text-sm md:text-md text-muted-foreground italic">
-          {experience.company}
-        </p>
-        <p className="text-xs md:text-sm text-muted-foreground">
-          {experience.duration}
-        </p>
-        <p className="text-md mt-4 opacity-75">{experience.description}</p>
-      </div>
-    </ShineBorder>
-  );
-
   return (
-    <section id="experience" className="section w-full py-8 md:py-24 lg:py-32">
-      <div className="container max-w-6xl mx-auto px-4 md:px-6">
-        <div className="flex flex-col items-center text-center space-y-4">
-          <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-            My Experience
-          </h2>
-          <p className="text-lg md:text-xl leading-relaxed text-muted-foreground">
-            Here are some of the companies I&apos;ve worked with.
-          </p>
+    <section className="relative w-full py-24 px-6">
+      <div className="max-w-3xl mx-auto">
+        <AnimatedSection className="mb-12">
+          <p className="section-label">Where I&apos;ve Worked</p>
+          <h2 className="text-white text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-[-1px] sm:tracking-[-1.5px]">Experience</h2>
+        </AnimatedSection>
 
-          {/* Desktop Grid Layout */}
-          <div className="hidden md:grid gap-4 md:gap-8 sm:grid-cols-2 lg:grid-cols-3 w-full">
-            {experiences.map((experience, index) =>
-              renderExperience(experience, index)
-            )}
-          </div>
+        <div className="relative">
+          {/* Vertical timeline line */}
+          <div className="absolute left-[15px] top-2 bottom-2 w-px bg-gradient-to-b from-[#00c6ff]/40 to-transparent" />
 
-          {/* Mobile Pagination Layout */}
-          <div className="md:hidden w-full max-w-md mx-auto">
-            <PaginationCarousel
-              items={experiences}
-              itemsPerPage={1}
-              renderItem={renderExperience}
-              className="w-full"
-            />
-          </div>
+          <StaggerContainer className="flex flex-col">
+            {experiences.map((exp, index) => (
+              <StaggerItem key={exp.role} className="flex gap-8 pb-9 last:pb-0">
+                {/* Dot */}
+                <div
+                  className={`relative z-10 mt-1.5 flex-shrink-0 w-2.5 h-2.5 rounded-full border-2 border-black ml-[11px] ${
+                    index === 0
+                      ? "bg-[#00c6ff] shadow-[0_0_10px_rgba(0,198,255,0.5)]"
+                      : "bg-[#00c6ff]/20"
+                  }`}
+                />
+
+                {/* Card */}
+                <div className="glass-card flex-1 p-5 md:p-6">
+                  <div className="flex items-start justify-between gap-3 mb-1">
+                    <h3 className="text-white text-base font-bold tracking-tight">{exp.role}</h3>
+                    <span className="bg-[#00c6ff]/[0.06] border border-[#00c6ff]/15 text-[#00c6ff]/50 px-2.5 py-0.5 rounded-full text-[10px] whitespace-nowrap flex-shrink-0">
+                      {exp.duration}
+                    </span>
+                  </div>
+                  <p className="text-white/30 text-xs italic mb-3">{exp.company}</p>
+                  <p className="text-white/30 text-sm leading-relaxed mb-4">{exp.description}</p>
+                  {exp.technologies && exp.technologies.length > 0 && (
+                    <div className="flex flex-wrap gap-1.5">
+                      {exp.technologies.map((tech) => (
+                        <span
+                          key={tech}
+                          className="bg-white/[0.04] border border-white/[0.07] text-white/25 px-2 py-0.5 rounded text-[10px]"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
         </div>
       </div>
     </section>

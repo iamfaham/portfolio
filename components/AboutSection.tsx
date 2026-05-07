@@ -1,66 +1,107 @@
-import { motion } from "framer-motion";
-import { useRef } from "react";
-import { NeonGradientCard } from "./magicui/neon-gradient-card";
-import Link from "next/link";
+"use client";
+
+import Image from "next/image";
 import { getPersonalInfo } from "@/lib/data";
+import AnimatedSection from "@/components/AnimatedSection";
+
+const quickFacts = [
+  { icon: "📍", label: "Based in", value: "Buffalo, US" },
+  { icon: "🎓", label: "Focus", value: "AI / ML / GenAI" },
+  { icon: "💼", label: "Available for", value: "Freelance & Full-time" },
+  { icon: "✉️", label: "Contact", value: "iamfaham5@gmail.com" },
+];
+
+const interests = [
+  "Generative AI",
+  "Agentic Systems",
+  "LLMs",
+  "Strategy Games",
+];
 
 export default function AboutSection() {
-  const constraintsRef = useRef(null);
   const personalInfo = getPersonalInfo();
 
   return (
-    <section id="about" className="section w-full py-12 md:py-24 lg:py-32">
-      <div className="container max-w-6xl mx-auto px-4 md:px-6 flex flex-col lg:flex-row items-center space-y-8 md:space-y-0 md:space-x-8 lg:space-x-12 xl:space-x-16">
-        {/* Profile Image Section */}
-        <motion.div
-          ref={constraintsRef}
-          className="w-56 h-56 md:w-64 md:h-64 lg:w-80 lg:h-80 flex-shrink-0"
-        >
-          <NeonGradientCard className="rounded-full">
-            <motion.img
-              loading="lazy"
-              drag
-              dragConstraints={constraintsRef}
-              src="/profile.png"
-              alt={personalInfo.name}
-              className="w-full h-full rounded-full object-cover"
-              data-interactive
-            />
-          </NeonGradientCard>
-        </motion.div>
-
-        {/* Content Section - Only Typography Changes */}
-        <div className="flex-grow text-center lg:text-left">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter md:my-10 lg:mb-4">
+    <section className="relative w-full py-24 px-6">
+      <div className="max-w-4xl mx-auto">
+        <AnimatedSection className="mb-12">
+          <p className="section-label">Who I Am</p>
+          <h2 className="text-white text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-[-1px] sm:tracking-[-1.5px]">
             About Me
           </h2>
+        </AnimatedSection>
 
-          <div className="space-y-3 sm:space-y-4">
-            <p className="text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed text-muted-foreground">
-              {personalInfo.about.intro}
+        <div className="grid grid-cols-1 lg:grid-cols-[220px_1fr] gap-8 lg:gap-12 items-start">
+          {/* Left col */}
+          <AnimatedSection delay={0.1} className="flex flex-col gap-4 max-w-[260px] sm:max-w-none mx-auto sm:mx-0 w-full">
+            <div className="w-full aspect-square rounded-2xl border border-[#00c6ff]/15 overflow-hidden relative">
+              <Image
+                src="/profile.png"
+                alt={personalInfo.name}
+                fill
+                className="object-cover"
+                loading="lazy"
+              />
+            </div>
+
+            <div className="glass-card p-4 flex flex-col gap-3">
+              {quickFacts.map(({ icon, label, value }) => (
+                <div key={label} className="flex items-start gap-3">
+                  <span className="text-sm w-5 text-center flex-shrink-0 mt-0.5">
+                    {icon}
+                  </span>
+                  <div>
+                    <p className="text-white/65 text-[11px] font-semibold">
+                      {label}
+                    </p>
+                    <p className="text-white/35 text-xs leading-snug">
+                      {value}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </AnimatedSection>
+
+          {/* Right col */}
+          <AnimatedSection delay={0.2} className="flex flex-col gap-5 pt-1">
+            <p className="text-white/45 text-sm leading-relaxed">
+              Hello! I&apos;m{" "}
+              <span className="text-[#00c6ff]/80 font-semibold">
+                {personalInfo.name}
+              </span>
+              {", "}
+              {personalInfo.about.intro.replace(
+                `Hello! I'm ${personalInfo.name}, `,
+                "",
+              )}
             </p>
-
-            <p className="text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed text-muted-foreground">
+            <p className="text-white/45 text-sm leading-relaxed">
               {personalInfo.about.expertise}
             </p>
-
-            <p className="text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed text-muted-foreground">
+            <p className="text-white/45 text-sm leading-relaxed">
               {personalInfo.about.interests}
             </p>
-          </div>
 
-          <div className="mt-4 sm:mt-6">
-            <p className="text-sm sm:text-base md:text-lg lg:text-xl">
-              Explore my latest{" "}
-              <Link
-                target="_blank"
-                className="text-cyan-500 hover:text-cyan-700 transition-colors duration-200"
-                href="/blogs"
-              >
-                blogs here.
-              </Link>
-            </p>
-          </div>
+            <div className="h-px bg-white/5" />
+
+            <div>
+              <p className="text-white/20 text-[10px] tracking-[2px] uppercase mb-2.5">
+                Interests
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {interests.map((tag) => (
+                  <span
+                    key={tag}
+                    className="bg-white/[0.03] border border-white/[0.07] text-white/35 px-3 py-1 rounded-full text-[11px]"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+          </AnimatedSection>
         </div>
       </div>
     </section>

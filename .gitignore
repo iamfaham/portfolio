@@ -38,3 +38,8 @@ next-env.d.ts
 # sitemaps
 public/sitemap.xml
 public/sitemap-0.xml
+
+CLAUDE.md
+
+# Visual brainstorming sessions
+.superpowers/
