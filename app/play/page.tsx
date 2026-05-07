@@ -18,7 +18,7 @@ export default function PlayPage() {
             Prompt Engineer
           </h1>
           <p className="text-white/30 text-sm">
-            Type faster than the AI thinks. Famous quotes from tech and AI.
+            Type faster than the AI thinks. Famous quotes and real AI prompts.
           </p>
         </div>
 

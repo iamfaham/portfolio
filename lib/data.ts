@@ -8,12 +8,6 @@ export interface Experience {
   technologies?: string[];
 }
 
-export interface Skill {
-  name: string;
-  icon: string;
-  color: string;
-}
-
 export interface PersonalInfo {
   name: string;
   title: string;
@@ -45,7 +39,6 @@ export interface Testimonial {
 
 export const getPersonalInfo = (): PersonalInfo => portfolioData.personal;
 export const getExperience = (): Experience[] => portfolioData.experience;
-export const getSkills = (): Skill[] => portfolioData.skills;
 export const getSections = (): string[] => portfolioData.sections;
 export const getColorMap = (): { [key: string]: string } => portfolioData.colorMap;
 export const getStats = (): Stats => (portfolioData as any).stats as Stats;
