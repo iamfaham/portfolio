@@ -26,7 +26,7 @@ function pick(exclude?: number) {
 type Status = "idle" | "typing" | "done";
 
 export default function TypeRacer() {
-  const [quoteIdx, setQuoteIdx] = useState(() => pick());
+  const [quoteIdx, setQuoteIdx] = useState(0);
   const [typed, setTyped] = useState("");
   const [status, setStatus] = useState<Status>("idle");
   const [wpm, setWpm] = useState(0);
@@ -100,6 +100,7 @@ export default function TypeRacer() {
   }, [startTime]);
 
   useEffect(() => {
+    setQuoteIdx(pick());
     inputRef.current?.focus();
   }, []);
 
