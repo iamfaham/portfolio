@@ -12,8 +12,10 @@ const quickFacts = [
 ];
 
 const interests = [
-  "Generative AI",
+  "AI Agents",
+  "Computer Vision",
   "Agentic Systems",
+  "Generative AI",
   "LLMs",
   "Strategy Games",
 ];
@@ -33,7 +35,10 @@ export default function AboutSection() {
 
         <div className="grid grid-cols-1 lg:grid-cols-[220px_1fr] gap-8 lg:gap-12 items-start">
           {/* Left col */}
-          <AnimatedSection delay={0.1} className="flex flex-col gap-4 max-w-[260px] sm:max-w-none mx-auto sm:mx-0 w-full">
+          <AnimatedSection
+            delay={0.1}
+            className="flex flex-col gap-4 max-w-[260px] sm:max-w-none mx-auto sm:mx-0 w-full"
+          >
             <div className="w-full aspect-square rounded-2xl border border-[#00c6ff]/15 overflow-hidden relative">
               <Image
                 src="/profile.png"
@@ -100,7 +105,6 @@ export default function AboutSection() {
                 ))}
               </div>
             </div>
-
           </AnimatedSection>
         </div>
       </div>

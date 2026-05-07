@@ -28,6 +28,7 @@ export const metadata: Metadata = {
     "GenAI Developer",
     "Machine Learning",
     "Generative AI",
+    "Computer Vision",
     "Python",
     "Next.js",
     "Buffalo NY",

@@ -26,6 +26,7 @@ const schema = {
     "Artificial Intelligence",
     "Machine Learning",
     "Generative AI",
+    "Computer Vision",
     "Python",
     "Next.js",
     "TypeScript",
