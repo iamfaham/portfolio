@@ -54,6 +54,12 @@ export default function Navbar() {
           >
             Blog
           </a>
+          <a
+            href="/play"
+            className="text-white/40 hover:text-[#00c6ff]/80 text-sm px-4 py-1.5 rounded-full hover:bg-[#00c6ff]/[0.06] transition-all duration-200"
+          >
+            Play
+          </a>
         </div>
 
         <div className="flex items-center gap-3">
@@ -115,6 +121,13 @@ export default function Navbar() {
               className="text-white/60 hover:text-white text-2xl font-semibold py-3 border-b border-white/5 transition-colors duration-200"
             >
               Blog
+            </a>
+            <a
+              href="/play"
+              onClick={() => setMenuOpen(false)}
+              className="text-[#00c6ff]/60 hover:text-[#00c6ff] text-2xl font-semibold py-3 border-b border-white/5 transition-colors duration-200"
+            >
+              Play
             </a>
           </div>
         </div>
