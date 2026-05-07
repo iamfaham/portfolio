@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 
 const GRID = 20;
-const SPEED_INITIAL = 145;
+const SPEED_INITIAL = 185;
 const SPEED_MIN = 65;
 
 type Point = { x: number; y: number };
@@ -104,10 +104,12 @@ export default function SnakeGame() {
     function tick() {
       if (!alive) return;
       dir = nextDir;
-      const head = { x: snake[0].x + dir.x, y: snake[0].y + dir.y };
+      const head = {
+        x: (snake[0].x + dir.x + GRID) % GRID,
+        y: (snake[0].y + dir.y + GRID) % GRID,
+      };
 
-      if (head.x < 0 || head.x >= GRID || head.y < 0 || head.y >= GRID ||
-          snake.some((s) => s.x === head.x && s.y === head.y)) {
+      if (snake.some((s) => s.x === head.x && s.y === head.y)) {
         alive = false;
         setBest((b) => Math.max(b, points));
         setStatus("dead");
