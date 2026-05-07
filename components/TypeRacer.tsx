@@ -131,12 +131,14 @@ export default function TypeRacer() {
   const ghostIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const flashTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  const entryIdxRef = useRef(0);
 
   // Keep refs in sync
   statusRef.current = status;
   modeRef.current = mode;
   diffRef.current = diff;
   pbRef.current = pb;
+  entryIdxRef.current = entryIdx;
 
   const pbKey = (m: Mode, d: GameDiff) => `typeracer_pb_${m}_${d}`;
 
@@ -199,7 +201,7 @@ export default function TypeRacer() {
     setTimeLeft(TIMED_SECS);
     setHeatmapData({});
     const ents = entriesFor(m, d);
-    setEntryIdx(randIdx(ents.length));
+    setEntryIdx(randIdx(ents.length, entryIdxRef.current));
     setTimeout(() => inputRef.current?.focus(), 50);
   }, [stopAll]);
 
