@@ -355,7 +355,7 @@ export default function TypeRacer() {
             className={`px-4 py-1.5 rounded-lg text-sm font-medium transition-colors ${
               mode === m
                 ? "bg-[#00c6ff]/15 text-[#00c6ff] border border-[#00c6ff]/30"
-                : "text-white/30 hover:text-white/50 border border-white/10"
+                : "bg-white/[0.04] text-white/30 hover:bg-white/[0.07] hover:text-white/55 border border-white/10"
             }`}
           >
             {MODE_LABELS[m]}
@@ -372,7 +372,7 @@ export default function TypeRacer() {
             className={`px-3 py-1 rounded-md text-xs font-medium transition-colors ${
               diff === d
                 ? "bg-[#00c6ff]/15 text-[#00c6ff] border border-[#00c6ff]/30"
-                : "text-white/30 hover:text-white/50 border border-white/10"
+                : "bg-white/[0.04] text-white/30 hover:bg-white/[0.07] hover:text-white/55 border border-white/10"
             }`}
           >
             {d === "timed" ? "⏱ 30s" : d[0].toUpperCase() + d.slice(1)}
@@ -491,13 +491,13 @@ export default function TypeRacer() {
             <div className="flex gap-2">
               <button
                 onClick={handleShare}
-                className="border border-white/10 text-white/40 px-4 py-2 rounded-xl text-xs font-semibold hover:text-white/60 transition-colors"
+                className="bg-white/[0.05] border border-white/10 text-white/40 px-4 py-2 rounded-xl text-xs font-semibold hover:bg-white/[0.09] hover:text-white/60 transition-colors"
               >
                 {shared ? "Copied ✓" : "Share"}
               </button>
               <button
                 onClick={() => resetGame(mode, diff)}
-                className="border border-[#00c6ff]/30 text-[#00c6ff] px-5 py-2 rounded-xl text-sm font-semibold hover:bg-[#00c6ff]/10 transition-colors"
+                className="bg-[#00c6ff]/10 border border-[#00c6ff]/30 text-[#00c6ff] px-5 py-2 rounded-xl text-sm font-semibold hover:bg-[#00c6ff]/18 transition-colors"
               >
                 {diff === "timed" ? "Try again →" : "Next →"}
               </button>
