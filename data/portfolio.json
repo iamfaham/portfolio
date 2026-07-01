@@ -38,13 +38,15 @@
         "React",
         "Node.js",
         "AI Integration",
-        "Performance Optimization"
+        "Performance Optimization",
+        "LangChain",
+        "Stable Diffusion"
       ]
     },
     {
       "role": "Frontend Developer",
       "company": "Freelance",
-      "duration": "Apr 2024 - Jun 2024",
+      "duration": "April 2024 - June 2024",
       "description": "Designed responsive web interface and worked closely with clients to meet their needs.",
       "technologies": [
         "React",
