@@ -18,7 +18,7 @@
     {
       "role": "AI Engineer",
       "company": "Third Estate Analytics",
-      "duration": "February 2026 - Present",
+      "duration": "January 2026 - May 2026",
       "description": "Built an end-to-end housing code violation detection pipeline using GoPro footage, GPS telemetry, and Gemini vision models with automatic parcel resolution against NYS Erie County public data and dynamic frame extraction.",
       "technologies": [
         "Python",
