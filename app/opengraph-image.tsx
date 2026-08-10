@@ -74,7 +74,7 @@ export default function OgImage() {
             marginBottom: 48,
           }}
         >
-          AI Software Engineer · Buffalo, NY
+          AI Software Engineer · San Jose, CA
         </div>
         {/* Domain */}
         <div

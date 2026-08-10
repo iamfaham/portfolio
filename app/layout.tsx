@@ -10,7 +10,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 const SITE_URL = "https://iamfaham.me";
 const DESCRIPTION =
-  "AI Software Engineer based in Buffalo, NY — building intelligent systems, ML models, and GenAI-powered applications.";
+  "AI Software Engineer based in San Jose, CA — building intelligent systems, ML models, and GenAI-powered applications.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     "Computer Vision",
     "Python",
     "Next.js",
-    "Buffalo NY",
+    "San Jose CA",
     "developer portfolio",
   ],
   authors: [{ name: "Syed Mohammed Faham", url: SITE_URL }],

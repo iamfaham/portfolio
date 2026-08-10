@@ -5,7 +5,7 @@ import { getPersonalInfo } from "@/lib/data";
 import AnimatedSection from "@/components/AnimatedSection";
 
 const quickFacts = [
-  { icon: "📍", label: "Based in", value: "Buffalo, US" },
+  { icon: "📍", label: "Based in", value: "San Jose, CA" },
   { icon: "🎓", label: "Focus", value: "AI / ML / GenAI" },
   { icon: "💼", label: "Available for", value: "Freelance & Full-time" },
   { icon: "✉️", label: "Contact", value: "iamfaham5@gmail.com" },

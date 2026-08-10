@@ -5,7 +5,6 @@ import ProjectsSection from "@/components/ProjectsSection";
 import CapabilitiesSection from "@/components/CapabilitiesSection";
 import ExperienceSection from "@/components/ExperienceSection";
 import BlogPreview from "@/components/BlogPreview";
-import TestimonialSection from "@/components/TestimonialSection";
 import ContactSection from "@/components/ContactSection";
 
 export default function Portfolio() {
@@ -19,7 +18,6 @@ export default function Portfolio() {
         <div id="projectsDiv"><ProjectsSection /></div>
         <div id="capabilitiesDiv"><CapabilitiesSection /></div>
         <div id="blogDiv"><BlogPreview /></div>
-        <div id="testimonialsDiv"><TestimonialSection /></div>
         <div id="contactDiv"><ContactSection /></div>
       </main>
     </div>

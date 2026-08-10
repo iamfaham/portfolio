@@ -111,7 +111,7 @@ export default function LinksPage() {
           AI Software Engineer
         </p>
         <p className="text-white/35 text-sm text-center max-w-xs leading-relaxed">
-          Building intelligent systems and AI-powered applications. Based in Buffalo, NY.
+          Building intelligent systems and AI-powered applications. Based in San Jose, CA.
         </p>
       </div>
 

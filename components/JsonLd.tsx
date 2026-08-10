@@ -7,10 +7,10 @@ const schema = {
   image: "https://iamfaham.me/profile.png",
   jobTitle: "AI Software Engineer",
   description:
-    "AI Software Engineer based in Buffalo, NY — building intelligent systems, ML models, and GenAI applications.",
+    "AI Software Engineer based in San Jose, CA — building intelligent systems, ML models, and GenAI applications.",
   address: {
     "@type": "PostalAddress",
-    addressLocality: "Buffalo",
+    addressLocality: "San Jose",
     addressRegion: "NY",
     addressCountry: "US",
   },
