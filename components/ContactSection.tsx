@@ -90,8 +90,7 @@ export default function ContactSection() {
             Get in Touch
           </h2>
           <p className="text-white/25 text-sm mt-2.5 leading-relaxed max-w-md mx-auto">
-            Have a project in mind or just want to talk AI? Drop a message and
-            I&apos;ll get back to you.
+            Have a project in mind or want to talk AI? Send a note — I usually reply within 1–2 business days.
           </p>
         </AnimatedSection>
 

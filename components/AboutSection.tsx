@@ -76,10 +76,7 @@ export default function AboutSection() {
                 {personalInfo.name}
               </span>
               {", "}
-              {personalInfo.about.intro.replace(
-                `Hello! I'm ${personalInfo.name}, `,
-                "",
-              )}
+              {personalInfo.about.intro.replace(`Hello! I'm ${personalInfo.name}, `, "")}
             </p>
             <p className="text-white/45 text-sm leading-relaxed">
               {personalInfo.about.expertise}

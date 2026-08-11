@@ -1,12 +1,12 @@
 {
   "personal": {
     "name": "Syed Mohammed Faham",
-    "title": "AI/ML Developer",
-    "description": "a passionate AI/ML Developer crafting intelligent and innovative solutions",
+    "title": "AI Software Engineer",
+    "description": "Turning ambitious AI ideas into production-ready systems.",
     "about": {
-      "intro": "Hello! I'm Syed Mohammed Faham, a passionate AI/ML Developer dedicated to creating intelligent and innovative machine learning solutions.",
-      "expertise": "With expertise in artificial intelligence, machine learning algorithms, and data science, I specialize in building intelligent systems, predictive models, and AI-powered applications that solve complex real-world problems.",
-      "interests": "I enjoy continuous learning and staying updated with industry trends, particularly in Generative AI. Outside of work, I love reading technology blogs, acquiring new skills, engaging in strategic video games and Coffee."
+      "intro": "Hello! I'm Syed Mohammed Faham, an AI Software Engineer dedicated to building useful, reliable intelligent systems.",
+      "expertise": "I specialize in agentic workflows, computer vision, and AI-powered applications that turn complex real-world data into prooduction-ready systems.",
+      "interests": "I enjoy continuous learning and staying updated with industry trends, particularly in AI. Outside of work, I love reading technology blogs, acquiring new skills, engaging in strategic video games and Coffee."
     },
     "social": {
       "github": "https://github.com/iamfaham",

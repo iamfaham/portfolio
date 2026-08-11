@@ -16,7 +16,7 @@ export default async function HeroSection() {
         {/* Role chip */}
         <StaggerItem>
           <div className="inline-flex items-center border border-[#00c6ff]/20 bg-[#00c6ff]/5 text-[#00c6ff]/70 px-3 sm:px-4 py-1.5 rounded-full text-[10px] sm:text-[11px] tracking-[2px] uppercase mb-8">
-            AI Software Engineer
+            {personalInfo.title}
           </div>
         </StaggerItem>
 

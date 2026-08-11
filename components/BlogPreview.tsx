@@ -37,6 +37,9 @@ export default function BlogPreview() {
           <div>
             <p className="section-label">Writing</p>
             <h2 className="text-white text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-[-1px] sm:tracking-[-1.5px]">Latest Posts</h2>
+            <p className="text-white/25 text-sm mt-2.5 leading-relaxed max-w-lg">
+              Practical notes on AI agents, computer vision, and building reliable AI products.
+            </p>
           </div>
           <a
             href="https://dev.to/iamfaham"

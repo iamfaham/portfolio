@@ -32,7 +32,7 @@ export default function PlayPage() {
             ← Portfolio
           </Link>
           <Link
-            href="/not-found"
+            href="/play/snake"
             className="text-white/20 text-xs tracking-widest uppercase hover:text-white/45 transition-colors"
           >
             Snake →
