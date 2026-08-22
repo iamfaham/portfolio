@@ -9,6 +9,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "test": "vitest run",
+    "test:watch": "vitest",
     "lint": "next lint",
     "verify:agents": "node scripts/verify-agent-endpoints.mjs",
     "postbuild": "next-sitemap"
@@ -38,13 +40,19 @@
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^7.0.1",
+    "@testing-library/react": "^16.3.2",
+    "@testing-library/user-event": "^14.6.6",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@vitejs/plugin-react": "^6.1.0",
     "eslint": "^8",
     "eslint-config-next": "14.2.5",
+    "jsdom": "^30.0.1",
     "postcss": "^8",
     "tailwindcss": "^3.4.7",
-    "typescript": "^5"
+    "typescript": "^5",
+    "vitest": "^4.1.11"
   }
 }
