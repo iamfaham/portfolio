@@ -1,0 +1,8 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+
+export const metadata: Metadata = { title: "About", description: "About Syed Mohammed Faham, an AI Software Engineer in San Jose." };
+
+export default function AboutPage() {
+  return <article className="dot-grid min-h-screen px-6 py-24 sm:px-12 lg:px-24"><div className="mx-auto max-w-3xl"><p className="section-label mb-4">About</p><h1 className="text-4xl font-black tracking-[-2px] text-white sm:text-5xl">Syed Mohammed Faham</h1><div className="mt-8 space-y-5 text-base leading-8 text-white/60"><p>I&apos;m an AI Software Engineer based in San Jose, California, focused on turning ambitious AI ideas into useful, reliable systems. My work brings together practical software engineering with machine learning, generative AI, computer vision, and agentic workflows.</p><p>I&apos;m most drawn to projects where an AI model must work with messy real-world information rather than merely demonstrate a capability in isolation. I have built end-to-end pipelines that connect video footage, GPS telemetry, vision models, dynamic frame extraction, and public geographic data.</p><p>My typical toolkit includes Python, TypeScript, React, Next.js, Node.js, OpenCV, LangChain, LLMs, CLIP, YOLO, and Gemini vision models. I also bring full-stack experience delivering AI-enabled applications and responsive interfaces from initial concept through deployment.</p><p>If you&apos;re considering a project or engineering collaboration, the <Link href="/contact" className="text-white underline underline-offset-4">contact page</Link> is the best next step.</p></div></div></article>;
+}
